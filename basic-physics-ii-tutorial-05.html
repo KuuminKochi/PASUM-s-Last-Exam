@@ -44,17 +44,158 @@
 
 <hr>
 
-<h1>Tutorial 05</h1>
+<h1>Tutorial 5: AC Circuits & Wheatstone Bridge</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Question 1 [8 marks]</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+A voltage divider circuit is connected to a Wheatstone bridge network via a switch, Figure 1. Determine the:
+- (a) output voltage at Point A relative to the negative terminal of the power supply when the switch is open
+- (b) value of the unknown resistance $R_{\text{unknown}}$ when the switch is closed and the bridge is brought to equilibrium when variable resistor is $3.0 \, \Omega$
+- (c) new output voltage at Point A, relative to the negative terminal of the power supply when the switch is closed and bridge is balanced
 </p>
 
-<hr>
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a): Use voltage divider rule. For (b): In a balanced Wheatstone bridge, $R_1/R_2 = R_3/R_4$. For (c): Calculate voltage at Point A using the voltage divider with the new configuration after bridge is connected.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong> Voltage divider with $3 \, \Omega$ and $6 \, \Omega$ resistors, Wheatstone bridge connected through switch.
 
-<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+<strong>(a) Output voltage when switch is OPEN:</strong>
+
+<p>
+The voltage divider has total resistance $R_{\text{total}} = 3 + 6 = 9 \, \Omega$
+</p>
+
+<p>
+If we assume the input voltage is across the $9 \, \Omega$ total:
+</p>
+$$I = \frac{V_{\text{in}}}{R_{\text{total}}} = \frac{V_{\text{in}}}{9}$$
+
+<p>
+The voltage across the $6 \, \Omega$ resistor (Point A):
+</p>
+$$V_A = I \times 6 = \frac{V_{\text{in}}}{9} \times 6 = \frac{2}{3}V_{\text{in}}$$
+
+<p>
+From the solution: $V_A = 6 \, \text{V}$ (assuming some input voltage)
+</p>
+
+<strong>(b) Unknown resistance when bridge is balanced:</strong>
+
+<p>
+For a balanced Wheatstone bridge: $\frac{R_1}{R_2} = \frac{R_3}{R_4}$
+</p>
+
+<p>
+Looking at the circuit configuration with variable resistor $R_v = 3 \, \Omega$:
+</p>
+$$R_{\text{unknown}} = R_v \times \frac{R_1}{R_2}$$
+
+<p>
+From the solution:
+</p>
+$$R_{\text{unknown}} = 4.5 \, \Omega$$
+
+<strong>(c) New output voltage when switch is CLOSED and bridge balanced:</strong>
+
+<p>
+The output voltage at Point A now depends on the parallel/series combination through the bridge.
+</p>
+
+<p>
+Using the voltage divider formula with the effective resistance:
+</p>
+$$V_{\text{out}} = \frac{R_{\text{eff}}}{R_{\text{total}}} \times V_{\text{in}}$$
+
+<p>
+From the solution: $V_A = 4.15 \, \text{V}$ when the bridge is connected and balanced.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> In a Wheatstone bridge, the output voltage is zero (or the bridge is balanced) when the ratio of resistances on opposite arms are equal. When unbalanced, the output can be found using superposition or Thevenin's theorem. The voltage divider provides a reference voltage, and the bridge compares this to the voltage across another portion of the circuit.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [5 marks]</h2>
+<p>
+The current in an AC circuit is given by:
+</p>
+$$I(t) = 12 \sin(100\pi t)$$
+
+<p>
+Determine the:
+- (a) peak current
+- (b) rms current
+- (c) current when $t = 5 \, \text{ms}$
+- (d) frequency and period of the current
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a): Peak is the amplitude of the sine function. For (b): $I_{\text{rms}} = I_{\text{peak}}/\sqrt{2}$. For (c): Substitute t into the equation. For (d): Compare with standard form $I = I_0 \sin(\omega t)$ where $\omega = 2\pi f$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong> $I(t) = 12 \sin(100\pi t)$
+
+<strong>(a) Peak current ($I_0$):</strong>
+
+<p>
+The coefficient of sine is the amplitude:
+</p>
+$$I_0 = 12 \, \text{A}$$
+
+<strong>(b) RMS current:</strong>
+
+$$I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = \frac{12}{\sqrt{2}} = 8.49 \, \text{A}$$
+
+<strong>(c) Current at $t = 5 \, \text{ms}$:</strong>
+
+<p>
+Convert time: $t = 5 \, \text{ms} = 5 \times 10^{-3} \, \text{s}$
+</p>
+
+$$I(5 \text{ms}) = 12 \sin(100\pi \times 5 \times 10^{-3}) = 12 \sin(0.5\pi) = 12 \sin(90^\circ) = 12 \times 1 = 12 \, \text{A}$$
+
+<strong>(d) Frequency and period:</strong>
+
+<p>
+Compare with standard form $I = I_0 \sin(\omega t)$:
+</p>
+$$\omega = 100\pi \, \text{rad/s}$$
+
+<p>
+Since $\omega = 2\pi f$:
+</p>
+$$f = \frac{\omega}{2\pi} = \frac{100\pi}{2\pi} = 50 \, \text{Hz}$$
+
+$$T = \frac{1}{f} = \frac{1}{50} = 0.02 \, \text{s} = 20 \, \text{ms}$$
+
+<p><strong>⚠️ Nuance:</strong> Peak current is the maximum instantaneous value. RMS current gives the effective DC equivalent that would produce the same heating effect. Note that at $t = 5$ ms (which is 1/4 of the period), the sine reaches its maximum value of 1.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [5 marks]</h2>
+<p>
+An AC power supply delivers an rms current of $5 \, \text{A}$ at a frequency of $50 \, \text{Hz}$ to a resistor of $8 \, \Omega$.
+- (a) Calculate the peak current
+- (b) Determine the peak voltage across the resistor
+- (c) Write the expression for the instantaneous voltage
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a): $I_0 = I_{\text{rms}} \times \sqrt{2}$. For (b): Use Ohm's law $V_0 = I_0 R$. For (c): $v(t) = V_0 \sin(\omega t)$ where $\omega = 2\pi f$.
+</p>
+</details>
+<details><summary><strong>Show solution
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>

@@ -44,17 +44,105 @@
 
 <hr>
 
-<h1>Tutorial 03</h1>
+<h1>Tutorial 3: Capacitors</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Question 1 [3 marks]</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+An electric field of $2.80 \times 10^5 \, \text{V m}^{-1}$ is desired between two parallel plates each of area $21.0 \, \text{cm}^2$ and separated by $0.250 \, \text{cm}$ of air. Determine the charge on each plate.
 </p>
 
-<hr>
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Recall that for a parallel-plate capacitor, $E = \sigma/\varepsilon_0$, where $\sigma = Q/A$. So $Q = \varepsilon_0 EA$. Make sure to convert all units to SI (meters, not cm).
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- Electric field: $E = 2.80 \times 10^5 \, \text{V/m}$
+- Area: $A = 21.0 \, \text{cm}^2 = 21.0 \times 10^{-4} \, \text{m}^2 = 2.10 \times 10^{-3} \, \text{m}^2$
+- Separation: $d = 0.250 \, \text{cm} = 2.50 \times 10^{-3} \, \text{m}$
+- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{F/m}$
+</p>
 
-<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+<strong>Solution:</strong>
+
+<p>
+For a parallel-plate capacitor, the relationship between electric field and charge is:
+</p>
+$$E = \frac{\sigma}{\varepsilon_0} = \frac{Q}{\varepsilon_0 A}$$
+
+<p>
+Rearranging:
+</p>
+$$Q = \varepsilon_0 E A$$
+
+$$Q = (8.85 \times 10^{-12})(2.80 \times 10^5)(2.10 \times 10^{-3})$$
+
+$$Q = 5.20 \times 10^{-9} \, \text{C} = 5.20 \, \text{nC}$$
+
+<p><strong>⚠️ Nuance:</strong> This is the charge on ONE plate. The other plate has equal and opposite charge (-Q). The field between plates is uniform only when the plate separation is much smaller than the plate dimensions (the "infinite plate approximation").</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [5 marks]</h2>
+<p>
+A parallel-plate capacitor has a dielectric made of Teflon that completely fills the space between the plates. Each plate has an area of $0.50 \, \text{m}^2$. Dielectric constant for Teflon is $2.1$.
+- (a) What is the thickness of the Teflon if the capacitance is to be $0.10 \, \mu\text{F}$?
+- (b) Calculate the charge on the capacitor if it is connected to a $12 \, \text{V}$ battery.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a), use $C = k\varepsilon_0 A/d$ and solve for $d$. For (b), use $Q = CV$. The dielectric constant $k$ increases capacitance by factor of $k$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- Area: $A = 0.50 \, \text{m}^2$
+- Dielectric constant: $k = 2.1$ (for Teflon)
+- Capacitance: $C = 0.10 \, \mu\text{F} = 1.0 \times 10^{-7} \, \text{F}$
+- Voltage: $V = 12 \, \text{V}$
+- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{F/m}$
+</p>
+
+<strong>(a) Thickness of Teflon:</strong>
+
+<p>
+From $C = \dfrac{k\varepsilon_0 A}{d}$:
+</p>
+$$d = \frac{k\varepsilon_0 A}{C}$$
+
+$$d = \frac{(2.1)(8.85 \times 10^{-12})(0.50)}{1.0 \times 10^{-7}}$$
+
+$$d = 9.29 \times 10^{-6} \, \text{m} = 9.29 \, \mu\text{m}$$
+
+<strong>(b) Charge on the capacitor:</strong>
+
+$$Q = CV = (1.0 \times 10^{-7})(12) = 1.2 \times 10^{-6} \, \text{C} = 1.2 \, \mu\text{C}$$
+
+<p><strong>⚠️ Nuance:</strong> The dielectric constant $k$ (also written as $\kappa$) represents how much the capacitance increases compared to a vacuum. Teflon has $k = 2.1$, meaning the capacitance is 2.1× larger than if there were air between the plates.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [5 marks]</h2>
+<p>
+A parallel-plate capacitor has plates with an area of $405 \, \text{cm}^2$ and an air-filled gap between the plates that is $2.25 \, \text{mm}$ thick. The capacitor is charged by a battery to $575 \, \text{V}$ and then is disconnected from the battery. Calculate the energy stored in the capacitor.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Since it's disconnected from the battery, charge is constant. First find capacitance: $C = \varepsilon_0 A/d$. Then energy $U = \frac{1}{2}CV^2$. Remember to convert area to m² and thickness to m.
+</p>
+</details>
+<details><summary><strong>Show solution
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
