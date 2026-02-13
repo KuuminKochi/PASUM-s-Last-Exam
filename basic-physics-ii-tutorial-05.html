@@ -29,19 +29,6 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
-        .diagram {
-            margin: 1.5em auto;
-            text-align: center;
-            background: #f9f9f9;
-            padding: 1em;
-            border-radius: 8px;
-            overflow-x: auto;
-            max-width: 100%;
-        }
-        .diagram svg {
-            max-width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
@@ -59,238 +46,156 @@
 
 <h1>Tutorial 5: AC Circuits & Wheatstone Bridge</h1>
 
+<h2>Question 1 [8 marks]</h2>
+<p>
+A voltage divider circuit is connected to a Wheatstone bridge network via a switch, Figure 1. Determine the:
+- (a) output voltage at Point A relative to the negative terminal of the power supply when the switch is open
+- (b) value of the unknown resistance $R_{\text{unknown}}$ when the switch is closed and the bridge is brought to equilibrium when variable resistor is $3.0 \, \Omega$
+- (c) new output voltage at Point A, relative to the negative terminal of the power supply when the switch is closed and bridge is balanced
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a): Use voltage divider rule. For (b): In a balanced Wheatstone bridge, $R_1/R_2 = R_3/R_4$. For (c): Calculate voltage at Point A using the voltage divider with the new configuration after bridge is connected.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong> Voltage divider with $3 \, \Omega$ and $6 \, \Omega$ resistors, Wheatstone bridge connected through switch.
+
+<strong>(a) Output voltage when switch is OPEN:</strong>
+
+<p>
+The voltage divider has total resistance $R_{\text{total}} = 3 + 6 = 9 \, \Omega$
+</p>
+
+<p>
+If we assume the input voltage is across the $9 \, \Omega$ total:
+</p>
+$$I = \frac{V_{\text{in}}}{R_{\text{total}}} = \frac{V_{\text{in}}}{9}$$
+
+<p>
+The voltage across the $6 \, \Omega$ resistor (Point A):
+</p>
+$$V_A = I \times 6 = \frac{V_{\text{in}}}{9} \times 6 = \frac{2}{3}V_{\text{in}}$$
+
+<p>
+From the solution: $V_A = 6 \, \text{V}$ (assuming some input voltage)
+</p>
+
+<strong>(b) Unknown resistance when bridge is balanced:</strong>
+
+<p>
+For a balanced Wheatstone bridge: $\frac{R_1}{R_2} = \frac{R_3}{R_4}$
+</p>
+
+<p>
+Looking at the circuit configuration with variable resistor $R_v = 3 \, \Omega$:
+</p>
+$$R_{\text{unknown}} = R_v \times \frac{R_1}{R_2}$$
+
+<p>
+From the solution:
+</p>
+$$R_{\text{unknown}} = 4.5 \, \Omega$$
+
+<strong>(c) New output voltage when switch is CLOSED and bridge balanced:</strong>
+
+<p>
+The output voltage at Point A now depends on the parallel/series combination through the bridge.
+</p>
+
+<p>
+Using the voltage divider formula with the effective resistance:
+</p>
+$$V_{\text{out}} = \frac{R_{\text{eff}}}{R_{\text{total}}} \times V_{\text{in}}$$
+
+<p>
+From the solution: $V_A = 4.15 \, \text{V}$ when the bridge is connected and balanced.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> In a Wheatstone bridge, the output voltage is zero (or the bridge is balanced) when the ratio of resistances on opposite arms are equal. When unbalanced, the output can be found using superposition or Thevenin's theorem. The voltage divider provides a reference voltage, and the bridge compares this to the voltage across another portion of the circuit.</p>
+</details>
+
+<p>
+---
+</p>
+
 <h2>Question 2 [5 marks]</h2>
 <p>
-AC current: I(t) = 12 sin(100πt). Find:
+The current in an AC circuit is given by:
+</p>
+$$I(t) = 12 \sin(100\pi t)$$
+
+<p>
+Determine the:
 - (a) peak current
 - (b) rms current
-- (c) current at t = 5ms
-- (d) frequency and period
+- (c) current when $t = 5 \, \text{ms}$
+- (d) frequency and period of the current
 </p>
-
-<div class="diagram">
-<svg width="400" height="150" viewBox="0 0 400 150">
-    <line x1="30" y1="120" x2="380" y2="120" stroke="#333" stroke-width="2"/>
-    <line x1="30" y1="20" x2="30" y2="120" stroke="#333" stroke-width="2"/>
-    <text x="385" y="125" font-size="11">t</text>
-    <text x="20" y="20" font-size="11">I</text>
-
-    <!-- Sine wave -->
-    <path d="M 30 70 Q 80 70 105 40 T 180 70 T 255 100 T 330 70 T 380 50" 
-<p>
-          stroke="#e74c3c" stroke-width="2.5" fill="none"/>
-</p>
-
-    <!-- Labels -->
-    <text x="200" y="15" font-size="11" fill="#666">I(t) = 12 sin(100πt)</text>
-
-    <!-- Peak -->
-    <line x1="105" y1="40" x2="105" y2="120" stroke="#999" stroke-dasharray="3"/>
-    <line x1="30" y1="40" x2="105" y2="40" stroke="#999" stroke-dasharray="3"/>
-    <text x="55" y="35" font-size="9" fill="#e74c3c">12A</text>
-
-    <!-- Period -->
-    <line x1="105" y1="130" x2="255" y2="130" stroke="#999" stroke-dasharray="3"/>
-    <text x="170" y="145" font-size="9">T = 0.02s</text>
-</svg>
-</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Peak = amplitude. rms = peak/√2. ω = 2πf, so f = ω/2π.
+For (a): Peak is the amplitude of the sine function. For (b): $I_{\text{rms}} = I_{\text{peak}}/\sqrt{2}$. For (c): Substitute t into the equation. For (d): Compare with standard form $I = I_0 \sin(\omega t)$ where $\omega = 2\pi f$.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>(a)</strong> Peak = 12 A
+<strong>Given:</strong> $I(t) = 12 \sin(100\pi t)$
 
-<strong>(b)</strong> $I_{rms} = 12/\sqrt{2} = 8.49$ A
+<strong>(a) Peak current ($I_0$):</strong>
 
-<strong>(c)</strong> At t = 5ms: $I = 12 \sin(100\pi \times 0.005) = 12 \sin(\pi/2) = 12$ A
+<p>
+The coefficient of sine is the amplitude:
+</p>
+$$I_0 = 12 \, \text{A}$$
 
-<strong>(d)</strong> ω = 100π rad/s ⇒ f = 50 Hz, T = 0.02 s
+<strong>(b) RMS current:</strong>
 
-<p><strong>⚠️ Nuance:</strong> At t = T/4, sin = 1, giving peak value.</p>
+$$I_{\text{rms}} = \frac{I_0}{\sqrt{2}} = \frac{12}{\sqrt{2}} = 8.49 \, \text{A}$$
+
+<strong>(c) Current at $t = 5 \, \text{ms}$:</strong>
+
+<p>
+Convert time: $t = 5 \, \text{ms} = 5 \times 10^{-3} \, \text{s}$
+</p>
+
+$$I(5 \text{ms}) = 12 \sin(100\pi \times 5 \times 10^{-3}) = 12 \sin(0.5\pi) = 12 \sin(90^\circ) = 12 \times 1 = 12 \, \text{A}$$
+
+<strong>(d) Frequency and period:</strong>
+
+<p>
+Compare with standard form $I = I_0 \sin(\omega t)$:
+</p>
+$$\omega = 100\pi \, \text{rad/s}$$
+
+<p>
+Since $\omega = 2\pi f$:
+</p>
+$$f = \frac{\omega}{2\pi} = \frac{100\pi}{2\pi} = 50 \, \text{Hz}$$
+
+$$T = \frac{1}{f} = \frac{1}{50} = 0.02 \, \text{s} = 20 \, \text{ms}$$
+
+<p><strong>⚠️ Nuance:</strong> Peak current is the maximum instantaneous value. RMS current gives the effective DC equivalent that would produce the same heating effect. Note that at $t = 5$ ms (which is 1/4 of the period), the sine reaches its maximum value of 1.</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 4 [5 marks]</h2>
+<h2>Question 3 [5 marks]</h2>
 <p>
-Sketch waveforms from phasor diagrams:
-- (a) V leads I by 90°
-- (b) I leads V by 90°
-- (c) V leads I by 45°
-- (d) I leads V by 45°
+An AC power supply delivers an rms current of $5 \, \text{A}$ at a frequency of $50 \, \text{Hz}$ to a resistor of $8 \, \Omega$.
+- (a) Calculate the peak current
+- (b) Determine the peak voltage across the resistor
+- (c) Write the expression for the instantaneous voltage
 </p>
-
-<div class="diagram">
-<svg width="450" height="180" viewBox="0 0 450 180">
-    <!-- Case (a): V leads I by 90 -->
-    <g transform="translate(20, 20)">
-        <text x="40" y="15" font-size="10">(a) V leads I by 90°</text>
-        <line x1="0" y1="60" x2="80" y2="60" stroke="#333"/>
-        <line x1="10" y1="30" x2="10" y2="90" stroke="#333"/>
-
-        <!-- V phasor at 90 -->
-        <line x1="10" y1="60" x2="10" y2="30" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-        <!-- I phasor at 0 -->
-        <line x1="10" y1="60" x2="40" y2="60" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <!-- Waveforms -->
-        <path d="M 90 60 Q 100 30 110 60 T 130 60" stroke="#e74c3c" stroke-width="1.5" fill="none"/>
-        <path d="M 90 60 Q 100 90 110 60 T 130 60" stroke="#3498db" stroke-width="1.5" fill="none"/>
-    </g>
-
-    <!-- Case (b): I leads V by 90 -->
-    <g transform="translate(150, 20)">
-        <text x="40" y="15" font-size="10">(b) I leads V by 90°</text>
-        <line x1="0" y1="60" x2="80" y2="60" stroke="#333"/>
-        <line x1="10" y1="30" x2="10" y2="90" stroke="#333"/>
-
-        <!-- I phasor at 90 -->
-        <line x1="10" y1="60" x2="10" y2="30" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-        <!-- V phasor at 0 -->
-        <line x1="10" y1="60" x2="40" y2="60" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-
-        <!-- Waveforms -->
-        <path d="M 90 60 Q 100 90 110 60 T 130 60" stroke="#3498db" stroke-width="1.5" fill="none"/>
-        <path d="M 90 60 Q 100 30 110 60 T 130 60" stroke="#e74c3c" stroke-width="1.5" fill="none"/>
-    </g>
-
-    <!-- Case (c): V leads I by 45 -->
-    <g transform="translate(280, 20)">
-        <text x="40" y="15" font-size="10">(c) V leads I by 45°</text>
-        <line x1="0" y1="60" x2="80" y2="60" stroke="#333"/>
-        <line x1="10" y1="30" x2="10" y2="90" stroke="#333"/>
-
-        <!-- V at 45 -->
-        <line x1="10" y1="60" x2="32" y2="42" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-        <!-- I at 0 -->
-        <line x1="10" y1="60" x2="40" y2="60" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-    </g>
-
-    <!-- Case (d): I leads V by 45 -->
-    <g transform="translate(380, 20)">
-        <text x="20" y="15" font-size="10">(d) I leads V</text>
-        <line x1="0" y1="60" x2="60" y2="60" stroke="#333"/>
-        <line x1="10" y1="30" x2="10" y2="90" stroke="#333"/>
-
-        <!-- I at 45 -->
-        <line x1="10" y1="60" x2="32" y2="42" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-        <!-- V at 0 -->
-        <line x1="10" y1="60" x2="40" y2="60" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-    </g>
-
-    <text x="200" y="170" font-size="10" fill="#666">Red = Voltage, Blue = Current</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-            <path d="M0,0 L5,2.5 L0,5" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Phasor angle at t=0 determines phase. Counterclockwise rotation = positive phase.
+For (a): $I_0 = I_{\text{rms}} \times \sqrt{2}$. For (b): Use Ohm's law $V_0 = I_0 R$. For (c): $v(t) = V_0 \sin(\omega t)$ where $\omega = 2\pi f$.
 </p>
 </details>
-<details><summary><strong>Show solution</strong></summary>
-<p>
-- (a) V phasor at 90°, I at 0°: V leads by 90°
-- (b) I phasor at 90°, V at 0°: I leads by 90°
-- (c) V at 45°, I at 0°: V leads by 45°
-- (d) I at 45°, V at 0°: I leads by 45°
-</p>
-
-<p><strong>⚠️ Nuance:</strong> The wave peaks occur at T/4 × (phase angle/90°).</p>
-</details>
-
-<p>
----
-</p>
-
-<h2>Question 5 [5 marks]</h2>
-<p>
-I(t) = 4 cos(ωt), V(t) = 10 sin(ωt). Find:
-- (a) phase difference
-- (b) which leads
-- (c) phasor diagram
-</p>
-
-<div class="diagram">
-<svg width="400" height="180" viewBox="0 0 400 180">
-    <!-- Phasor diagram -->
-    <line x1="80" y1="100" x2="250" y2="100" stroke="#333" stroke-width="2"/>
-    <line x1="80" y1="30" x2="80" y2="150" stroke="#333" stroke-width="2"/>
-    <text x="255" y="105" font-size="11">Real</text>
-    <text x="70" y="25" font-size="11">Imag</text>
-
-    <!-- I phasor (cos = sin + 90°) -->
-    <line x1="80" y1="100" x2="80" y2="30" stroke="#3498db" stroke-width="3" marker-end="url(#arrow)"/>
-    <text x="95" y="50" font-size="11" fill="#3498db">I = 4∠90°</text>
-
-    <!-- V phasor (sin = 0°) -->
-    <line x1="80" y1="100" x2="180" y2="100" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow)"/>
-    <text x="170" y="120" font-size="11" fill="#e74c3c">V = 10∠0°</text>
-
-    <!-- Phase arc -->
-    <path d="M 90 100 Q 95 90 80 85" stroke="#666" stroke-width="1" fill="none"/>
-    <text x="95" y="90" font-size="9" fill="#666">90°</text>
-
-    <!-- Labels -->
-    <text x="180" y="160" font-size="11" fill="#666">Current LEADS Voltage by 90°</text>
-    <text x="180" y="175" font-size="10" fill="#999">(or Voltage LAGS Current)</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
-<details><summary><strong>Need a hint?</strong></summary>
-<p>
-Convert cos to sin: cos(ωt) = sin(ωt + 90°). Compare phases.
-</p>
-</details>
-<details><summary><strong>Show solution</strong></summary>
-<strong>(a)</strong> $I = 4\cos\omega t = 4\sin(\omega t + 90°)$, $V = 10\sin\omega t$
-
-<p>
-Phase difference: 90°
-</p>
-
-<strong>(b)</strong> Current LEADS voltage by 90° (or voltage LAGS by 90°)
-
-<strong>(c)</strong> At t=0: I phasor at 90°, V at 0°. I leads.
-
-<p><strong>⚠️ Nuance:</strong> cos leads sin by 90°. Current reaching max first means current leads.</p>
-</details>
-
-<p>
----
-</p>
-
-<h2>Common Patterns</h2>
-
-<strong>RMS Values:</strong> $I_{rms} = I_0/\sqrt{2}$, $V_{rms} = V_0/\sqrt{2}$
-
-<strong>Angular Frequency:</strong> $\omega = 2\pi f$, $T = 1/f$
-
-<strong>Phase:</strong> Positive phase = leads, negative = lags
-
-<strong>Wheatstone Bridge:</strong> Balanced when $R_1/R_2 = R_3/R_4$
-
-<p>
----
-</p>
-
-<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+<details><summary><strong>Show solution
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>

@@ -29,19 +29,6 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
-        .diagram {
-            margin: 1.5em auto;
-            text-align: center;
-            background: #f9f9f9;
-            padding: 1em;
-            border-radius: 8px;
-            overflow-x: auto;
-            max-width: 100%;
-        }
-        .diagram svg {
-            max-width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
@@ -57,411 +44,247 @@
 
 <hr>
 
-<h1>Tutorial 1: Electrostatics - Coulomb's Law & Electric Field</h1>
+<h1>Tutorial 1: Electrostatics</h1>
 
-<h2>Question 1 [6 marks]</h2>
+<h2>Overview</h2>
 <p>
-Figure 1 shows three charges $q_1$, $q_2$, and $q_3$ placed along a straight line. Determine the magnitude and direction of the net electrostatic force acting on:
-- (a) $q_1$
-- (b) $q_2$
+This tutorial covers Coulomb's Law, electrostatic forces between point charges, and electric field calculations.
+</p>
+
+<strong>Topics:</strong> Coulomb's Law, Electric Field, Electrostatic Force  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 90 minutes
+
+<strong>Given:</strong> Coulomb constant, $k = 9.0 \times 10^9$ Nm²C⁻²
+
+<p>
+---
+</p>
+
+<h2>Question 1 [20 marks]</h2>
+
+<p>
+Three charges are placed along a straight line (Figure 1):
+- $q_1 = +35\mu$C 
+- $q_2 = -10\mu$C
+- $q_3 = +60\mu$C
 </p>
 
 <p>
-Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
+Distance $q_1$ to $q_2$: 20 cm  
+Distance $q_2$ to $q_3$: 40 cm
 </p>
 
-<div class="diagram">
-<svg width="500" height="120" viewBox="0 0 500 120">
-    <!-- Charges -->
-    <circle cx="80" cy="60" r="8" fill="#e74c3c"/>
-    <text x="80" y="35" text-anchor="middle" font-size="12">q₁ = +35µC</text>
-
-    <circle cx="180" cy="60" r="8" fill="#3498db"/>
-    <text x="180" y="35" text-anchor="middle" font-size="12">q₂ = +10µC</text>
-
-    <circle cx="380" cy="60" r="8" fill="#e74c3c"/>
-    <text x="380" y="35" text-anchor="middle" font-size="12">q₃ = +60µC</text>
-
-    <!-- Distance labels -->
-    <line x1="80" y1="90" x2="180" y2="90" stroke="#666" stroke-width="1" marker-end="url(#arrow)"/>
-    <text x="130" y="105" text-anchor="middle" font-size="11">20 cm</text>
-
-    <line x1="180" y1="90" x2="380" y2="90" stroke="#666" stroke-width="1"/>
-    <text x="280" y="105" text-anchor="middle" font-size="11">40 cm</text>
-
-    <!-- Force arrows on q1 -->
-    <line x1="80" y1="60" x2="40" y2="60" stroke="#27ae60" stroke-width="3" marker-end="url(#arrow)"/>
-    <text x="50" y="50" font-size="10" fill="#27ae60">F₁₂</text>
-
-    <line x1="80" y1="60" x2="20" y2="60" stroke="#c0392b" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="30" y="75" font-size="10" fill="#c0392b">F₁₃</text>
-
-    <!-- Axis -->
-    <line x1="20" y1="115" x2="450" y2="115" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="460" y="120" font-size="12">+x</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
-<details><summary><strong>Need a hint?</strong></summary>
+<h3>Part (a) [10 marks]</h3>
 <p>
-Use Coulomb's Law: $F = k\frac{|q_1 q_2|}{r^2}$. Remember forces are vectors - you need to consider direction. Like charges repel, opposite charges attract. For $q_1$, it feels repulsion from $q_2$ (push left) and from $q_3$ (push left).
+Determine the magnitude and direction of the net electrostatic force on $q_1$.
 </p>
-</details>
+
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
+<p><strong>Forces on q₁:</strong></p>
+<p>$q_1$ positive, $q_2$ negative → $F_{12}$ is attractive → to the right</p>
+<p>$q_1$ positive, $q_3$ positive → $F_{13}$ is repulsive → to the left</p>
+
+<p>$$F_{12} = \frac{k|q_1||q_2|}{r_{12}^2} = \frac{(9 \times 10^9)(35 \times 10^{-6})(10 \times 10^{-6})}{(0.20)^2}$$</p>
+<p>$= \frac{3150 \times 10^{-3}}{0.04} = 7.88 \times 10^3$ N (to the right)</p>
+
+<p>$$F_{13} = \frac{k|q_1||q_3|}{r_{13}^2} = \frac{(9 \times 10^9)(35 \times 10^{-6})(60 \times 10^{-6})}{(0.60)^2}$$</p>
+<p>$= \frac{18900 \times 10^{-3}}{0.36} = 52.5$ N (to the left)</p>
+
+<p>$F_{net} = 7880 - 52.5 = 7827.5$ N</p>
+<p><strong>Answer:</strong> Magnitude = $\boxed{7.83 \times 10^3}$ N, Direction = $\boxed{to\ the\ right}$ (toward $q_2$)</p>
+</details>
+
+<h3>Part (b) [10 marks]</h3>
 <p>
-- $q_1 = +35\,\mu\text{C} = 35 \times 10^{-6}\,\text{C}$
-- $q_2 = +10\,\mu\text{C} = 10 \times 10^{-6}\,\text{C}$
-- $q_3 = +60\,\mu\text{C} = 60 \times 10^{-6}\,\text{C}$
-- $r_{12} = 20\,$cm $= 0.20\,$m, $r_{23} = 40\,$cm $= 0.40\,$m
-- $r_{13} = 60\,$cm $= 0.60\,$m
+Determine the magnitude and direction of the net electrostatic force on $q_2$.
 </p>
 
-<strong>(a) Force on $q_1$:</strong>
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Forces on q₂:</strong></p>
+<p>$F_{21}$ from $q_1$: Attractive → to the left = 7880 N</p>
+<p>$F_{23}$ from $q_3$: Attractive → to the right</p>
+<p>$$F_{23} = \frac{(9 \times 10^9)(10 \times 10^{-6})(60 \times 10^{-6})}{(0.40)^2} = 3.38 \times 10^4$$ N</p>
 
-<p>
-Forces on $q_1$:
-- From $q_2$ (repulsive, to the left): $F_{12} = k\frac{q_1 q_2}{r_{12}^2} = \frac{(9\times10^9)(35\times10^{-6})(10\times10^{-6})}{(0.2)^2} = 78.75\,$N (left)
-- From $q_3$ (repulsive, to the left): $F_{13} = k\frac{q_1 q_3}{r_{13}^2} = \frac{(9\times10^9)(35\times10^{-6})(60\times10^{-6})}{(0.6)^2} = 52.5\,$N (left)
-</p>
-
-$$F_{\text{net on }q_1} = 78.75 + 52.5 = 131.25\,$N (toward negative x direction / left)
-
-<strong>(b) Force on $q_2$:</strong>
-
-<p>
-Forces on $q_2$:
-- From $q_1$ (repulsive, to the right): $F_{21} = k\frac{q_1 q_2}{r_{12}^2} = 78.75\,$N (right)
-- From $q_3$ (repulsive, to the right): $F_{23} = k\frac{q_2 q_3}{r_{23}^2} = \frac{(9\times10^9)(10\times10^{-6})(60\times10^{-6})}{(0.4)^2} = 33.75\,$N (right)
-</p>
-
-$$F_{\text{net on }q_2} = 78.75 + 33.75 = 112.5\,$N (toward positive x direction / right)
-
-<p><strong>⚠️ Nuance:</strong> Coulomb's law gives the MAGNITUDE of the force. The direction depends on whether charges attract (opposite) or repel (like). Like charges push apart, opposite charges pull together. The force on $q_1$ from $q_2$ pushes $q_1$ away from $q_2$, i.e., toward negative x.</p>
+<p>$F_{net} = 33750 - 7880 = 2.59 \times 10^4$ N (to the right)</p>
+<p><strong>Answer:</strong> Magnitude = $\boxed{2.59 \times 10^4}$ N, Direction = $\boxed{to\ the\ right}$ (toward $q_3$)</p>
+<p><strong>⚠️ Nuance:</strong> $q_2$ experiences larger force due to inverse square law ($F \propto 1/r^2$)</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 2 [8 marks]</h2>
+<h2>Question 2 [20 marks]</h2>
+
 <p>
-Figure 2 shows three point charges, $q_1$, $q_2$, and $q_3$ located in the x-y plane. Determine the magnitude and direction of the net electrostatic force acting on $q_2$.
+Three point charges in x-y plane (Figure 2):
+- $q_1 = -35\mu$C at origin
+- $q_2 = +10\mu$C at (0.5 m, 0)
+- $q_3 = +60\mu$C at 0.7 m, 30° above x-axis
 </p>
 
 <p>
-Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
+Determine magnitude and direction of net electrostatic force on $q_2$.
 </p>
 
-<div class="diagram">
-<svg width="350" height="250" viewBox="0 0 350 250">
-    <!-- Axes -->
-    <line x1="20" y1="200" x2="320" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="330" y="205" font-size="12">x</text>
-    <line x1="50" y1="220" x2="50" y2="20" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="45" y="15" font-size="12">y</text>
-
-    <!-- q1 at origin -->
-    <circle cx="50" cy="200" r="8" fill="#e74c3c"/>
-    <text x="30" y="225" font-size="11">q₁=+35µC</text>
-
-    <!-- q2 at (0.5, 0) -->
-    <circle cx="150" cy="200" r="8" fill="#3498db"/>
-    <text x="150" y="230" text-anchor="middle" font-size="11">q₂=+10µC</text>
-
-    <!-- q3 at angle -->
-    <circle cx="200" cy="100" r="8" fill="#e74c3c"/>
-    <text x="220" y="105" font-size="11">q₃=+60µC</text>
-
-    <!-- Triangle outline -->
-    <line x1="50" y1="200" x2="200" y2="100" stroke="#999" stroke-dasharray="4"/>
-
-    <!-- Distance labels -->
-    <text x="100" y="220" font-size="11">0.5 m</text>
-    <text x="180" y="150" font-size="11">0.7 m</text>
-
-    <!-- Force on q2 from q1 (left) -->
-    <line x1="150" y1="200" x2="80" y2="200" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
-    <text x="95" y="190" font-size="10" fill="#c0392b">F₂₁</text>
-
-    <!-- Force on q2 from q3 (down-left) -->
-    <line x1="150" y1="200" x2="150" y2="260" stroke="#c0392b" stroke-width="3" marker-end="url(#arrow)"/>
-    <text x="160" y="240" font-size="10" fill="#c0392b">F₂₃</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
-<details><summary><strong>Need a hint?</strong></summary>
-<p>
-This is a 2D problem. Break forces into x and y components. $F_{21}$ acts along the x-axis (left). $F_{23}$ acts along the line from $q_2$ to $q_3$ - since they're like charges, $q_2$ is repelled away from $q_3$. Use trigonometry to find components.
-</p>
-</details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
-<p>
-- $q_1 = +35\,\mu\text{C}$ at origin
-- $q_2 = +10\,\mu\text{C}$ at $(0.5, 0)$ m
-- $q_3 = +60\,\mu\text{C}$ at $30^\circ$ above the negative x-axis from $q_2$
-</p>
+<p><strong>Position of $q_3$:</strong> $x_3 = 0.7\cos(30°) = 0.606$ m, $y_3 = 0.7\sin(30°) = 0.35$ m</p>
 
-<strong>Force on $q_2$ from $q_1$ (along negative x):</strong>
-$$F_{21} = k\frac{q_1 q_2}{r_{12}^2} = \frac{(9\times10^9)(35\times10^{-6})(10\times10^{-6})}{(0.5)^2} = 12.6\,$N (left)
+<p><strong>Distance $q_2$ to $q_3$:</strong></p>
+<p>$\Delta x = 0.606 - 0.5 = 0.106$ m, $\Delta y = 0.35$ m</p>
+<p>$r_{23} = \sqrt{(0.106)^2 + (0.35)^2} = 0.366$ m</p>
 
-<strong>Force on $q_2$ from $q_3$:</strong>
-$$F_{23} = k\frac{q_2 q_3}{r_{23}^2} = \frac{(9\times10^9)(10\times10^{-6})(60\times10^{-6})}{(0.7)^2} = 11.02\,$N
+<p><strong>Forces:</strong></p>
+<p>$F_{21} = \frac{(9 \times 10^9)(35 \times 10^{-6})(10 \times 10^{-6})}{(0.5)^2} = 12.6$ N (to the left, attractive)</p>
+<p>$\vec{F}_{21} = (-12.6, 0)$</p>
 
-<p>
-Direction: $30^\circ$ below negative x-axis
-</p>
+<p>$F_{23} = \frac{(9 \times 10^9)(10 \times 10^{-6})(60 \times 10^{-6})}{(0.366)^2} = 40.3$ N (repulsive, away from $q_3$)</p>
+<p>Angle: $\theta = 180° + \arctan(0.35/0.106) = 253°$</p>
+<p>$F_{23x} = 40.3\cos(253°) = -11.8$ N, $F_{23y} = 40.3\sin(253°) = -38.5$ N</p>
 
-<strong>Components of $F_{23}$:</strong>
-$$F_{23x} = 11.02 \cos(210^\circ) = -9.55\,$N
-$$F_{23y} = 11.02 \sin(210^\circ) = -5.51\,$N
+<p><strong>Net:</strong> $F_x = -12.6 - 11.8 = -24.4$ N, $F_y = -38.5$ N</p>
+<p>$F_{net} = \sqrt{(24.4)^2 + (38.5)^2} = 45.6$ N</p>
+<p>$\theta = \arctan(38.5/24.4) = 57.6°$ below negative x-axis</p>
 
-<strong>Total force on $q_2$:</strong>
-$$F_x = -12.6 + (-9.55) = -22.15\,$N
-$$F_y = -5.51\,$N
-
-$$F_{\text{net}} = \sqrt{22.15^2 + 5.51^2} = 22.83\,$N
-
-<strong>Direction:</strong> $\theta = 14.0^\circ$ below the negative x-axis
-
-<p><strong>⚠️ Nuance:</strong> In 2D force problems, always draw a clear diagram. The force on a charge is along the line connecting the two charges - repulsive for like charges, attractive for unlike charges.</p>
+<p><strong>Answer:</strong> $\boxed{45.6}$ N at $\boxed{57.6°}$ below negative x-axis (238° from +x)</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 3 [8 marks]</h2>
+<h2>Question 3 [15 marks]</h2>
+
 <p>
-Figure 3 shows three isolated point charges at positions A, B, C. Determine the magnitude and direction of the electric field strength at point X.
+Three charges (Figure 3):
+- $q_1 = +6.5$ nC at A
+- $q_2 = -3.0$ nC at B (15 cm from A)
+- $q_3 = +5.0$ nC at C (5 cm from B)
 </p>
 
 <p>
-Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
+Point X is 30 cm from C (along the line). Find electric field at X.
 </p>
 
-<div class="diagram">
-<svg width="400" height="200" viewBox="0 0 400 200">
-    <!-- x-axis -->
-    <line x1="20" y1="150" x2="380" y2="150" stroke="#333" stroke-width="2"/>
-    <text x="390" y="155" font-size="12">x</text>
-
-    <!-- Charges on x-axis -->
-    <circle cx="50" cy="150" r="8" fill="#e74c3c"/>
-    <text x="50" y="180" text-anchor="middle" font-size="10">q₁=+6.5nC</text>
-    <text x="50" y="192" text-anchor="middle" font-size="9">at A</text>
-
-    <circle cx="150" cy="150" r="8" fill="#3498db"/>
-    <text x="150" y="180" text-anchor="middle" font-size="10">q₂=-3.0nC</text>
-    <text x="150" y="192" text-anchor="middle" font-size="9">at B</text>
-
-    <circle cx="200" cy="150" r="8" fill="#e74c3c"/>
-    <text x="200" y="180" text-anchor="middle" font-size="10">q₃=+5.0nC</text>
-    <text x="200" y="192" text-anchor="middle" font-size="9">at C</text>
-
-    <!-- Point X above A -->
-    <circle cx="50" cy="70" r="6" fill="#000"/>
-    <text x="50" y="55" text-anchor="middle" font-size="12">X</text>
-
-    <!-- Electric field arrows -->
-    <line x1="50" y1="70" x2="50" y2="130" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="65" y="105" font-size="10" fill="#e74c3c">E₁</text>
-
-    <line x1="50" y1="70" x2="100" y2="70" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="85" y="65" font-size="10" fill="#3498db">E₂</text>
-
-    <line x1="50" y1="70" x2="90" y2="100" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="80" y="95" font-size="10" fill="#e74c3c">E₃</text>
-
-    <!-- Distance labels -->
-    <text x="100" y="140" font-size="10">15 cm</text>
-    <text x="175" y="140" font-size="10">5 cm</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-            <path d="M0,0 L5,2.5 L0,5" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
-<details><summary><strong>Need a hint?</strong></summary>
-<p>
-Electric field $E = k\frac{Q}{r^2}$ points AWAY from positive charges and TOWARD negative charges. At point X, calculate each field contribution separately, then add as vectors.
-</p>
-</details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
-<p>
-- $q_1 = +6.5\,$nC at A (x = 0)
-- $q_2 = -3.0\,$nC at B (x = 15 cm)
-- $q_3 = +5.0\,$nC at C (x = 20 cm)
-- Point X is 15 cm above point A
-</p>
+<p><strong>Positions:</strong> A at 0, B at 0.15 m, C at 0.20 m, X at 0.50 m</p>
+<p>Distances from X: $r_1 = 0.50$ m, $r_2 = 0.35$ m, $r_3 = 0.30$ m</p>
 
-<strong>Distances from X:</strong>
-<p>
-- $r_{1X} = 15\,$cm $= 0.15\,$m
-- $r_{2X} = \sqrt{15^2 + 15^2} = 0.212\,$m
-- $r_{3X} = \sqrt{20^2 + 15^2} = 0.25\,$m
-</p>
+<p><strong>Fields:</strong></p>
+<p>$E_1 = \frac{k(6.5 \times 10^{-9})}{(0.50)^2} = 234$ N/C (→, away from $q_1$)</p>
+<p>$E_2 = \frac{k(3.0 \times 10^{-9})}{(0.35)^2} = 220$ N/C (←, toward $q_2$)</p>
+<p>$E_3 = \frac{k(5.0 \times 10^{-9})}{(0.30)^2} = 500$ N/C (→, away from $q_3$)</p>
 
-<strong>Electric field contributions:</strong>
+<p>$E_{net} = 234 - 220 + 500 = 514$ N/C (to the right)</p>
 
-<p>
-$E_1$ (from $q_1$, away, downward): $E_1 = 2600\,$N/C
-</p>
-
-<p>
-$E_2$ (toward $q_2$, right): $E_2 = 600\,$N/C at $45^\circ$ below horizontal
-</p>
-
-<p>
-$E_3$ (away from $q_3$): $E_3 = 720\,$N/C at $36.9^\circ$ below horizontal
-</p>
-
-<strong>Total:</strong>
-$$E_x = 1176\,$N/C, \quad E_y = -3032\,$N/C$$
-$$E = 3239\,$N/C at $68.8^\circ$ below +x
-
-<p><strong>⚠️ Nuance:</strong> Electric field direction is the direction of the FORCE on a positive test charge. Positive charges push away, negative charges pull toward.</p>
+<p><strong>Answer:</strong> $\boxed{514}$ N/C to the $\boxed{right}$</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 5 [10 marks]</h2>
+<h2>Question 4 [20 marks]</h2>
+
 <p>
-An electron traveling at $1.9 \times 10^7 \, \text{m/s}$ enters parallel plates. The electric field is $4.5 \times 10^3 \, \text{N/C}$. Calculate:
-- (a) Sketch the path
-- (b) Acceleration
-- (c) Velocity components at exit
-- (d) Deflection angle
+Calculate electric field at point P (Figure 4):
+- $q_1 = +4$ nC at (0, 0.6 m)
+- $q_2 = +9.5$ nC at (1.8 m, 0.6 m)
+- $q_3 = -12$ nC at (0, 0)
+- P at (1.8 m, 0)
 </p>
 
-<div class="diagram">
-<svg width="500" height="180" viewBox="0 0 500 180">
-    <!-- Top plate (+) -->
-    <rect x="50" y="20" width="400" height="10" fill="#e74c3c"/>
-    <text x="460" y="28" font-size="14" fill="#e74c3c">+</text>
-    <text x="250" y="15" text-anchor="middle" font-size="11">22 mm</text>
-
-    <!-- Bottom plate (-) -->
-    <rect x="50" y="120" width="400" height="10" fill="#3498db"/>
-    <text x="460" y="128" font-size="14" fill="#3498db">−</text>
-    <text x="250" y="145" text-anchor="middle" font-size="11">66 mm</text>
-
-    <!-- Electric field arrows -->
-    <g fill="none" stroke="#9b59b6" stroke-width="2">
-        <line x1="100" y1="35" x2="100" y2="115"/>
-        <polygon points="100,115 96,107 104,107" fill="#9b59b6"/>
-        <line x1="200" y1="35" x2="200" y2="115"/>
-        <polygon points="200,115 196,107 204,107" fill="#9b59b6"/>
-        <line x1="300" y1="35" x2="300" y2="115"/>
-        <polygon points="300,115 296,107 304,107" fill="#9b59b6"/>
-    </g>
-    <text x="420" y="80" font-size="11" fill="#9b59b6">E</text>
-
-    <!-- Electron path (parabolic, curving up toward + plate) -->
-    <path d="M 50 70 Q 250 70 450 40" stroke="#e67e22" stroke-width="3" fill="none"/>
-    <polygon points="450,40 445,45 448,38" fill="#e67e22"/>
-
-    <!-- Initial velocity -->
-    <line x1="60" y1="85" x2="120" y2="85" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="90" y="100" font-size="10" fill="#27ae60">v₀ = 1.9×10⁷ m/s</text>
-
-    <!-- Entry/exit labels -->
-    <text x="50" y="160" font-size="10">Entry</text>
-    <text x="450" y="160" font-size="10">Exit</text>
-
-    <!-- Deflection angle -->
-    <line x1="450" y1="70" x2="480" y2="70" stroke="#999" stroke-dasharray="3"/>
-    <line x1="450" y1="70" x2="465" y2="50" stroke="#999" stroke-dasharray="3"/>
-    <text x="475" y="55" font-size="10" fill="#666">θ</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <path d="M0,0 L6,3 L0,6" fill="#333"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
-<details><summary><strong>Need a hint?</strong></summary>
-<p>
-For (b): Use $F = ma = qE$. Since electron has negative charge, acceleration is opposite to the field direction (toward + plate). For (c): Horizontal velocity stays constant, vertical velocity increases: $v_y = at$. For (d): $\tan\theta = v_y/v_x$.
-</p>
-</details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
-<p>
-- $v_0 = 1.9 \times 10^7\,$m/s
-- $E = 4.5 \times 10^3\,$N/C (from + to -)
-- $q_e = -1.609 \times 10^{-19}\,$C
-- $m_e = 9.11 \times 10^{-31}\,$kg
-</p>
+<p><strong>Distances:</strong></p>
+<p>$r_1 = \sqrt{1.8^2 + 0.6^2} = 1.90$ m, $r_2 = 0.6$ m, $r_3 = 1.8$ m</p>
 
-<strong>(a) Path:</strong> Electron curves toward the + plate (upward) because negative charge feels force opposite to E-field.
+<p><strong>Components:</strong></p>
+<p>$E_1 = 10$ N/C at $18.4°$ below horizontal</p>
+<p>$E_{1x} = 9.5$ N/C, $E_{1y} = -3.2$ N/C</p>
 
-<strong>(b) Acceleration:</strong>
-$$F = qE = (-1.609 \times 10^{-19})(4.5 \times 10^3) = -7.24 \times 10^{-16}\,$N
-$$a = \frac{F}{m} = -7.95 \times 10^{14}\,$m/s² (upward)
+<p>$E_2 = 238$ N/C downward ($E_{2y} = -238$ N/C)</p>
 
-<strong>(c) At exit:</strong>
-$$v_x = 1.9 \times 10^7\,$m/s (constant)
-$$t = \frac{L}{v_x} = 3.47 \times 10^{-9}\,$s
-$$v_y = a \cdot t = 2.76 \times 10^6\,$m/s$$
+<p>$E_3 = 33.3$ N/C to the left ($E_{3x} = -33.3$ N/C)</p>
 
-<strong>(d) Deflection angle:</strong>
-$$\tan\theta = \frac{2.76 \times 10^6}{1.9 \times 10^7} = 0.145$$
-$$\theta = 8.3^\circ$$
+<p><strong>Net:</strong> $E_x = 9.5 - 33.3 = -23.8$ N/C, $E_y = -3.2 - 238 = -241$ N/C</p>
+<p>$E_{net} = \sqrt{23.8^2 + 241^2} = 242$ N/C</p>
+<p>$\theta = \arctan(241/23.8) = 84.4°$ below negative x-axis</p>
 
-<p><strong>⚠️ Nuance:</strong> This is projectile motion under constant electric force. Key: negative charge accelerates opposite to E-field direction.</p>
+<p><strong>Answer:</strong> $\boxed{242}$ N/C at $\boxed{84.4°}$ below negative x-axis</p>
 </details>
 
 <p>
 ---
 </p>
+
+<h2>Question 5 [25 marks]</h2>
+
+<p>
+Electron: $v_0 = 1.9 \times 10^7$ m/s enters plates with $E = 4.5 \times 10^3$ N/C.
+Plate length: 66 mm, gap: 22 mm.
+Given: $q_e = -1.609 \times 10^{-19}$ C, $m_e = 9.11 \times 10^{-31}$ kg
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+<p>
+Sketch the path.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Parabolic path curving toward positive plate (upward if top plate positive).</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+<p>
+Calculate acceleration.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$a = \frac{|q|E}{m} = \frac{(1.609 \times 10^{-19})(4.5 \times 10^3)}{9.11 \times 10^{-31}}$</p>
+<p>$= \boxed{7.95 \times 10^{14}}$ m/s² toward positive plate</p>
+</details>
+
+<h3>Part (c) [8 marks]</h3>
+<p>
+Horizontal and vertical velocity components on exit.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Time: $t = \frac{0.066}{1.9 \times 10^7} = 3.47 \times 10^{-9}$ s</p>
+<p>$v_x = v_0 = \boxed{1.9 \times 10^7}$ m/s (constant)</p>
+<p>$v_y = at = (7.95 \times 10^{14})(3.47 \times 10^{-9}) = \boxed{2.76 \times 10^6}$ m/s</p>
+</details>
+
+<h3>Part (d) [7 marks]</h3>
+<p>
+Angle of deflection.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\theta = \arctan(v_y/v_x) = \arctan(2.76/19) = \boxed{8.26°}$</p>
+<p><strong>⚠️ Nuance:</strong> Electron deflects toward positive plate. Small angle due to high horizontal speed.</p>
+</details>
+
+<p>
+---
+</p>
+
+<hr>
 
 <h2>Common Patterns</h2>
 
-<strong>Coulomb's Law:</strong>
-<p>
-- $F = k\frac{|q_1 q_2|}{r^2}$
-- Like charges: repel; Unlike: attract
-</p>
+<p><strong>Pattern 1:</strong> Like charges repel, opposite charges attract. Use vector addition.</p>
+<p><strong>Pattern 2:</strong> Electric field: positive → points away; negative → points toward.</p>
+<p><strong>Pattern 3:</strong> Electron in E-field: $a = qE/m$, parabolic trajectory (like projectile).</p>
 
-<strong>Electric Field:</strong>
-<p>
-- $E = \frac{kQ}{r^2}$
-- Direction: away from positive, toward negative
-</p>
-
-<strong>Electron in Electric Field:</strong>
-<p>
-- $F = qE = ma$
-- For negative charge: acceleration opposite to E-field
-</p>
-
-<p>
----
-</p>
+<hr>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>

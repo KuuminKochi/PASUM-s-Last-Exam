@@ -29,19 +29,6 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
-        .diagram {
-            margin: 1.5em auto;
-            text-align: center;
-            background: #f9f9f9;
-            padding: 1em;
-            border-radius: 8px;
-            overflow-x: auto;
-            max-width: 100%;
-        }
-        .diagram svg {
-            max-width: 100%;
-            height: auto;
-        }
     </style>
 </head>
 <body>
@@ -57,7 +44,7 @@
 
 <hr>
 
-<h1>Tutorial 2: Electrostatics - Gauss's Law</h1>
+<h1>Tutorial 2: Electrostatics</h1>
 
 <h2>Question 1 [2 marks]</h2>
 <p>
@@ -66,16 +53,25 @@ State Gauss's Law and write the Gauss Law equation.
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Gauss's Law relates the electric flux through a closed surface to the enclosed charge.
+Gauss's Law relates the electric flux through a closed surface to the enclosed charge. Think about field lines - the number of field lines leaving a surface is proportional to the charge inside.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Gauss's Law:</strong> The net electric flux through any closed Gaussian surface is proportional to the net charge enclosed.
+<strong>Gauss's Law states:</strong> The net electric flux through any closed Gaussian surface is proportional to the net charge enclosed by that surface.
 
-<strong>Equation:</strong>
+<strong>The Gauss Law equation:</strong>
 $$\Phi_E = \oint \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{enclosed}}}{\varepsilon_0}$$
 
-<p><strong>⚠️ Nuance:</strong> Gauss's Law is most useful for surfaces with high symmetry (spherical, cylindrical, or planar).</p>
+<p>
+Where:
+- $\Phi_E$ is the electric flux through the closed surface
+- $\mathbf{E}$ is the electric field
+- $d\mathbf{A}$ is the area vector (outward normal)
+- $Q_{\text{enclosed}}$ is the total charge inside the surface
+- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{C}^2/\text{N}\cdot\text{m}^2$ is the permittivity of free space
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Gauss's Law is always true for any closed surface, but it's most useful for surfaces with high symmetry (spherical, cylindrical, or planar symmetry) where we can simplify the integral.</p>
 </details>
 
 <p>
@@ -87,68 +83,45 @@ $$\Phi_E = \oint \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\text{enclosed}}}{\vare
 Electric charge is distributed uniformly along a long charged wire; the charge per unit length is $\lambda$. Find the electric field at distance $r$ from the wire.
 </p>
 
-<div class="diagram">
-<svg width="350" height="220" viewBox="0 0 350 220">
-    <!-- Charged wire (into page) -->
-    <circle cx="150" cy="110" r="15" fill="none" stroke="#e74c3c" stroke-width="3"/>
-    <text x="150" y="95" text-anchor="middle" font-size="10" fill="#e74c3c">+</text>
-    <text x="150" y="85" text-anchor="middle" font-size="10" fill="#e74c3c">+</text>
-    <text x="150" y="75" text-anchor="middle" font-size="10" fill="#e74c3c">+</text>
-    <text x="125" y="100" font-size="10" fill="#e74c3c">λ</text>
-
-    <!-- Gaussian cylinder outline -->
-    <ellipse cx="150" cy="110" rx="80" ry="30" fill="none" stroke="#3498db" stroke-dasharray="5,3"/>
-    <line x1="70" y1="80" x2="70" y2="140" stroke="#3498db" stroke-dasharray="5,3"/>
-    <line x1="230" y1="80" x2="230" y2="140" stroke="#3498db" stroke-dasharray="5,3"/>
-
-    <!-- Radius label -->
-    <line x1="150" y1="110" x2="230" y2="110" stroke="#333" stroke-width="1"/>
-    <text x="190" y="125" font-size="11">r</text>
-
-    <!-- Electric field arrows (radially outward) -->
-    <g stroke="#27ae60" stroke-width="2" fill="none">
-        <line x1="240" y1="80" x2="260" y2="65"/>
-        <line x1="250" y1="110" x2="275" y2="110"/>
-        <line x1="240" y1="140" x2="260" y2="155"/>
-        <line x1="60" y1="80" x2="40" y2="65"/>
-        <line x1="50" y1="110" x2="25" y2="110"/>
-        <line x1="60" y1="140" x2="40" y2="155"/>
-    </g>
-    <text x="270" y="115" font-size="10" fill="#27ae60">E</text>
-
-    <!-- Length label -->
-    <text x="30" y="115" font-size="10" fill="#666">L</text>
-    <line x1="45" y1="85" x2="45" y2="135" stroke="#666" stroke-width="1"/>
-
-    <defs>
-        <marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-            <path d="M0,0 L5,2.5 L0,5" fill="#27ae60"/>
-        </marker>
-    </defs>
-</svg>
-</div>
-
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Use a cylindrical Gaussian surface coaxial with the wire. The field is radially outward and constant on the curved surface.
+Use a cylindrical Gaussian surface coaxial with the wire. The field will be radially outward and constant on the curved surface. Consider what charges and areas contribute to the flux.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
+<strong>Solution:</strong>
+
 <p>
-For an infinitely long wire with linear charge density $\lambda$:
+For an infinitely long charged wire with linear charge density $\lambda$, we use a cylindrical Gaussian surface of radius $r$ and length $L$.
 </p>
 
-<strong>Using cylindrical Gaussian surface of radius r and length L:</strong>
+<strong>Step 1: Identify the flux through each surface</strong>
+<p>
+- Curved surface: $\mathbf{E}$ is perpendicular to $d\mathbf{A}$, so $\mathbf{E} \cdot d\mathbf{A} = E \, dA$
+- Top and bottom caps: $\mathbf{E}$ is parallel to $d\mathbf{A}$ (field is radial), so flux = 0
+</p>
 
-<strong>Flux through curved surface:</strong> $\Phi_E = E(2\pi r L)$
+<strong>Step 2: Calculate total flux</strong>
+$$\Phi_E = E \cdot (2\pi r L)$$
 
-<strong>Enclosed charge:</strong> $Q = \lambda L$
+<strong>Step 3: Find enclosed charge</strong>
+$$Q_{\text{enclosed}} = \lambda L$$
 
-<strong>Gauss's Law:</strong> $E(2\pi r L) = \frac{\lambda L}{\varepsilon_0}$
+<strong>Step 4: Apply Gauss's Law</strong>
+$$E(2\pi r L) = \frac{\lambda L}{\varepsilon_0}$$
 
 $$E = \frac{\lambda}{2\pi r \varepsilon_0}$$
 
-<p><strong>⚠️ Nuance:</strong> The field decreases as $1/r$ (not $1/r^2$) because the "effective area" grows with circumference.</p>
+<p>
+Or equivalently:
+</p>
+$$E = \frac{2k\lambda}{r}$$
+
+<p>
+Where $k = \frac{1}{4\pi\varepsilon_0} = 8.99 \times 10^9 \, \text{N}\cdot\text{m}^2/\text{C}^2$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The $2\pi r$ in the denominator comes from the circumference of the cylindrical Gaussian surface. This shows the field decreases as $1/r$, not $1/r^2$ like point charges.</p>
 </details>
 
 <p>
@@ -157,61 +130,119 @@ $$E = \frac{\lambda}{2\pi r \varepsilon_0}$$
 
 <h2>Question 3 [5 marks]</h2>
 <p>
-Two parallel plates with area 2.0 m² each carry ±5.0 μC. Find:
-- (i) Surface charge density
-- (ii) Electric field between plates
+An electric field $\mathbf{E}$ is detected between two square metal plates of area $2.0 \, \text{m}^2$. Each plate carries a charge of $5.0 \, \mu\text{C}$ but of opposite sign. Calculate the:
+- (i) Surface charge density on each plate
+- (ii) Electric field between the plates
 </p>
-
-<div class="diagram">
-<svg width="400" height="180" viewBox="0 0 400 180">
-    <!-- Top plate (+) -->
-    <rect x="50" y="30" width="300" height="15" fill="#e74c3c"/>
-    <text x="350" y="42" font-size="14" fill="#e74c3c">+5.0µC</text>
-
-    <!-- Bottom plate (-) -->
-    <rect x="50" y="135" width="300" height="15" fill="#3498db"/>
-    <text x="350" y="148" font-size="14" fill="#3498db">−5.0µC</text>
-
-    <!-- Electric field arrows (downward) -->
-    <g stroke="#27ae60" stroke-width="2">
-        <line x1="100" y1="55" x2="100" y2="125"/>
-        <polygon points="100,125 96,117 104,117" fill="#27ae60"/>
-        <line x1="180" y1="55" x2="180" y2="125"/>
-        <polygon points="180,125 176,117 184,117" fill="#27ae60"/>
-        <line x1="260" y1="55" x2="260" y2="125"/>
-        <polygon points="260,125 256,117 264,117" fill="#27ae60"/>
-    </g>
-
-    <!-- Labels -->
-    <text x="200" y="85" text-anchor="middle" font-size="11">A = 2.0 m²</text>
-    <text x="370" y="90" font-size="11" fill="#27ae60">E</text>
-
-    <!-- σ labels -->
-    <line x1="40" y1="30" x2="40" y2="45" stroke="#9b59b6" stroke-width="1"/>
-    <line x1="40" y1="135" x2="40" y2="150" stroke="#9b59b6" stroke-width="1"/>
-    <text x="30" y="90" font-size="10" fill="#9b59b6">σ</text>
-
-    <defs>
-        <marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-            <path d="M0,0 L5,2.5 L0,5" fill="#27ae60"/>
-        </marker>
-    </defs>
-</svg>
-</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Surface charge density $\sigma = Q/A$. Between parallel plates, $E = \sigma/\varepsilon_0$.
+For (i), surface charge density $\sigma = Q/A$. For (ii), between parallel plates, the field is uniform and $E = \sigma/\varepsilon_0$. Remember the charges are equal and opposite.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- Area $A = 2.0 \, \text{m}^2$
+- Charge on each plate: $Q = \pm 5.0 \, \mu\text{C} = \pm 5.0 \times 10^{-6} \, \text{C}$
+</p>
+
 <strong>(i) Surface charge density:</strong>
 $$\sigma = \frac{Q}{A} = \frac{5.0 \times 10^{-6}}{2.0} = 2.5 \times 10^{-6} \, \text{C/m}^2$$
 
-<strong>(ii) Electric field:</strong>
+<strong>(ii) Electric field between the plates:</strong>
+<p>
+For infinite parallel plates with equal and opposite surface charge densities:
+</p>
 $$E = \frac{\sigma}{\varepsilon_0} = \frac{2.5 \times 10^{-6}}{8.85 \times 10^{-12}} = 2.82 \times 10^5 \, \text{N/C}$$
 
-<p><strong>⚠️ Nuance:</strong> Between plates: $E = \sigma/\varepsilon_0$. Outside: $E = 0$ (fields cancel).</p>
+<p><strong>⚠️ Nuance:</strong> The field between the plates is uniform and points from the positive to negative plate. The magnitude is $E = \sigma/\varepsilon_0$, not $2\sigma/\varepsilon_0$. The factor of 2 applies when calculating the field outside the plates (where $E = \sigma/\varepsilon_0$ on each side, giving net zero outside).</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [5 marks]</h2>
+<p>
+An isolated positive point charge has magnitude $8.0 \, \mu\text{C}$. Find:
+- (i) The electric potential at a point $10.0 \, \text{cm}$ away from the charge
+- (ii) The work required if a test charge of $1.0 \, \mu\text{C}$ is to be placed at this point
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (i), use $V = kQ/r$. For (ii), work = $qV$ (for bringing a test charge from infinity to that point). Watch units - convert cm to m and microcoulombs to coulombs.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- Point charge: $Q = 8.0 \, \mu\text{C} = 8.0 \times 10^{-6} \, \text{C}$
+- Distance: $r = 10.0 \, \text{cm} = 0.10 \, \text{m}$
+- Test charge: $q = 1.0 \, \mu\text{C} = 1.0 \times 10^{-6} \, \text{C}$
+- $k = 8.99 \times 10^9 \, \text{N}\cdot\text{m}^2/\text{C}^2$
+</p>
+
+<strong>(i) Electric potential:</strong>
+$$V = \frac{kQ}{r} = \frac{(8.99 \times 10^9)(8.0 \times 10^{-6})}{0.10} = 7.19 \times 10^5 \, \text{V} \approx 7.2 \times 10^5 \, \text{V}$$
+
+<strong>(ii) Work required:</strong>
+<p>
+The work done by external agent to bring test charge from infinity to that point:
+</p>
+$$W = qV = (1.0 \times 10^{-6})(7.19 \times 10^5) = 0.719 \, \text{J} \approx 0.72 \, \text{J}$$
+
+<p><strong>⚠️ Nuance:</strong> Electric potential is a scalar (no direction), so we use simple multiplication. The work done by the external force is positive (0.72 J), meaning the test charge naturally wants to move toward the positive plate - this is why the potential energy increases. If calculating work done BY the field, it would be negative.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [8 marks]</h2>
+<p>
+Three point charges of values $+2.5 \, \mu\text{C}$, $+3.4 \, \mu\text{C}$ and $+6.6 \, \mu\text{C}$ are respectively at each corner of an equilateral triangle. The side of the triangle is $10.0 \, \text{cm}$. Calculate the electric potential energy of the system.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Electric potential energy of a system of charges = sum of (k × qᵢqⱼ)/r for all pairs. For 3 charges, there are 3 pairs. Since all charges are positive, the potential energy will be positive (repulsive - work is required to bring them together).
+</p>
+</details>
+<details><<summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- $q_1 = +2.5 \, \mu\text{C} = 2.5 \times 10^{-6} \, \text{C}$
+- $q_2 = +3.4 \, \mu\text{C} = 3.4 \times 10^{-6} \, \text{C}$
+- $q_3 = +6.6 \, \mu\text{C} = 6.6 \times 10^{-6} \, \text{C}$
+- Side length: $r = 10.0 \, \text{cm} = 0.10 \, \text{m}$
+- $k = 8.99 \times 10^9 \, \text{N}\cdot\text{m}^2/\text{C}^2$
+</p>
+
+<strong>Solution:</strong>
+
+<p>
+The electric potential energy is the sum of potential energies for all pairs:
+</p>
+$$U = U_{12} + U_{13} + U_{23}$$
+
+$$U = k\left(\frac{q_1 q_2}{r_{12}} + \frac{q_1 q_3}{r_{13}} + \frac{q_2 q_3}{r_{23}}\right)$$
+
+<p>
+Since all distances are equal ($r_{12} = r_{13} = r_{23} = 0.10 \, \text{m}$):
+</p>
+$$U = \frac{k}{r}(q_1 q_2 + q_1 q_3 + q_2 q_3)$$
+
+$$U = \frac{8.99 \times 10^9}{0.10} \left[(2.5 \times 10^{-6})(3.4 \times 10^{-6}) + (2.5 \times 10^{-6})(6.6 \times 10^{-6}) + (3.4 \times 10^{-6})(6.6 \times 10^{-6})\right]$$
+
+$$U = 8.99 \times 10^{10} \left[8.5 \times 10^{-12} + 16.5 \times 10^{-12} + 22.44 \times 10^{-12}\right]$$
+
+$$U = 8.99 \times 10^{10} \times 47.44 \times 10^{-12}$$
+
+$$U = 4.26 \times 10^{-1} \, \text{J} = 0.426 \, \text{J}$$
+
+<p><strong>⚠️ Nuance:</strong> The positive answer indicates all charges repel each other - positive work was required to bring them together from infinity. If any charge were negative, the potential energy would be lower (more negative), indicating attraction. This is like a "bond energy" - the system is bound together.</p>
 </details>
 
 <p>
@@ -220,61 +251,44 @@ $$E = \frac{\sigma}{\varepsilon_0} = \frac{2.5 \times 10^{-6}}{8.85 \times 10^{-
 
 <h2>Extra Question [6 marks]</h2>
 <p>
-Electric field 3.50 kN/C along x-axis. Find flux through 0.350m × 0.700m plane:
-- (a) parallel to yz plane
-- (b) parallel to xy plane  
-- (c) normal at 40° to x-axis
+An electric field of intensity $3.50 \, \text{kN/C}$ is applied along the x-axis. Calculate the electric flux through a rectangular plane $0.350 \, \text{m}$ wide and $0.700 \, \text{m}$ long if:
+- (a) the plane is parallel to the yz plane
+- (b) the plane is parallel to the xy plane
+- (c) the plane contains the y-axis and its normal makes an angle of $40.0^\circ$ with the x-axis
 </p>
-
-<div class="diagram">
-<svg width="450" height="200" viewBox="0 0 450 200">
-    <!-- Case (a): Plane || yz -->
-    <rect x="30" y="20" width="15" height="100" fill="#e74c3c" fill-opacity="0.3" stroke="#e74c3c"/>
-    <text x="37" y="135" text-anchor="middle" font-size="9">(a)</text>
-    <line x1="15" y1="70" x2="60" y2="70" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="50" y="60" font-size="9" fill="#27ae60">E || n</text>
-
-    <!-- Case (b): Plane || xy -->
-    <rect x="130" y="60" width="100" height="15" fill="#3498db" fill-opacity="0.3" stroke="#3498db"/>
-    <text x="180" y="135" text-anchor="middle" font-size="9">(b)</text>
-    <line x1="150" y1="30" x2="150" y2="80" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="160" y="40" font-size="9" fill="#27ae60">E ⟂ n</text>
-
-    <!-- Case (c): Plane at 40° -->
-    <g transform="translate(280, 20)">
-        <rect x="0" y="20" width="100" height="60" fill="#9b59b6" fill-opacity="0.3" transform="rotate(40, 50, 50)"/>
-        <text x="50" y="135" text-anchor="middle" font-size="9">(c)</text>
-        <line x1="30" y1="80" x2="80" y2="30" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow)"/>
-        <line x1="50" y1="80" x2="50" y2="30" stroke="#666" stroke-dasharray="3"/>
-        <text x="60" y="55" font-size="9" fill="#27ae60">E</text>
-        <text x="40" y="45" font-size="9" fill="#666">40°</text>
-    </g>
-
-    <defs>
-        <marker id="arrow" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-            <path d="M0,0 L5,2.5 L0,5" fill="#27ae60"/>
-        </marker>
-    </defs>
-</svg>
-</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Flux $\Phi_E = EA\cos\theta$, where $\theta$ is angle between field and normal.
+Electric flux $\Phi_E = \mathbf{E} \cdot \mathbf{A} = EA\cos\theta$, where $\theta$ is the angle between the field direction and the surface normal. For (a), normal is along x. For (b), normal is along z (perpendicular to field). For (c), use $\cos 40^\circ$.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
 <p>
-Given: $E = 3500\,$N/C, $A = 0.350 \times 0.700 = 0.245\,$m²
+- $E = 3.50 \, \text{kN/C} = 3500 \, \text{N/C}$
+- Width = $0.350 \, \text{m}$, Length = $0.700 \, \text{m}$
+- Area $A = 0.350 \times 0.700 = 0.245 \, \text{m}^2$
 </p>
 
-<strong>(a) Plane || yz:</strong> $\theta = 0°$, $\Phi_E = 857.5\,$Nm²/C
+<strong>(a) Plane parallel to yz plane:</strong>
+<p>
+The normal to yz plane is along the x-axis (parallel to field).
+</p>
+$$\theta = 0^\circ, \quad \cos 0^\circ = 1$$
+$$\Phi_E = EA\cos\theta = (3500)(0.245)(1) = 857.5 \, \text{Nm}^2/\text{C}$$
 
-<strong>(b) Plane || xy:</strong> $\theta = 90°$, $\Phi_E = 0$
+<strong>(b) Plane parallel to xy plane:</strong>
+<p>
+The normal to xy plane is along the z-axis (perpendicular to field).
+</p>
+$$\theta = 90^\circ, \quad \cos 90^\circ = 0$$
+$$\Phi_E = EA\cos\theta = (3500)(0.245)(0) = 0 \, \text{Nm}^2/\text{C}$$
 
-<strong>(c) Normal at 40°:</strong> $\theta = 40°$, $\Phi_E = 656.9\,$Nm²/C
+<strong>(c) Normal makes $40.0^\circ$ with x-axis:</strong>
+$$\theta = 40.0^\circ, \quad \cos 40.0^\circ = 0.7660$$
+$$\Phi_E = EA\cos\theta = (3500)(0.245)(0.7660) = 656.9 \, \text{Nm}^2/\text{C}$$
 
-<p><strong>⚠️ Nuance:</strong> Flux positive when field lines leave surface, negative when they enter.</p>
+<p><strong>⚠️ Nuance:</strong> Electric flux can be positive, negative, or zero depending on the orientation. When field lines enter a surface (angle > 90°), flux is negative. When they leave (angle < 90°), flux is positive. This sign convention matters when applying Gauss's Law.</p>
 </details>
 
 <p>
@@ -285,14 +299,33 @@ Given: $E = 3500\,$N/C, $A = 0.350 \times 0.700 = 0.245\,$m²
 
 <strong>Gauss's Law Applications:</strong>
 <p>
-- Spherical: $E = kQ/r^2$
-- Cylindrical: $E = \lambda/(2\pi\varepsilon_0 r)$
-- Planar: $E = \sigma/\varepsilon_0$
+1. Choose a Gaussian surface that matches the symmetry of the charge distribution
+2. For spherical symmetry: use concentric sphere → $E = kQ/r^2$
+3. For cylindrical symmetry: use coaxial cylinder → $E = \lambda/(2πε₀r)$
+4. For planar symmetry: use pillbox → $E = σ/(2ε₀)$ (one side) or $E = σ/ε₀$ (between plates)
+</p>
+
+<strong>Electric Potential:</strong>
+<p>
+- Point charge: $V = kQ/r$
+- Potential is scalar (sum algebraically, not vector sum)
+- Work to move charge: $W = qV$
+</p>
+
+<strong>Electric Potential Energy:</strong>
+<p>
+- Two charges: $U = kq_1q_2/r$
+- System of charges: sum over all pairs
+- Positive U = repulsive (work required to assemble)
+- Negative U = attractive (energy released when assembled)
 </p>
 
 <strong>Electric Flux:</strong>
 <p>
-- $\Phi_E = EA\cos\theta$
+- $\Phi_E = \mathbf{E} \cdot \mathbf{A} = EA\cos\theta$
+- Positive when field lines leave surface
+- Negative when field lines enter surface
+- Zero when field is parallel to surface
 </p>
 
 <p>
