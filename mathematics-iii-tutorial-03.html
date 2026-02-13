@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics III - Tutorial 03</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | Mathematics III
+</div>
+
+<hr>
+
+<h1>Tutorial 3: Discrete Random Variables, PDF and CDF</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers discrete random variables, probability distribution functions (PDF), and cumulative distribution functions (CDF).
+</p>
+
+<strong>Topics:</strong> Discrete Random Variables, PDF, CDF  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 75 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [9 marks]</h2>
+<p>
+Determine if the following are valid probability functions:
+</p>
+
+<h3>Part (a) [3 marks]</h3>
+$$P(X = x) = \frac{2x-1}{16}, \quad x = 1, 2, 3, 4$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Check: (1) All probabilities ≥ 0, (2) Sum = 1</p>
+<p>$P(1) = \frac{1}{16}$, $P(2) = \frac{3}{16}$, $P(3) = \frac{5}{16}$, $P(4) = \frac{7}{16}$</p>
+<p>Sum: $\frac{1+3+5+7}{16} = \frac{16}{16} = 1$ ✓</p>
+<p>All probabilities positive ✓</p>
+<p><strong>Valid probability function</strong></p>
+</details>
+
+<h3>Part (b) [3 marks]</h3>
+$$P(X = x) = \frac{x^3}{15}, \quad x = -1, 0, 1, 2$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(-1) = \frac{-1}{15} < 0$ ✗</p>
+<p><strong>Not a valid probability function</strong> (probabilities must be non-negative)</p>
+</details>
+
+<h3>Part (c) [3 marks]</h3>
+$$P(X = x) = \frac{2}{3(1+2x)}, \quad x = 0, 1, 2$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(0) = \frac{2}{3}$, $P(1) = \frac{2}{9}$, $P(2) = \frac{2}{15}$</p>
+<p>Sum: $\frac{2}{3} + \frac{2}{9} + \frac{2}{15} = \frac{30+10+6}{45} = \frac{46}{45} > 1$ ✗</p>
+<p><strong>Not a valid probability function</strong> (sum ≠ 1)</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [9 marks]</h2>
+<p>
+X has probability distribution:
+</p>
+$$P(X = x) = \begin{cases} 0.1 & \text{for } x = 2, 4, 6, 8 \\ 0.2 & \text{for } x = 1, 3, 5 \\ 0 & \text{otherwise} \end{cases}$$
+
+<h3>Part (a) [3 marks]</h3>
+<p>
+Show X is a discrete random variable
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>X takes countable values (1, 2, 3, 4, 5, 6, 8) with associated probabilities</p>
+<p>Sum: $4(0.1) + 3(0.2) = 0.4 + 0.6 = 1$ ✓</p>
+<p><strong>X is a discrete random variable</strong></p>
+</details>
+
+<h3>Part (b) [2 marks]</h3>
+<p>
+Find $P(X = 4)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X = 4) = \boxed{0.1}$</p>
+</details>
+
+<h3>Part (c) [2 marks]</h3>
+<p>
+Find $P(X < 4)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$X < 4$ means $X = 1, 2, 3$</p>
+<p>$P = 0.2 + 0.1 + 0.2 = \boxed{0.5}$</p>
+</details>
+
+<h3>Part (d) [2 marks]</h3>
+<p>
+Find $P(3 \leq X < 6)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$3 \leq X < 6$ means $X = 3, 4, 5$</p>
+<p>$P = 0.2 + 0.1 + 0.2 = \boxed{0.5}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [12 marks]</h2>
+<p>
+X has probability function:
+</p>
+$$P(X = x) = \begin{cases} 0.1 & \text{for } x = -1, 0, 5 \\ a & \text{for } x = 1, 3 \\ 0.3 & \text{for } x = 4 \\ 0 & \text{otherwise} \end{cases}$$
+
+<h3>Part (a) [3 marks]</h3>
+<p>
+Write probability distribution table in terms of a
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<table>
+<tr><th>x</th><th>-1</th><th>0</th><th>1</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><td>P(X=x)</td><td>0.1</td><td>0.1</td><td>a</td><td>a</td><td>0.3</td><td>0.1</td></tr>
+</table>
+</details>
+
+<h3>Part (b) [3 marks]</h3>
+<p>
+Find a
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Sum of probabilities = 1:</p>
+<p>$0.1 + 0.1 + a + a + 0.3 + 0.1 = 1$</p>
+<p>$0.6 + 2a = 1$</p>
+<p>$2a = 0.4$</p>
+<p>$a = \boxed{0.2}$</p>
+</details>
+
+<h3>Part (c) [3 marks]</h3>
+<p>
+Find $P(X \geq 3)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$X \geq 3$ means $X = 3, 4, 5$</p>
+<p>$P = 0.2 + 0.3 + 0.1 = \boxed{0.6}$</p>
+</details>
+
+<h3>Part (d) [3 marks]</h3>
+<p>
+Find the CDF F(x)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Order the values: -1, 0, 1, 3, 4, 5</p>
+<p>$$F(x) = \begin{cases} 0 & x < -1 \\ 0.1 & -1 \leq x < 0 \\ 0.2 & 0 \leq x < 1 \\ 0.4 & 1 \leq x < 3 \\ 0.6 & 3 \leq x < 4 \\ 0.9 & 4 \leq x < 5 \\ 1 & x \geq 5 \end{cases}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [12 marks]</h2>
+<p>
+Drawer: 8 white socks, 4 yellow socks. Alisha takes 2 socks one after another.
+</p>
+
+<h3>Part (a) [4 marks]</h3>
+<p>
+Show P(one white and one yellow) = $\frac{16}{33}$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Method 1: W then Y + Y then W</p>
+<p>$= \frac{8}{12} \times \frac{4}{11} + \frac{4}{12} \times \frac{8}{11}$</p>
+<p>$= \frac{32}{132} + \frac{32}{132} = \frac{64}{132} = \boxed{\frac{16}{33}}$ ✓</p>
+</details>
+
+<h3>Part (b) [8 marks]</h3>
+<p>
+Y = number of white socks taken. Find PDF and CDF of Y.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>PDF:</strong></p>
+<p>$P(Y=0)$ (both yellow): $\frac{4}{12} \times \frac{3}{11} = \frac{12}{132} = \frac{1}{11}$</p>
+<p>$P(Y=1)$ (one white, one yellow): $\frac{16}{33}$ (from part a)</p>
+<p>$P(Y=2)$ (both white): $\frac{8}{12} \times \frac{7}{11} = \frac{56}{132} = \frac{14}{33}$</p>
+
+<p><strong>CDF:</strong></p>
+<p>$$F(y) = \begin{cases} 0 & y < 0 \\ \frac{1}{11} & 0 \leq y < 1 \\ \frac{1}{11} + \frac{16}{33} = \frac{19}{33} & 1 \leq y < 2 \\ 1 & y \geq 2 \end{cases}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [15 marks]</h2>
+<p>
+X has probability distribution:
+</p>
+
+<p>
+| X=x | 1 | 2 | 3 | 4 | 5 |
+|-----|---|---|---|---|---|
+| P(X=x) | 0.2 | 0.25 | 0.4 | k | 0.05 |
+</p>
+
+<h3>Part (a) [3 marks]</h3>
+<p>
+Find k
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$0.2 + 0.25 + 0.4 + k + 0.05 = 1$</p>
+<p>$0.9 + k = 1$</p>
+<p>$k = \boxed{0.1}$</p>
+</details>
+
+<h3>Part (b) [6 marks]</h3>
+<p>
+Find:
+</p>
+
+<h4>(i) [2 marks]</h4>
+<p>
+$P(1 \leq X \leq 3)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = 0.2 + 0.25 + 0.4 = \boxed{0.85}$</p>
+</details>
+
+<h4>(ii) [2 marks]</h4>
+<p>
+P(X is at least 3)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X \geq 3) = 0.4 + 0.1 + 0.05 = \boxed{0.55}$</p>
+</details>
+
+<h4>(iii) [2 marks]</h4>
+<p>
+$P(2 < X < 5)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$2 < X < 5$ means $X = 3, 4$</p>
+<p>$P = 0.4 + 0.1 = \boxed{0.5}$</p>
+</details>
+
+<h3>Part (c) [6 marks]</h3>
+<p>
+Find the CDF F(x)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$F(x) = \begin{cases} 0 & x < 1 \\ 0.2 & 1 \leq x < 2 \\ 0.45 & 2 \leq x < 3 \\ 0.85 & 3 \leq x < 4 \\ 0.95 & 4 \leq x < 5 \\ 1 & x \geq 5 \end{cases}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [20 marks]</h2>
+<p>
+Two fair tetrahedral dice (faces 1, 2, 3, 4). D = 0 if both dice same. Otherwise D = positive difference.
+</p>
+
+<h3>Part (a) [8 marks]</h3>
+<p>
+Complete the table showing D values
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Table of differences (Die 1 rows, Die 2 columns):</p>
+<table>
+<tr><td></td><td>1</td><td>2</td><td>3</td><td>4</td></tr>
+<tr><td>1</td><td>0</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><td>2</td><td>1</td><td>0</td><td>1</td><td>2</td></tr>
+<tr><td>3</td><td>2</td><td>1</td><td>0</td><td>1</td></tr>
+<tr><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
+</table>
+</details>
+
+<h3>Part (b) [6 marks]</h3>
+<p>
+Find:
+</p>
+
+<h4>(i) [3 marks]</h4>
+<p>
+$P(D \leq 1)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Count: D ≤ 1 means D = 0 or 1</p>
+<p>From table: 4 zeros + 6 ones = 10 outcomes</p>
+<p>Total outcomes: 16</p>
+<p>$P = \frac{10}{16} = \boxed{\frac{5}{8}}$</p>
+</details>
+
+<h4>(ii) [3 marks]</h4>
+<p>
+$P(D > 2)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>D > 2 means D = 3</p>
+<p>Count: 2 threes in table</p>
+<p>$P = \frac{2}{16} = \boxed{\frac{1}{8}}$</p>
+</details>
+
+<h3>Part (c) [6 marks]</h3>
+<p>
+Find PDF and CDF of D
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>PDF:</strong></p>
+<p>$P(D=0) = \frac{4}{16} = \frac{1}{4}$</p>
+<p>$P(D=1) = \frac{6}{16} = \frac{3}{8}$</p>
+<p>$P(D=2) = \frac{4}{16} = \frac{1}{4}$</p>
+<p>$P(D=3) = \frac{2}{16} = \frac{1}{8}$</p>
+
+<p><strong>CDF:</strong></p>
+<p>$$F(d) = \begin{cases} 0 & d < 0 \\ 0.25 & 0 \leq d < 1 \\ 0.625 & 1 \leq d < 2 \\ 0.875 & 2 \leq d < 3 \\ 1 & d \geq 3 \end{cases}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 7 [13 marks]</h2>
+<p>
+X has CDF:
+</p>
+$$F(x) = \begin{cases} 0 & x < 0.1 \\ 0.05 & 0.1 \leq x < 0.2 \\ 0.3 & 0.2 \leq x < 0.3 \\ 0.6 & 0.3 \leq x < 0.4 \\ 0.75 & 0.4 \leq x < 0.5 \\ 1 & x \geq 0.5 \end{cases}$$
+
+<h3>Part (a) [6 marks]</h3>
+<p>
+Find:
+</p>
+
+<h4>(i) [2 marks]</h4>
+<p>
+$P(X \leq 0.4)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X \leq 0.4) = F(0.4) = \boxed{0.75}$</p>
+</details>
+
+<h4>(ii) [2 marks]</h4>
+<p>
+$P(X > 0.3)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X > 0.3) = 1 - P(X \leq 0.3) = 1 - F(0.3) = 1 - 0.6 = \boxed{0.4}$</p>
+</details>
+
+<h4>(iii) [2 marks]</h4>
+<p>
+$P(X = 0.3)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X = 0.3) = F(0.3) - F(0.3^-) = 0.6 - 0.3 = \boxed{0.3}$</p>
+<p><strong>⚠️ Nuance:</strong> For discrete RV: $P(X=x) = F(x) - \lim_{t \to x^-} F(t)$</p>
+</details>
+
+<h3>Part (b) [7 marks]</h3>
+<p>
+Find the PDF of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<table>
+<tr><th>x</th><th>0.1</th><th>0.2</th><th>0.3</th><th>0.4</th><th>0.5</th></tr>
+<tr><td>P(X=x)</td><td>0.05</td><td>0.25</td><td>0.3</td><td>0.15</td><td>0.25</td></tr>
+</table>
+<p>Check: $0.05+0.25+0.3+0.15+0.25 = 1.0$ ✓</p>
+</details>
+
+<p>
+---
+</p>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: Validating PDF</strong> — High frequency (Q1)<br>
+<em>Strategy:</em> Check (1) all P(X=x) ≥ 0, (2) sum of all probabilities = 1</p>
+
+<p><strong>Pattern 2: Finding Unknown Constant</strong> — High frequency (Q3b, Q5a)<br>
+<em>Strategy:</em> Use fact that total probability = 1 to solve for unknown</p>
+
+<p><strong>Pattern 3: Converting PDF to CDF</strong> — High frequency<br>
+<em>Strategy:</em> CDF F(x) = P(X ≤ x) = sum of all probabilities for values ≤ x</p>
+
+<p><strong>Pattern 4: Converting CDF to PDF</strong> — Medium frequency (Q7b)<br>
+<em>Strategy:</em> P(X=x) = F(x) - F(x⁻) = jump in CDF at x</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

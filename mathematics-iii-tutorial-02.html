@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics III - Tutorial 02</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | Mathematics III
+</div>
+
+<hr>
+
+<h1>Tutorial 2: Conditional Probability, Independent Events, and Bayes Theorem</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers conditional probability, independent events, mutually exclusive events, and Bayes' theorem applications.
+</p>
+
+<strong>Topics:</strong> Conditional Probability, Bayes Theorem, Independent Events  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 90 minutes
+
+<p>
+---
+</p>
+
+<h2>Section A: Conditional Probability</h2>
+
+<h3>Question 1 [10 marks]</h3>
+<p>
+Given: $P(A) = 0.4$, $P(B|A) = 0.7$, $P(A' \cap B) = 0.3$
+</p>
+
+<h4>Part (a) [2 marks]</h4>
+<p>
+Find $P(A \cap B)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(B|A) = \frac{P(A \cap B)}{P(A)}$</p>
+<p>$0.7 = \frac{P(A \cap B)}{0.4}$</p>
+<p>$P(A \cap B) = 0.7 \times 0.4 = \boxed{0.28}$</p>
+</details>
+
+<h4>Part (b) [2 marks]</h4>
+<p>
+Find $P(B)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(B) = P(A \cap B) + P(A' \cap B) = 0.28 + 0.3 = \boxed{0.58}$</p>
+</details>
+
+<h4>Part (c) [2 marks]</h4>
+<p>
+Find $P(A \cup B)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.4 + 0.58 - 0.28 = \boxed{0.7}$</p>
+</details>
+
+<h4>Part (d) [2 marks]</h4>
+<p>
+Find $P(A|B)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(A|B) = \frac{P(A \cap B)}{P(B)} = \frac{0.28}{0.58} = \boxed{\frac{14}{29} \approx 0.483}$</p>
+</details>
+
+<h4>Part (e) [2 marks]</h4>
+<p>
+Is $P(A|B) = P(B|A)$?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(B|A) = 0.7$ (given)</p>
+<p>$P(A|B) = \frac{14}{29} \approx 0.483$</p>
+<p><strong>No</strong>, they are not equal in general. $P(A|B) = P(B|A)$ only when $P(A) = P(B)$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 2 [10 marks]</h3>
+<p>
+Survey of 1000 ex-students:
+</p>
+
+<p>
+| | <4k | [4k,10k] | >10k |
+|---|---|---|---|
+| Class of 1990 | 250 | 300 | 80 |
+| Class of 1989 | 150 | 120 | 100 |
+</p>
+
+<h4>Part (a) [2 marks]</h4>
+<p>
+P(Class of 1990 AND earning < RM4000)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{250}{1000} = \boxed{0.25}$</p>
+</details>
+
+<h4>Part (b) [2 marks]</h4>
+<p>
+P(Earns > RM10000)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Total >10k: 80 + 100 = 180</p>
+<p>$P = \frac{180}{1000} = \boxed{0.18}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+P(Earns [4k,10k] | Class of 1989)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Class of 1989 total: 150 + 120 + 100 = 370</p>
+<p>$P = \frac{120}{370} = \boxed{\frac{12}{37} \approx 0.324}$</p>
+</details>
+
+<h4>Part (d) [3 marks]</h4>
+<p>
+P(Class of 1990 | Earns > RM4000)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Earns >4k: 300 + 80 + 120 + 100 = 600</p>
+<p>Class 1990 AND >4k: 300 + 80 = 380</p>
+<p>$P = \frac{380}{600} = \boxed{\frac{19}{30} \approx 0.633}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 3 [6 marks]</h3>
+<p>
+Urn: 3 blue, 2 white balls. Choose 2 without replacement.
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+P(Second is blue | First is white)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>After removing 1 white: 3 blue, 1 white remain (4 total)</p>
+<p>$P = \frac{3}{4} = \boxed{0.75}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+P(Both are blue)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{3}{5} \times \frac{2}{4} = \frac{6}{20} = \boxed{0.3}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Section B: Independent Events</h2>
+
+<h3>Question 4 [9 marks]</h3>
+<p>
+P(Ameera gets A) = $\frac{3}{4}$, P(Bella gets A) = $\frac{1}{2}$, P(Celline gets A) = $\frac{4}{5}$
+</p>
+
+<p>
+Events are independent.
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+P(All three get A)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{3}{4} \times \frac{1}{2} \times \frac{4}{5} = \frac{12}{40} = \boxed{\frac{3}{10} = 0.3}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+P(None gets A)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{1}{4} \times \frac{1}{2} \times \frac{1}{5} = \boxed{\frac{1}{40} = 0.025}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+P(Only Ameera gets A)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{3}{4} \times \frac{1}{2} \times \frac{1}{5} = \boxed{\frac{3}{40} = 0.075}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Section C: Bayes Theorem</h2>
+
+<h3>Question 5 [12 marks]</h3>
+<p>
+Box A: 4 red, 2 white. Box B: 2 red, 2 white, 1 green.
+</p>
+
+<p>
+Roll die: if < 3, choose from Box A; else choose from Box B.
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+P(Red from Box A)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>P(Box A) = $\frac{2}{6} = \frac{1}{3}$</p>
+<p>P(Red|A) = $\frac{4}{6} = \frac{2}{3}$</p>
+<p>$P = \frac{1}{3} \times \frac{2}{3} = \boxed{\frac{2}{9}}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+P(White from Box B)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>P(Box B) = $\frac{4}{6} = \frac{2}{3}$</p>
+<p>P(White|B) = $\frac{2}{5}$</p>
+<p>$P = \frac{2}{3} \times \frac{2}{5} = \boxed{\frac{4}{15}}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+P(Red ball chosen)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(Red) = P(Red|A)P(A) + P(Red|B)P(B)$</p>
+<p>$= \frac{2}{3} \times \frac{1}{3} + \frac{2}{5} \times \frac{2}{3} = \frac{2}{9} + \frac{4}{15}$</p>
+<p>$= \frac{10+12}{45} = \boxed{\frac{22}{45}}$</p>
+</details>
+
+<h4>Part (d) [3 marks]</h4>
+<p>
+P(Box B | Red ball)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(B|Red) = \frac{P(Red|B)P(B)}{P(Red)} = \frac{\frac{2}{5} \times \frac{2}{3}}{\frac{22}{45}}$</p>
+<p>$= \frac{\frac{4}{15}}{\frac{22}{45}} = \frac{4}{15} \times \frac{45}{22} = \boxed{\frac{6}{11}}$</p>
+<p><strong>⚠️ Nuance:</strong> This is Bayes' theorem - reverse conditional probability</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 6 [10 marks]</h3>
+<p>
+College: 100 lecturers (70 full-time, 30 part-time)
+- Full-time: 45 drove car, 25 did not
+- Part-time: 12 drove car, 18 did not
+</p>
+
+<h4>Part (a) [8 marks]</h4>
+<p>
+Find:
+</p>
+
+<p>
+##### (i) [2 marks]
+P(Part-time AND drove car)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{12}{100} = \boxed{0.12}$</p>
+</details>
+
+<p>
+##### (ii) [2 marks]
+P(Full-time AND did not drive)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = \frac{25}{100} = \boxed{0.25}$</p>
+</details>
+
+<p>
+##### (iii) [2 marks]
+P(Full-time OR drove car)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P = P(F) + P(D) - P(F \cap D) = \frac{70}{100} + \frac{57}{100} - \frac{45}{100}$</p>
+<p>$= \frac{82}{100} = \boxed{0.82}$</p>
+</details>
+
+<p>
+##### (iv) [2 marks]
+P(Part-time | Drove car)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Total drove car: 45 + 12 = 57</p>
+<p>$P = \frac{12}{57} = \boxed{\frac{4}{19} \approx 0.211}$</p>
+</details>
+
+<h4>Part (b) [2 marks]</h4>
+<p>
+Are "drove car" and "full-time" independent?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Check: Does $P(Drove|Full-time) = P(Drove)$?</p>
+<p>$P(Drove|Full-time) = \frac{45}{70} = \frac{9}{14} \approx 0.643$</p>
+<p>$P(Drove) = \frac{57}{100} = 0.57$</p>
+<p><strong>No</strong>, they are not independent (0.643 ≠ 0.57)</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 7 [12 marks]</h3>
+<p>
+Computer company XX subcontracts:
+- 35% to A
+- 65% to B
+</p>
+
+<p>
+Manufacturer A subcontracts:
+- 60% to C (1.5% defective)
+- 40% to D (1.0% defective)
+</p>
+
+<p>
+Manufacturer B subcontracts:
+- 30% to E (1.2% defective)
+- 50% to F (1.25% defective)
+- 20% to G (0.85% defective)
+</p>
+
+<h4>Part (a) [6 marks]</h4>
+<p>
+P(Monitor is defective)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(D) = P(D|C)P(C) + P(D|D)P(D) + P(D|E)P(E) + P(D|F)P(F) + P(D|G)P(G)$</p>
+<p>$P(C) = 0.35 \times 0.60 = 0.21$</p>
+<p>$P(D) = 0.35 \times 0.40 = 0.14$</p>
+<p>$P(E) = 0.65 \times 0.30 = 0.195$</p>
+<p>$P(F) = 0.65 \times 0.50 = 0.325$</p>
+<p>$P(G) = 0.65 \times 0.20 = 0.13$</p>
+<p>$P(D) = 0.015(0.21) + 0.01(0.14) + 0.012(0.195) + 0.0125(0.325) + 0.0085(0.13)$</p>
+<p>$= 0.00315 + 0.0014 + 0.00234 + 0.0040625 + 0.001105$</p>
+<p>$= \boxed{0.0120575 \approx 0.0121}$ or 1.21%</p>
+</details>
+
+<h4>Part (b) [6 marks]</h4>
+<p>
+P(From C | Defective)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(C|D) = \frac{P(D|C)P(C)}{P(D)} = \frac{0.015 \times 0.21}{0.0120575}$</p>
+<p>$= \frac{0.00315}{0.0120575} = \boxed{0.261}$ or about 26.1%</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 8 [10 marks]</h3>
+<p>
+Raqib drives to UM:
+- P(Route A) = $\frac{1}{3}$, P(Late|A) = $\frac{1}{5}$
+- P(Route B) = $\frac{1}{5}$, P(Late|B) = $\frac{1}{4}$
+- P(Route C) = $1 - \frac{1}{3} - \frac{1}{5} = \frac{7}{15}$, P(Late|C) = $\frac{3}{7}$
+</p>
+
+<h4>Part (a) [5 marks]</h4>
+<p>
+P(Late)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(Late) = P(Late|A)P(A) + P(Late|B)P(B) + P(Late|C)P(C)$</p>
+<p>$= \frac{1}{5} \times \frac{1}{3} + \frac{1}{4} \times \frac{1}{5} + \frac{3}{7} \times \frac{7}{15}$</p>
+<p>$= \frac{1}{15} + \frac{1}{20} + \frac{1}{5} = \frac{4+3+12}{60} = \boxed{\frac{19}{60} \approx 0.317}$</p>
+</details>
+
+<h4>Part (b) [5 marks]</h4>
+<p>
+P(Route A | Late)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(A|Late) = \frac{P(Late|A)P(A)}{P(Late)} = \frac{\frac{1}{15}}{\frac{19}{60}}$</p>
+<p>$= \frac{1}{15} \times \frac{60}{19} = \boxed{\frac{4}{19} \approx 0.211}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 9 [10 marks]</h3>
+<p>
+90 applicants for a job:
+</p>
+
+<p>
+| | University Graduates | Non-graduates |
+|---|---|---|
+| ≥3 years experience | 18 | 9 |
+| <3 years experience | 36 | 27 |
+</p>
+
+<p>
+A: University graduate, B: ≥3 years experience
+</p>
+
+<h4>Part (a) [6 marks]</h4>
+<p>
+Find:
+</p>
+
+<p>
+##### (i) [2 marks]
+$P(A'|B')$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$B'$ (less than 3 years): 36 + 27 = 63</p>
+<p>$A' \cap B'$ (non-graduate AND <3 years): 27</p>
+<p>$P(A'|B') = \frac{27}{63} = \boxed{\frac{3}{7}}$</p>
+</details>
+
+<p>
+##### (ii) [2 marks]
+$P(B|A)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>University graduates: 18 + 36 = 54</p>
+<p>Graduates with ≥3 years: 18</p>
+<p>$P(B|A) = \frac{18}{54} = \boxed{\frac{1}{3}}$</p>
+</details>
+
+<p>
+##### (iii) [2 marks]
+$P(A \cup B)'$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$(A \cup B)'$ means neither graduate nor ≥3 years experience</p>
+<p>Non-graduates with <3 years: 27</p>
+<p>$P = \frac{27}{90} = \boxed{0.3}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: Bayes' Theorem Structure</strong> — High frequency (Q5d, Q7b, Q8b)<br>
+<em>Strategy:</em> $P(A|B) = \frac{P(B|A)P(A)}{P(B)}$ where $P(B)$ is total probability</p>
+
+<p><strong>Pattern 2: Independence Check</strong> — Medium frequency (Q6b)<br>
+<em>Strategy:</em> Events independent iff $P(A|B) = P(A)$ or $P(A \cap B) = P(A)P(B)$</p>
+
+<p><strong>Pattern 3: Tree Diagrams</strong> — High frequency<br>
+<em>Strategy:</em> Draw tree for multi-stage problems to visualize conditional probabilities</p>
+
+<p><strong>Pattern 4: Law of Total Probability</strong> — High frequency<br>
+<em>Strategy:</em> $P(B) = \sum P(B|A_i)P(A_i)$ for partition $A_i$</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

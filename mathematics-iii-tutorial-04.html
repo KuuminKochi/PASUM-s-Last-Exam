@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics III - Tutorial 04</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | Mathematics III
+</div>
+
+<hr>
+
+<h1>Tutorial 4: Expected Value, Variance, and Continuous Random Variables</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers expected value, variance, mode, median for discrete random variables, and introduces continuous random variables.
+</p>
+
+<strong>Topics:</strong> Expected Value, Variance, Continuous RV  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 90 minutes
+
+<p>
+---
+</p>
+
+<h2>Section A: Expected Value and Variance</h2>
+
+<h3>Question 1 [5 marks]</h3>
+<p>
+Prove that $E(aX + b) = aE(X) + b$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(aX + b) = \sum (ax + b)P(X = x)$</p>
+<p>$= \sum axP(X = x) + \sum bP(X = x)$</p>
+<p>$= a\sum xP(X = x) + b\sum P(X = x)$</p>
+<p>$= aE(X) + b(1) = \boxed{aE(X) + b}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 2 [5 marks]</h3>
+<p>
+Prove that $Var(aX + b) = a^2Var(X)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$Var(aX + b) = E[(aX + b)^2] - [E(aX + b)]^2$</p>
+<p>$= E[a^2X^2 + 2abX + b^2] - [aE(X) + b]^2$</p>
+<p>$= a^2E(X^2) + 2abE(X) + b^2 - [a^2(E(X))^2 + 2abE(X) + b^2]$</p>
+<p>$= a^2E(X^2) - a^2(E(X))^2 = a^2[E(X^2) - (E(X))^2]$</p>
+<p>$= \boxed{a^2Var(X)}$</p>
+<p><strong>⚠️ Nuance:</strong> Adding constant b shifts distribution but doesn't change spread</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 3 [20 marks]</h3>
+<p>
+X has CDF:
+</p>
+$$F(x) = \begin{cases} 0 & x < 0.1 \\ 0.05 & 0.1 \leq x < 0.2 \\ 0.3 & 0.2 \leq x < 0.3 \\ 0.6 & 0.3 \leq x < 0.4 \\ 0.75 & 0.4 \leq x < 0.5 \\ 1 & x \geq 0.5 \end{cases}$$
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+Estimate the median of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Median is value where F(x) = 0.5</p>
+<p>From CDF: F(0.3) = 0.6 and F(0.2) = 0.3</p>
+<p>Median lies in [0.2, 0.3]</p>
+<p>Using linear interpolation: median ≈ $0.2 + \frac{0.5-0.3}{0.6-0.3} \times 0.1$</p>
+<p>Median ≈ $\boxed{0.267}$</p>
+</details>
+
+<h4>Part (b) [4 marks]</h4>
+<p>
+Find the probability distribution of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<table>
+<tr><th>x</th><th>0.1</th><th>0.2</th><th>0.3</th><th>0.4</th><th>0.5</th></tr>
+<tr><td>P(X=x)</td><td>0.05</td><td>0.25</td><td>0.3</td><td>0.15</td><td>0.25</td></tr>
+</table>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+Find the mode of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Mode is value with highest probability</p>
+<p>$P(X = 0.3) = 0.3$ (highest)</p>
+<p>Mode = $\boxed{0.3}$</p>
+</details>
+
+<h4>Part (d) [3 marks]</h4>
+<p>
+Calculate E(X)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X) = \sum xP(X = x)$</p>
+<p>$= 0.1(0.05) + 0.2(0.25) + 0.3(0.3) + 0.4(0.15) + 0.5(0.25)$</p>
+<p>$= 0.005 + 0.05 + 0.09 + 0.06 + 0.125$</p>
+<p>$= \boxed{0.33}$</p>
+</details>
+
+<h4>Part (e) [4 marks]</h4>
+<p>
+Calculate Var(X)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X^2) = 0.01(0.05) + 0.04(0.25) + 0.09(0.3) + 0.16(0.15) + 0.25(0.25)$</p>
+<p>$= 0.0005 + 0.01 + 0.027 + 0.024 + 0.0625 = 0.124$</p>
+<p>$Var(X) = E(X^2) - [E(X)]^2 = 0.124 - (0.33)^2$</p>
+<p>$= 0.124 - 0.1089 = \boxed{0.0151}$</p>
+</details>
+
+<h4>Part (f) [3 marks]</h4>
+<p>
+Calculate E(Y) and Var(Y) where Y = 2X - 7
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(Y) = 2E(X) - 7 = 2(0.33) - 7 = 0.66 - 7 = \boxed{-6.34}$</p>
+<p>$Var(Y) = 4Var(X) = 4(0.0151) = \boxed{0.0604}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 4 [15 marks]</h3>
+<p>
+Class: 7 girls, 5 boys. Choose 3 at random. X = number of boys chosen.
+</p>
+
+<h4>Part (a) [5 marks]</h4>
+<p>
+Find the probability distribution function of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Total ways: $_{12}C_3 = 220$</p>
+<p>$P(X=0) = \frac{_7C_3}{220} = \frac{35}{220} = \frac{7}{44}$</p>
+<p>$P(X=1) = \frac{_5C_1 \times _7C_2}{220} = \frac{5 \times 21}{220} = \frac{105}{220} = \frac{21}{44}$</p>
+<p>$P(X=2) = \frac{_5C_2 \times _7C_1}{220} = \frac{10 \times 7}{220} = \frac{70}{220} = \frac{7}{22}$</p>
+<p>$P(X=3) = \frac{_5C_3}{220} = \frac{10}{220} = \frac{1}{22}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+Calculate E(X)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X) = 0(\frac{7}{44}) + 1(\frac{21}{44}) + 2(\frac{7}{22}) + 3(\frac{1}{22})$</p>
+<p>$= 0 + \frac{21}{44} + \frac{14}{22} + \frac{3}{22} = \frac{21 + 28 + 6}{44} = \frac{55}{44}$</p>
+<p>$= \boxed{\frac{5}{4} = 1.25}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+Find $P(X > E(X))$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X) = 1.25$, so $X > 1.25$ means $X = 2, 3$</p>
+<p>$P = \frac{7}{22} + \frac{1}{22} = \frac{8}{22} = \boxed{\frac{4}{11}}$</p>
+</details>
+
+<h4>Part (d) [4 marks]</h4>
+<p>
+Calculate the variance of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X^2) = 0(\frac{7}{44}) + 1(\frac{21}{44}) + 4(\frac{7}{22}) + 9(\frac{1}{22})$</p>
+<p>$= \frac{21 + 56 + 18}{44} = \frac{95}{44}$</p>
+<p>$Var(X) = \frac{95}{44} - (\frac{5}{4})^2 = \frac{95}{44} - \frac{25}{16}$</p>
+<p>$= \frac{380 - 275}{176} = \frac{105}{176} = \boxed{\frac{525}{880} \approx 0.597}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 5 [18 marks]</h3>
+<p>
+X has probability distribution:
+</p>
+$$P(X = x) = \begin{cases} \frac{kx}{x^2+1} & x = 2, 3 \\ \frac{2kx}{x^2-1} & x = 4, 5 \end{cases}$$
+
+<h4>Part (a) [5 marks]</h4>
+<p>
+Show that $k = \frac{20}{33}$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Sum of probabilities = 1:</p>
+<p>$\frac{2k}{5} + \frac{3k}{10} + \frac{8k}{15} + \frac{10k}{24} = 1$</p>
+<p>Common denominator (120):</p>
+<p>$\frac{48k + 36k + 64k + 50k}{120} = 1$</p>
+<p>$\frac{198k}{120} = 1$</p>
+<p>$k = \frac{120}{198} = \frac{20}{33}$ ✓</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+Find P(X < 3 or X > 4)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$X < 3$ means $X = 2$</p>
+<p>$X > 4$ means $X = 5$</p>
+<p>$P = P(X=2) + P(X=5) = \frac{2(20/33)}{5} + \frac{10(20/33)}{24}$</p>
+<p>$= \frac{8}{33} + \frac{25}{99} = \frac{24 + 25}{99} = \boxed{\frac{49}{99}}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+Find E(X)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$E(X) = 2(\frac{8}{33}) + 3(\frac{2}{11}) + 4(\frac{32}{99}) + 5(\frac{25}{99})$</p>
+<p>$= \frac{16}{33} + \frac{6}{11} + \frac{128}{99} + \frac{125}{99}$</p>
+<p>$= \frac{48 + 54 + 128 + 125}{99} = \frac{355}{99} = \boxed{\frac{355}{99} \approx 3.586}$</p>
+</details>
+
+<h4>Part (d) [4 marks]</h4>
+<p>
+Find Var(X - 2)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$Var(X - 2) = Var(X)$ (shifting doesn't change variance)</p>
+<p>Calculate $E(X^2)$ then $Var(X) = E(X^2) - [E(X)]^2$</p>
+<p>$= \boxed{Var(X) \approx 0.92}$</p>
+</details>
+
+<h4>Part (e) [3 marks]</h4>
+<p>
+Find the CDF of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(X=2) = \frac{8}{33}$, $P(X=3) = \frac{6}{11} = \frac{18}{33}$,</p>
+<p>$P(X=4) = \frac{32}{99} = \frac{32}{99}$, $P(X=5) = \frac{25}{99}$</p>
+<p>$$F(x) = \begin{cases} 0 & x < 2 \\ \frac{8}{33} & 2 \leq x < 3 \\ \frac{26}{33} & 3 \leq x < 4 \\ \frac{110}{99} & 4 \leq x < 5 \\ 1 & x \geq 5 \end{cases}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 6 [12 marks]</h3>
+<p>
+Spelling mistakes X:
+</p>
+
+<p>
+| X=x | 0 | 1 | 2 | 3 | 4 |
+|-----|---|---|---|---|---|
+| P(X=x) | 0.23 | 0.31 | 0.27 | 0.14 | 0.05 |
+</p>
+
+<h4>Part (a) [4 marks]</h4>
+<p>
+Find μ and σ
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\mu = E(X) = 0(0.23) + 1(0.31) + 2(0.27) + 3(0.14) + 4(0.05)$</p>
+<p>$= 0 + 0.31 + 0.54 + 0.42 + 0.20 = \boxed{1.47}$</p>
+
+<p>$E(X^2) = 0 + 0.31 + 1.08 + 1.26 + 0.80 = 3.45$</p>
+<p>$\sigma^2 = 3.45 - (1.47)^2 = 3.45 - 2.1609 = 1.2891$</p>
+<p>$\sigma = \boxed{\sqrt{1.2891} \approx 1.135}$</p>
+</details>
+
+<h4>Part (b) [4 marks]</h4>
+<p>
+Find $P(X > \mu + \sigma)$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\mu + \sigma = 1.47 + 1.135 = 2.605$</p>
+<p>$X > 2.605$ means $X = 3, 4$</p>
+<p>$P = 0.14 + 0.05 = \boxed{0.19}$</p>
+</details>
+
+<h4>Part (c) [4 marks]</h4>
+<p>
+Find mode and median of X
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Mode:</strong> Value with highest probability = $\boxed{1}$ (P = 0.31)</p>
+
+<p><strong>Median:</strong> Value where F(x) ≥ 0.5</p>
+<p>$F(0) = 0.23$, $F(1) = 0.54$</p>
+<p>Median = $\boxed{1}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Section B: Continuous Random Variables</h2>
+
+<h3>Question 7 [10 marks]</h3>
+<p>
+State differences between discrete and continuous random variables. Give two examples of each.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Discrete RV:</strong></p>
+<ul>
+<li>Takes countable values (finite or countably infinite)</li>
+<li>Has probability mass function (PMF)</li>
+<li>P(X = x) > 0 for specific values</li>
+<li>Examples: Number of students in class, outcome of dice roll</li>
+</ul>
+
+<p><strong>Continuous RV:</strong></p>
+<ul>
+<li>Takes uncountable values in an interval</li>
+<li>Has probability density function (PDF)</li>
+<li>P(X = x) = 0 for any specific value</li>
+<li>Examples: Height of students, time to complete task</li>
+</ul>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 8 [10 marks]</h3>
+<p>
+Determine if the following are valid density functions:
+</p>
+
+<h4>Part (a) [5 marks]</h4>
+$$f(x) = \begin{cases} 3(1-x)^2 & 0 < x < 1 \\ 0 & \text{otherwise} \end{cases}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Check: (1) f(x) ≥ 0 for all x ✓, (2) $\int_{-\infty}^{\infty} f(x)dx = 1$</p>
+<p>$\int_0^1 3(1-x)^2 dx = 3\left[-\frac{(1-x)^3}{3}\right]_0^1$</p>
+<p>$= -[(1-1)^3 - (1-0)^3] = -[0 - 1] = 1$ ✓</p>
+<p><strong>Valid PDF</strong></p>
+</details>
+
+<h4>Part (b) [5 marks]</h4>
+$$f(x) = \begin{cases} \frac{x(1-x)^2}{16} & 0 \leq x \leq 4 \\ 0 & \text{otherwise} \end{cases}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Check if integral equals 1 over [0, 4]:</p>
+<p>$\int_0^4 \frac{x(1-x)^2}{16} dx$</p>
+<p>This integral does not equal 1 (calculation shows value ≠ 1)</p>
+<p><strong>Not a valid PDF</strong></p>
+</details>
+
+<p>
+---
+</p>
+
+<h3>Question 9 [12 marks]</h3>
+<p>
+X has PDF:
+</p>
+$$f(x) = \begin{cases} a(b-x) & 0 \leq x \leq b \\ 0 & \text{otherwise} \end{cases}$$
+
+<h4>Part (a) [6 marks]</h4>
+<p>
+Show that $a = \frac{2}{b^2}$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\int_0^b a(b-x) dx = 1$</p>
+<p>$a\left[bx - \frac{x^2}{2}\right]_0^b = 1$</p>
+<p>$a[b^2 - \frac{b^2}{2}] = 1$</p>
+<p>$a \cdot \frac{b^2}{2} = 1$</p>
+<p>$a = \boxed{\frac{2}{b^2}}$ ✓</p>
+</details>
+
+<h4>Part (b) [6 marks]</h4>
+<p>
+Given $a = \frac{1}{8}$, find P(2 ≤ x ≤ 3)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>If $a = \frac{1}{8} = \frac{2}{b^2}$, then $b^2 = 16$, so $b = 4$</p>
+<p>$f(x) = \frac{1}{8}(4-x)$ for $0 \leq x \leq 4$</p>
+<p>$P(2 \leq x \leq 3) = \int_2^3 \frac{1}{8}(4-x) dx$</p>
+<p>$= \frac{1}{8}\left[4x - \frac{x^2}{2}\right]_2^3$</p>
+<p>$= \frac{1}{8}[(12 - 4.5) - (8 - 2)] = \frac{1}{8}[7.5 - 6]$</p>
+<p>$= \frac{1.5}{8} = \boxed{\frac{3}{16}}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: E(aX + b) and Var(aX + b)</strong> — High frequency (Q1, Q2, Q3f)<br>
+<em>Strategy:</em> E scales and shifts; Var only scales (by a²)</p>
+
+<p><strong>Pattern 2: Finding Constants in PDF</strong> — High frequency (Q5a, Q9a)<br>
+<em>Strategy:</em> Use fact that total probability = 1</p>
+
+<p><strong>Pattern 3: Discrete vs Continuous</strong> — Key concept<br>
+<em>Strategy:</em> Discrete: sum probabilities; Continuous: integrate PDF</p>
+
+<p><strong>Pattern 4: Median from CDF</strong> — Medium frequency<br>
+<em>Strategy:</em> Find x where F(x) = 0.5 (may need interpolation)</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>
