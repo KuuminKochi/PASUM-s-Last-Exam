@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics II - Tutorial 04</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | Mathematics II | <a href="mathematics-iii.html">Mathematics III</a>
+</div>
+
+<hr>
+
+<h1>Tutorial 4: Trigonometric Substitution, Partial Fractions, and Definite Integrals</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers advanced integration techniques including trigonometric substitution, partial fraction decomposition, and definite integrals.
+</p>
+
+<strong>Topics:</strong> Trigonometric Substitution, Partial Fractions, Definite Integrals  
+<strong>Difficulty:</strong> Advanced  
+<strong>Estimated Time:</strong> 90 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [30 marks]</h2>
+<p>
+Using appropriate trigonometric substitutions, find:
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+$$\int \frac{x}{\sqrt{x^2 - 25}} \, dx$$
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Use $x = 5\sec\theta$ for $\sqrt{x^2 - a^2}$ form</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $x = 5\sec\theta$, $dx = 5\sec\theta\tan\theta \, d\theta$</p>
+<p>$\sqrt{x^2 - 25} = 5\tan\theta$</p>
+<p>$= \int \frac{5\sec\theta}{5\tan\theta} \cdot 5\sec\theta\tan\theta \, d\theta$</p>
+<p>$= 5\int \sec^2\theta \, d\theta = 5\tan\theta + C$</p>
+<p>$= \boxed{\sqrt{x^2 - 25} + C}$</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+$$\int \frac{dx}{x^2\sqrt{4-x^2}}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $x = 2\sin\theta$, $dx = 2\cos\theta \, d\theta$</p>
+<p>$\sqrt{4-x^2} = 2\cos\theta$</p>
+<p>$= \int \frac{2\cos\theta}{4\sin^2\theta \cdot 2\cos\theta} d\theta = \frac{1}{4}\int \csc^2\theta \, d\theta$</p>
+<p>$= -\frac{1}{4}\cot\theta + C = \boxed{-\frac{\sqrt{4-x^2}}{4x} + C}$</p>
+</details>
+
+<h3>Part (c) [5 marks]</h3>
+$$\int \frac{dx}{x\sqrt{x^2+4}}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $x = 2\tan\theta$, use substitution</p>
+<p>$= \boxed{-\frac{1}{2}\ln\left|\frac{2+\sqrt{x^2+4}}{x}\right| + C}$</p>
+</details>
+
+<h3>Part (d) [5 marks]</h3>
+$$\int \frac{dx}{(4x^2-9)^{3/2}}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $2x = 3\sec\theta$, so $x = \frac{3}{2}\sec\theta$</p>
+<p>$(4x^2-9)^{3/2} = 27\tan^3\theta$</p>
+<p>After substitution and simplification:</p>
+<p>$= \boxed{-\frac{x}{9\sqrt{4x^2-9}} + C}$</p>
+</details>
+
+<h3>Part (e) [5 marks]</h3>
+$$\int \frac{x^3}{\sqrt{16-x^2}} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $x = 4\sin\theta$</p>
+<p>Or use algebraic substitution: $u = 16-x^2$, $du = -2x \, dx$</p>
+<p>$= \boxed{-\frac{(16-x^2)^{3/2}}{3} + 16\sqrt{16-x^2} + C}$</p>
+</details>
+
+<h3>Part (f) [5 marks]</h3>
+$$\int \frac{dx}{x^2\sqrt{x^2+9}}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $x = 3\tan\theta$</p>
+<p>$= \boxed{-\frac{\sqrt{x^2+9}}{9x} + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [10 marks]</h2>
+
+<p>
+Given $\int \sec\alpha \, d\alpha = \ln|\sec\alpha + \tan\alpha| + C$, find:
+</p>
+
+$$\int \frac{1}{\sqrt{2x^2-4}} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Rewrite: $\frac{1}{\sqrt{2}}\int \frac{dx}{\sqrt{x^2-2}}$</p>
+<p>Let $x = \sqrt{2}\sec\theta$</p>
+<p>$= \frac{1}{\sqrt{2}}\ln|x + \sqrt{x^2-2}| + C$</p>
+<p>Or: $\boxed{\frac{1}{\sqrt{2}}\ln\left|\frac{x}{\sqrt{2}} + \sqrt{\frac{x^2}{2}-1}\right| + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [10 marks]</h2>
+
+<p>
+Evaluate the definite integral:
+</p>
+$$\int_0^4 |x^2 - 2| \, dx$$
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Find where $x^2 - 2 = 0$, split the integral at that point</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>$x^2 - 2 = 0$ when $x = \sqrt{2}$</p>
+<p>For $0 \leq x < \sqrt{2}$: $|x^2-2| = 2-x^2$</p>
+<p>For $\sqrt{2} \leq x \leq 4$: $|x^2-2| = x^2-2$</p>
+<p>$= \int_0^{\sqrt{2}}(2-x^2)dx + \int_{\sqrt{2}}^4(x^2-2)dx$</p>
+<p>$= \left[2x - \frac{x^3}{3}\right]_0^{\sqrt{2}} + \left[\frac{x^3}{3} - 2x\right]_{\sqrt{2}}^4$</p>
+<p>$= \left(2\sqrt{2} - \frac{2\sqrt{2}}{3}\right) + \left(\frac{64}{3}-8 - \frac{2\sqrt{2}}{3}+2\sqrt{2}\right)$</p>
+<p>$= \boxed{\frac{40}{3} + \frac{4\sqrt{2}}{3}}$ or $\frac{40 + 4\sqrt{2}}{3}$</p>
+<p><strong>⚠️ Nuance:</strong> Always split absolute value integrals at the zero point</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [20 marks]</h2>
+
+<p>
+Evaluate using partial fractions:
+</p>
+
+<h3>Part (a) [10 marks]</h3>
+$$\int \frac{dx}{(x+4)(x-1)}$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Partial fractions: $\frac{1}{(x+4)(x-1)} = \frac{A}{x+4} + \frac{B}{x-1}$</p>
+<p>$1 = A(x-1) + B(x+4)$</p>
+<p>At $x=1$: $1 = 5B$, so $B = \frac{1}{5}$</p>
+<p>At $x=-4$: $1 = -5A$, so $A = -\frac{1}{5}$</p>
+<p>$= \frac{1}{5}\int \left(\frac{1}{x-1} - \frac{1}{x+4}\right) dx$</p>
+<p>$= \boxed{\frac{1}{5}\ln\left|\frac{x-1}{x+4}\right| + C}$</p>
+</details>
+
+<h3>Part (b) [10 marks]</h3>
+$$\int \frac{x+5}{x^2-1} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$x^2-1 = (x+1)(x-1)$</p>
+<p>$\frac{x+5}{(x+1)(x-1)} = \frac{A}{x+1} + \frac{B}{x-1}$</p>
+<p>$x+5 = A(x-1) + B(x+1)$</p>
+<p>At $x=1$: $6 = 2B$, $B = 3$</p>
+<p>At $x=-1$: $4 = -2A$, $A = -2$</p>
+<p>$= \int \left(\frac{-2}{x+1} + \frac{3}{x-1}\right) dx$</p>
+<p>$= \boxed{-2\ln|x+1| + 3\ln|x-1| + C}$</p>
+<p>Or: $\ln\left|\frac{(x-1)^3}{(x+1)^2}\right| + C$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [15 marks]</h2>
+
+<p>
+Given $\int \frac{1}{x^2+1} dx = \tan^{-1}x + C$, find:
+</p>
+
+<h3>Part (a) [7 marks]</h3>
+$$\int \frac{x^3-2x^2+3}{x^4+x^2} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Factor: $x^4+x^2 = x^2(x^2+1)$</p>
+<p>Partial fractions: $\frac{x^3-2x^2+3}{x^2(x^2+1)} = \frac{A}{x} + \frac{B}{x^2} + \frac{Cx+D}{x^2+1}$</p>
+<p>Solve for A, B, C, D...</p>
+<p>$= \boxed{\ln|x| + \frac{3}{x} - 2\tan^{-1}x + C}$</p>
+</details>
+
+<h3>Part (b) [8 marks]</h3>
+$$\int \frac{5x^3-4x^2+2x-3}{x^4+x^2} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Similar approach with partial fractions</p>
+<p>$= \boxed{\frac{3}{x} + 2\ln|x| + \frac{5}{2}\ln(x^2+1) - 4\tan^{-1}x + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [15 marks]</h2>
+
+<p>
+Evaluate the definite integrals:
+</p>
+
+<h3>Part (a) [3 marks]</h3>
+$$\int_1^2 \left(x - \frac{1}{x}\right)\left(x + \frac{1}{x}\right) dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Expand: $\left(x - \frac{1}{x}\right)\left(x + \frac{1}{x}\right) = x^2 - \frac{1}{x^2}$</p>
+<p>$= \left[\frac{x^3}{3} + \frac{1}{x}\right]_1^2 = \left(\frac{8}{3} + \frac{1}{2}\right) - \left(\frac{1}{3} + 1\right)$</p>
+<p>$= \boxed{\frac{11}{6}}$</p>
+</details>
+
+<h3>Part (b) [3 marks]</h3>
+$$\int_0^3 (1-x)\sqrt{x} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \int_0^3 (x^{1/2} - x^{3/2}) dx = \left[\frac{2}{3}x^{3/2} - \frac{2}{5}x^{5/2}\right]_0^3$</p>
+<p>$= \frac{2}{3}(3\sqrt{3}) - \frac{2}{5}(9\sqrt{3}) = 2\sqrt{3} - \frac{18\sqrt{3}}{5}$</p>
+<p>$= \boxed{-\frac{8\sqrt{3}}{5}}$</p>
+</details>
+
+<h3>Part (c) [3 marks]</h3>
+$$\int_1^2 (2-3x)^2 \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Expand: $4 - 12x + 9x^2$</p>
+<p>$= \left[4x - 6x^2 + 3x^3\right]_1^2 = (8-24+24) - (4-6+3)$</p>
+<p>$= 8 - 1 = \boxed{7}$</p>
+</details>
+
+<h3>Part (d) [2 marks]</h3>
+$$\int_0^{\pi} (\sin x + \cos x) \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \left[-\cos x + \sin x\right]_0^{\pi} = (1+0) - (-1+0)$</p>
+<p>$= \boxed{2}$</p>
+</details>
+
+<h3>Part (e) [2 marks]</h3>
+$$\int_0^2 (e^x + 5^x) \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \left[e^x + \frac{5^x}{\ln 5}\right]_0^2 = (e^2 + \frac{25}{\ln 5}) - (1 + \frac{1}{\ln 5})$</p>
+<p>$= \boxed{e^2 - 1 + \frac{24}{\ln 5}}$</p>
+</details>
+
+<h3>Part (f) [2 marks]</h3>
+$$\int_1^e \left(x - \frac{1}{x}\right) dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \left[\frac{x^2}{2} - \ln|x|\right]_1^e = \left(\frac{e^2}{2} - 1\right) - \left(\frac{1}{2} - 0\right)$</p>
+<p>$= \boxed{\frac{e^2}{2} - \frac{3}{2}}$</p>
+</details>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: Trig Substitution Forms</strong> — High frequency<br>
+<em>Strategy:</em> $\sqrt{a^2-x^2}$: use $x=a\sin\theta$ | $\sqrt{x^2-a^2}$: use $x=a\sec\theta$ | $\sqrt{x^2+a^2}$: use $x=a\tan\theta$</p>
+
+<p><strong>Pattern 2: Partial Fraction Cases</strong> — High frequency<br>
+<em>Strategy:</em> Distinct linear: $\frac{A}{x-a} + \frac{B}{x-b}$ | Repeated: $\frac{A}{x} + \frac{B}{x^2}$ | Irreducible quadratic: $\frac{Ax+B}{x^2+c}$</p>
+
+<p><strong>Pattern 3: Absolute Value Definite Integrals</strong> — Medium frequency (Q3)<br>
+<em>Strategy:</em> Always split at where expression inside absolute value equals zero</p>
+
+<p><strong>Pattern 4: Check for Simplification First</strong> — High frequency<br>
+<em>Strategy:</em> Before diving into technique, check if algebra simplifies (Q6a)</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

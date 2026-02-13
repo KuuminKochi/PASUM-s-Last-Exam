@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics II - Tutorial 03</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | Mathematics II | <a href="mathematics-iii.html">Mathematics III</a>
+</div>
+
+<hr>
+
+<h1>Tutorial 3: Trigonometric Integrals</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers integration of trigonometric functions using identities, power reduction formulas, and product-to-sum transformations.
+</p>
+
+<strong>Topics:</strong> Trigonometric Integrals, Power Reduction  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 70 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [20 marks]</h2>
+<p>
+Evaluate the following integrals:
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+$$\int \tan^7 x \, dx$$
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Use identity $\tan^2 x = \sec^2 x - 1$ repeatedly</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>$$\int \tan^7 x \, dx = \int \tan^5 x (\sec^2 x - 1) dx$$</p>
+<p>$= \int \tan^5 x \sec^2 x \, dx - \int \tan^5 x \, dx$</p>
+<p>Continue reducing until you get $\int \tan x \, dx = -\ln|\cos x|$</p>
+<p><strong>Answer:</strong> $\boxed{\frac{\tan^6 x}{6} - \frac{\tan^4 x}{4} + \frac{\tan^2 x}{2} - \ln|\cos x| + C}$</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+$$\int \cos^5 x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \int \cos^4 x \cdot \cos x \, dx = \int (1 - \sin^2 x)^2 \cos x \, dx$</p>
+<p>Let $u = \sin x$, $du = \cos x \, dx$</p>
+<p>$= \int (1 - u^2)^2 du = \int (1 - 2u^2 + u^4) du$</p>
+<p>$= \boxed{\sin x - \frac{2}{3}\sin^3 x + \frac{1}{5}\sin^5 x + C}$</p>
+</details>
+
+<h3>Part (c) [5 marks]</h3>
+$$\int \sin^3 2x \cos^4 2x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \int \sin^2 2x \cos^4 2x \cdot \sin 2x \, dx$</p>
+<p>$= \int (1 - \cos^2 2x)\cos^4 2x \cdot \sin 2x \, dx$</p>
+<p>Let $u = \cos 2x$, $du = -2\sin 2x \, dx$</p>
+<p>$= -\frac{1}{2}\int (1 - u^2)u^4 du = -\frac{1}{2}\int (u^4 - u^6) du$</p>
+<p>$= \boxed{-\frac{\cos^5 2x}{10} + \frac{\cos^7 2x}{14} + C}$</p>
+</details>
+
+<h3>Part (d) [5 marks]</h3>
+$$\int \tan^5 x \sec^2 x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $u = \tan x$, $du = \sec^2 x \, dx$</p>
+<p>$= \int u^5 du = \boxed{\frac{\tan^6 x}{6} + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [10 marks]</h2>
+
+<p>
+Show that $\int \cos^4 x \sin^2 x \, dx = \frac{1}{16}\left(x - \frac{\sin 4x}{4} - \frac{\sin^3 2x}{3}\right) + C$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Use power reduction formulas:</p>
+<p>$\cos^2 x = \frac{1 + \cos 2x}{2}$, $\sin^2 x = \frac{1 - \cos 2x}{2}$</p>
+<p>$\cos^4 x \sin^2 x = \cos^2 x (\cos^2 x \sin^2 x) = \cos^2 x \cdot \frac{\sin^2 2x}{4}$</p>
+<p>$= \frac{1 + \cos 2x}{2} \cdot \frac{1 - \cos 4x}{8}$</p>
+<p>Expand and integrate term by term...</p>
+<p><strong>Verified:</strong> RHS differentiates to integrand</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [20 marks]</h2>
+
+<p>
+Find:
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+$$\int \sin^3 2x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$= \int \sin^2 2x \cdot \sin 2x \, dx = \int (1 - \cos^2 2x)\sin 2x \, dx$</p>
+<p>Let $u = \cos 2x$, $du = -2\sin 2x \, dx$</p>
+<p>$= -\frac{1}{2}\int (1 - u^2) du = -\frac{u}{2} + \frac{u^3}{6} + C$</p>
+<p>$= \boxed{-\frac{\cos 2x}{2} + \frac{\cos^3 2x}{6} + C}$</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+$$\int \cos^5 ax \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Similar to Q1(b): $= \int (1 - \sin^2 ax)^2 \cos ax \, dx$</p>
+<p>$= \boxed{\frac{\sin ax}{a} - \frac{2\sin^3 ax}{3a} + \frac{\sin^5 ax}{5a} + C}$</p>
+</details>
+
+<h3>Part (c) [5 marks]</h3>
+$$\int \cos^4 2x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Use power reduction twice:</p>
+<p>$\cos^4 2x = \left(\frac{1 + \cos 4x}{2}\right)^2 = \frac{1 + 2\cos 4x + \cos^2 4x}{4}$</p>
+<p>$= \frac{1}{4}\left(1 + 2\cos 4x + \frac{1 + \cos 8x}{2}\right)$</p>
+<p>Integrate: $= \boxed{\frac{3x}{8} + \frac{\sin 4x}{8} + \frac{\sin 8x}{64} + C}$</p>
+</details>
+
+<h3>Part (d) [5 marks]</h3>
+$$\int \tan^5 3x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Similar to Q1(a), use $\tan^2 3x = \sec^2 3x - 1$</p>
+<p>$= \boxed{\frac{\tan^4 3x}{12} - \frac{\tan^2 3x}{6} - \frac{\ln|\cos 3x|}{3} + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [20 marks]</h2>
+
+<p>
+Evaluate using appropriate techniques:
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+$$\int \sin^2 x \cos^3 x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Odd power of cosine: save one cosine, convert rest to sine</p>
+<p>$= \int \sin^2 x \cos^2 x \cdot \cos x \, dx = \int \sin^2 x (1 - \sin^2 x) \cos x \, dx$</p>
+<p>Let $u = \sin x$: $= \int u^2(1-u^2) du = \frac{u^3}{3} - \frac{u^5}{5} + C$</p>
+<p>$= \boxed{\frac{\sin^3 x}{3} - \frac{\sin^5 x}{5} + C}$</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+$$\int \sin^3 x \cos^3 x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Both odd: convert one to the other</p>
+<p>$= \int \sin^3 x \cos^2 x \cdot \cos x \, dx = \int \sin^3 x (1 - \sin^2 x) \cos x \, dx$</p>
+<p>$= \boxed{\frac{\sin^4 x}{4} - \frac{\sin^6 x}{6} + C}$</p>
+<p><strong>Alternative:</strong> Could use $\sin x \cos x = \frac{\sin 2x}{2}$</p>
+</details>
+
+<h3>Part (c) [5 marks]</h3>
+$$\int \sin^5 x \cos^3 x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Odd power of sine: convert to cosine</p>
+<p>$= \int \sin^4 x \cos^3 x \cdot \sin x \, dx = \int (1-\cos^2 x)^2 \cos^3 x \sin x \, dx$</p>
+<p>$= \boxed{-\frac{\cos^4 x}{4} + \frac{\cos^6 x}{3} - \frac{\cos^8 x}{8} + C}$</p>
+</details>
+
+<h3>Part (d) [5 marks]</h3>
+$$\int \cos 2x \sin^2 2x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $u = \sin 2x$, $du = 2\cos 2x \, dx$</p>
+<p>$= \frac{1}{2}\int u^2 du = \boxed{\frac{\sin^3 2x}{6} + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [30 marks]</h2>
+
+<p>
+Find the following integrals using product-to-sum formulas:
+</p>
+
+<h3>Part (a) [10 marks]</h3>
+$$\int \sin 2x \cos 4x \, dx$$
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Use product-to-sum: $\sin A \cos B = \frac{1}{2}[\sin(A+B) + \sin(A-B)]$</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>$\sin 2x \cos 4x = \frac{1}{2}[\sin 6x + \sin(-2x)] = \frac{1}{2}[\sin 6x - \sin 2x]$</p>
+<p>$= \frac{1}{2}\left(-\frac{\cos 6x}{6} + \frac{\cos 2x}{2}\right) + C$</p>
+<p>$= \boxed{\frac{\cos 2x}{4} - \frac{\cos 6x}{12} + C}$</p>
+</details>
+
+<h3>Part (b) [10 marks]</h3>
+$$\int \cos 2x \cos 4x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\cos A \cos B = \frac{1}{2}[\cos(A+B) + \cos(A-B)]$</p>
+<p>$= \frac{1}{2}[\cos 6x + \cos(-2x)] = \frac{1}{2}[\cos 6x + \cos 2x]$</p>
+<p>$= \boxed{\frac{\sin 6x}{12} + \frac{\sin 2x}{4} + C}$</p>
+</details>
+
+<h3>Part (c) [10 marks]</h3>
+$$\int \sin 2x \sin 4x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\sin A \sin B = \frac{1}{2}[\cos(A-B) - \cos(A+B)]$</p>
+<p>$= \frac{1}{2}[\cos(-2x) - \cos 6x] = \frac{1}{2}[\cos 2x - \cos 6x]$</p>
+<p>$= \boxed{\frac{\sin 2x}{4} - \frac{\sin 6x}{12} + C}$</p>
+<p><strong>⚠️ Nuance:</strong> Product-to-sum is essential for $\int \sin mx \cos nx \, dx$ etc.</p>
+</details>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: Odd Power Strategy</strong> — High frequency<br>
+<em>Strategy:</em> Save one factor, convert rest to other function using $\sin^2 + \cos^2 = 1$</p>
+
+<p><strong>Pattern 2: Even Power Strategy</strong> — High frequency<br>
+<em>Strategy:</em> Use power reduction formulas: $\cos^2 x = \frac{1+\cos 2x}{2}$</p>
+
+<p><strong>Pattern 3: Product-to-Sum</strong> — Medium frequency (Q5)<br>
+<em>Strategy:</em> Memorize the three product-to-sum formulas</p>
+
+<p><strong>Pattern 4: $\tan^n x$ Integrals</strong> — Medium frequency<br>
+<em>Strategy:</em> Use $\tan^2 x = \sec^2 x - 1$ to reduce power</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

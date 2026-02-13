@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics II - Tutorial 02</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | Mathematics II | <a href="mathematics-iii.html">Mathematics III</a>
+</div>
+
+<hr>
+
+<h1>Tutorial 2: Integration by Parts</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers integration by parts (IBP) technique, reduction formulas, and integration of logarithmic functions.
+</p>
+
+<strong>Topics:</strong> Integration by Parts, Reduction Formula  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 75 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [30 marks]</h2>
+
+<h3>Part (a) [5 marks]</h3>
+<p>
+Show that $\int x^m e^{ax} dx = \frac{1}{a}x^m e^{ax} - \frac{m}{a}\int x^{m-1}e^{ax} dx$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Integration by parts with $u = x^m$, $dv = e^{ax}dx$</p>
+<p>$du = mx^{m-1}dx$, $v = \frac{1}{a}e^{ax}$</p>
+<p>$$\int x^m e^{ax} dx = \frac{1}{a}x^m e^{ax} - \int \frac{m}{a}x^{m-1}e^{ax} dx$$</p>
+<p>$$= \frac{1}{a}x^m e^{ax} - \frac{m}{a}\int x^{m-1}e^{ax} dx$$</p>
+<p><strong>⚠️ Nuance:</strong> This is a reduction formula - it reduces the power of x each time</p>
+</details>
+
+<h3>Part (b) [8 marks]</h3>
+<p>
+Hence, evaluate:
+</p>
+
+<h4>(i) [3 marks]</h4>
+$$\int x^3 e^{2x} dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Apply reduction formula repeatedly:</p>
+<p>$\int x^3 e^{2x} dx = \frac{1}{2}x^3 e^{2x} - \frac{3}{2}\int x^2 e^{2x} dx$</p>
+<p>$= \frac{1}{2}x^3 e^{2x} - \frac{3}{2}\left[\frac{1}{2}x^2 e^{2x} - \int x e^{2x} dx\right]$</p>
+<p>Continue until power of x is 0...</p>
+<p><strong>Answer:</strong> $\boxed{\frac{1}{2}x^3e^{2x} - \frac{3}{4}x^2e^{2x} + \frac{3}{4}xe^{2x} - \frac{3}{8}e^{2x} + C}$</p>
+</details>
+
+<h4>(ii) [3 marks]</h4>
+$$\int x^2(e^x - 1) dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Split: $\int x^2 e^x dx - \int x^2 dx$</p>
+<p>Second part: $\frac{x^3}{3}$</p>
+<p>First part by IBP: $x^2e^x - 2xe^x + 2e^x$</p>
+<p><strong>Answer:</strong> $\boxed{x^2e^x - 2xe^x + 2e^x - \frac{x^3}{3} + C}$</p>
+</details>
+
+<h4>(iii) [2 marks]</h4>
+$$\int x e^x dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$u = x$, $dv = e^x dx$</p>
+<p>$= xe^x - \int e^x dx = \boxed{xe^x - e^x + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [30 marks]</h2>
+<p>
+Integrate the following:
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+$$\int \ln x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$u = \ln x$, $dv = dx$</p>
+<p>$du = \frac{1}{x}dx$, $v = x$</p>
+<p>$= x\ln x - \int x \cdot \frac{1}{x} dx = x\ln x - \int 1 \, dx$</p>
+<p>$= \boxed{x\ln x - x + C}$</p>
+<p><strong>⚠️ Nuance:</strong> Classic IBP problem - remember this result!</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+$$\int \ln x^2 \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Simplify first: $\ln x^2 = 2\ln x$</p>
+<p>$= 2\int \ln x \, dx = \boxed{2x\ln x - 2x + C}$</p>
+</details>
+
+<h3>Part (c) [5 marks]</h3>
+$$\int (\ln x)^2 \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$u = (\ln x)^2$, $dv = dx$</p>
+<p>$du = 2\ln x \cdot \frac{1}{x} dx$, $v = x$</p>
+<p>$= x(\ln x)^2 - 2\int \ln x \, dx$</p>
+<p>$= x(\ln x)^2 - 2(x\ln x - x) + C$</p>
+<p>$= \boxed{x(\ln x)^2 - 2x\ln x + 2x + C}$</p>
+</details>
+
+<h3>Part (d) [5 marks]</h3>
+$$\int x^2 \sin x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Apply IBP twice:</p>
+<p>First: $u = x^2$, $dv = \sin x \, dx$</p>
+<p>$= -x^2\cos x + 2\int x\cos x \, dx$</p>
+<p>Second IBP: $u = x$, $dv = \cos x \, dx$</p>
+<p>$= -x^2\cos x + 2(x\sin x + \cos x) + C$</p>
+<p>$= \boxed{-x^2\cos x + 2x\sin x + 2\cos x + C}$</p>
+</details>
+
+<h3>Part (e) [5 marks]</h3>
+$$\int e^x \sin 2x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Apply IBP twice and solve algebraically:</p>
+<p>Let $I = \int e^x \sin 2x \, dx$</p>
+<p>First IBP: $u = \sin 2x$, $dv = e^x dx$</p>
+<p>$I = e^x\sin 2x - 2\int e^x \cos 2x \, dx$</p>
+<p>Second IBP: $= e^x\sin 2x - 2[e^x\cos 2x + 2\int e^x\sin 2x \, dx]$</p>
+<p>$I = e^x\sin 2x - 2e^x\cos 2x - 4I$</p>
+<p>$5I = e^x(\sin 2x - 2\cos 2x)$</p>
+<p>$I = \boxed{\frac{1}{5}e^x(\sin 2x - 2\cos 2x) + C}$</p>
+<p><strong>⚠️ Nuance:</strong> When IBP cycles back, solve algebraically!</p>
+</details>
+
+<h3>Part (f) [5 marks]</h3>
+$$\int x^3 e^x dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Apply IBP three times (or use reduction formula from Q1):</p>
+<p>$= \boxed{x^3e^x - 3x^2e^x + 6xe^x - 6e^x + C}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [15 marks]</h2>
+
+<p>
+Identify what method(s) can be used to find $\int x\sqrt{3x+7} \, dx$, and then find it.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Methods possible:</strong></p>
+<ul>
+<li>Method 1: Substitution $u = 3x + 7$</li>
+<li>Method 2: Integration by Parts</li>
+</ul>
+<p><strong>Using substitution:</strong></p>
+<p>Let $u = 3x + 7$, then $du = 3dx$, $x = \frac{u-7}{3}$</p>
+<p>$\int x\sqrt{3x+7} \, dx = \int \frac{u-7}{3} \cdot \sqrt{u} \cdot \frac{du}{3}$</p>
+<p>$= \frac{1}{9}\int (u^{3/2} - 7u^{1/2}) du$</p>
+<p>$= \frac{1}{9}\left[\frac{2}{5}u^{5/2} - \frac{14}{3}u^{3/2}\right] + C$</p>
+<p>$= \boxed{\frac{2}{45}(3x+7)^{5/2} - \frac{14}{27}(3x+7)^{3/2} + C}$</p>
+<p>Or simplified: $\frac{2}{135}(3x+7)^{3/2}(3x - 14) + C$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [25 marks]</h2>
+
+<p>
+Solve using integration by parts:
+</p>
+
+<h3>Part (a) [6 marks]</h3>
+$$\int x\sqrt{1+x} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $u = x$, $dv = \sqrt{1+x} \, dx = (1+x)^{1/2} dx$</p>
+<p>$v = \frac{2}{3}(1+x)^{3/2}$</p>
+<p>$= x \cdot \frac{2}{3}(1+x)^{3/2} - \int \frac{2}{3}(1+x)^{3/2} dx$</p>
+<p>$= \frac{2}{3}x(1+x)^{3/2} - \frac{2}{3} \cdot \frac{2}{5}(1+x)^{5/2} + C$</p>
+<p>$= \boxed{\frac{2}{3}x(1+x)^{3/2} - \frac{4}{15}(1+x)^{5/2} + C}$</p>
+</details>
+
+<h3>Part (b) [6 marks]</h3>
+$$\int \frac{(\ln x)^2}{x} \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Substitution is easier: let $u = \ln x$, $du = \frac{1}{x}dx$</p>
+<p>$= \int u^2 du = \frac{u^3}{3} + C = \boxed{\frac{(\ln x)^3}{3} + C}$</p>
+</details>
+
+<h3>Part (c) [6 marks]</h3>
+$$\int \ln(x^2 + 1) \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$u = \ln(x^2+1)$, $dv = dx$</p>
+<p>$du = \frac{2x}{x^2+1}dx$, $v = x$</p>
+<p>$= x\ln(x^2+1) - \int \frac{2x^2}{x^2+1} dx$</p>
+<p>$= x\ln(x^2+1) - 2\int \left(1 - \frac{1}{x^2+1}\right) dx$</p>
+<p>$= \boxed{x\ln(x^2+1) - 2x + 2\arctan x + C}$</p>
+</details>
+
+<h3>Part (d) [7 marks]</h3>
+$$\int e^x \cos x \, dx$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Let $I = \int e^x \cos x \, dx$</p>
+<p>Apply IBP twice:</p>
+<p>$I = e^x\cos x + \int e^x \sin x \, dx$</p>
+<p>$= e^x\cos x + e^x\sin x - \int e^x \cos x \, dx$</p>
+<p>$I = e^x(\cos x + \sin x) - I$</p>
+<p>$2I = e^x(\cos x + \sin x)$</p>
+<p>$I = \boxed{\frac{1}{2}e^x(\cos x + \sin x) + C}$</p>
+<p><strong>⚠️ Nuance:</strong> Classic cyclic IBP - solve algebraically for I</p>
+</details>
+
+<hr>
+
+<h2>Common Patterns Identified</h2>
+
+<p><strong>Pattern 1: LIATE Rule</strong> — High frequency<br>
+<em>Strategy:</em> Choose u by priority: Log, Inverse trig, Algebraic, Trig, Exponential</p>
+
+<p><strong>Pattern 2: Cyclic IBP</strong> — Medium frequency (Q2e, Q4d)<br>
+<em>Strategy:</em> When integral reappears, solve algebraically</p>
+
+<p><strong>Pattern 3: Reduction Formulas</strong> — Medium frequency (Q1)<br>
+<em>Strategy:</em> Apply IBP repeatedly to reduce power</p>
+
+<p><strong>Pattern 4: Choosing dv</strong> — High frequency<br>
+<em>Strategy:</em> dv should be easily integrable; sometimes substitution is better</p>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>
