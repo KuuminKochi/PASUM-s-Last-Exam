@@ -12,8 +12,6 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- TikZ support -->
-    <script src="https://cdn.jsdelivr.net/npm/@tikzjax/tikzjax@0.2.1/dist/tikzjax.js"></script>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -31,13 +29,18 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
-        .tikz-diagram {
+        .diagram {
             margin: 1.5em auto;
             text-align: center;
             background: #f9f9f9;
             padding: 1em;
             border-radius: 8px;
             overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -58,76 +61,49 @@
 
 <h2>Question 1 [3 marks]</h2>
 <p>
-An electric field of $2.80 \times 10^5 \, \text{V m}^{-1}$ is desired between two parallel plates each of area $21.0 \, \text{cm}^2$ and separated by $0.250 \, \text{cm}$ of air. Determine the charge on each plate.
+Two parallel plates (area 21.0 cm², separation 0.250 cm) have E = 2.80×10⁵ V/m. Find charge on each plate.
 </p>
 
-<div class="tikz-diagram">
-<p>
-\begin{tikzpicture}[scale=1.2, >=stealth]
-    % Top plate
-    \draw[thick, red] (0,1) rectangle (4,1.3);
-    \node[red] at (2,1.5) {$+$};
-</p>
+<div class="diagram">
+<svg width="350" height="140" viewBox="0 0 350 140">
+    <rect x="50" y="20" width="250" height="12" fill="#e74c3c"/>
+    <text x="310" y="30" font-size="12" fill="#e74c3c">+</text>
 
-<p>
-    % Bottom plate
-    \draw[thick, blue] (0,-1.3) rectangle (4,-1);
-    \node[blue] at (2,-1.5) {$-$};
-</p>
+    <rect x="50" y="100" width="250" height="12" fill="#3498db"/>
+    <text x="310" y="112" font-size="12" fill="#3498db">−</text>
 
-<p>
-    % Electric field
-    \foreach \x in {0.5,1.5,2.5,3.5} {
-        \draw[->, green!60!black] (\x,0.9) -- (\x,-0.9);
-    }
-    \node[green!60!black, align=left] at (4.5,0) {$E = 2.80 \times 10^5$\\N/C};
-</p>
+    <g stroke="#27ae60" stroke-width="2">
+        <line x1="100" y1="40" x2="100" y2="90"/>
+        <polygon points="100,90 96,82 104,82" fill="#27ae60"/>
+        <line x1="200" y1="40" x2="200" y2="90"/>
+        <polygon points="200,90 196,82 204,82" fill="#27ae60"/>
+    </g>
 
-<p>
-    % Labels
-    \draw[<->] (-0.5,1) -- (-0.5,-1) node[midway,left] {$d = 0.250\,$cm};
-    \node at (2,0) {$A = 21.0\,$cm$^2$};
-</p>
-
-<p>
-    % Q label
-    \draw[<->, purple] (-0.3,1) -- (-0.3,1.3) node[midway,left] {$Q$};
-    \draw[<->, purple] (-0.3,-1.3) -- (-0.3,-1) node[midway,left] {$-Q$};
-\end{tikzpicture}
-</p>
+    <text x="175" y="65" text-anchor="middle" font-size="10">E = 2.80×10⁵ V/m</text>
+    <text x="30" y="65" font-size="10" fill="#666">d = 0.250 cm</text>
+    <text x="175" y="130" font-size="10">A = 21.0 cm²</text>
+</svg>
 </div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-Recall that for a parallel-plate capacitor, $E = \sigma/\varepsilon_0$, where $\sigma = Q/A$. So $Q = \varepsilon_0 EA$. Make sure to convert all units to SI (meters, not cm).
+Use $E = \sigma/\varepsilon_0$ and $\sigma = Q/A$. Convert units to SI.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
 <p>
-- Electric field: $E = 2.80 \times 10^5 \, \text{V/m}$
-- Area: $A = 21.0 \, \text{cm}^2 = 21.0 \times 10^{-4} \, \text{m}^2 = 2.10 \times 10^{-3} \, \text{m}^2$
-- Separation: $d = 0.250 \, \text{cm} = 2.50 \times 10^{-3} \, \text{m}$
-- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{F/m}$
+$E = \frac{Q}{\varepsilon_0 A}$ ⇒ $Q = \varepsilon_0 E A$
 </p>
 
-<strong>Solution:</strong>
+<p>
+$A = 21.0 \times 10^{-4}\,$m² = $2.10 \times 10^{-3}\,$m²
+</p>
 
 <p>
-For a parallel-plate capacitor, the relationship between electric field and charge is:
+$Q = (8.85 \times 10^{-12})(2.80 \times 10^5)(2.10 \times 10^{-3}) = 5.20 \times 10^{-9}\,$C = 5.20 nC
 </p>
-$$E = \frac{\sigma}{\varepsilon_0} = \frac{Q}{\varepsilon_0 A}$$
 
-<p>
-Rearranging:
-</p>
-$$Q = \varepsilon_0 E A$$
-
-$$Q = (8.85 \times 10^{-12})(2.80 \times 10^5)(2.10 \times 10^{-3})$$
-
-$$Q = 5.20 \times 10^{-9} \, \text{C} = 5.20 \, \text{nC}$$
-
-<p><strong>⚠️ Nuance:</strong> This is the charge on ONE plate. The other plate has equal and opposite charge (-Q). The field between plates is uniform only when the plate separation is much smaller than the plate dimensions (the "infinite plate approximation").</p>
+<p><strong>⚠️ Nuance:</strong> This is charge on ONE plate. The other plate has equal and opposite charge.</p>
 </details>
 
 <p>
@@ -136,113 +112,42 @@ $$Q = 5.20 \times 10^{-9} \, \text{C} = 5.20 \, \text{nC}$$
 
 <h2>Question 2 [5 marks]</h2>
 <p>
-A parallel-plate capacitor has a dielectric made of Teflon that completely fills the space between the plates. Each plate has an area of $0.50 \, \text{m}^2$. Dielectric constant for Teflon is $2.1$.
-- (a) What is the thickness of the Teflon if the capacitance is to be $0.10 \, \mu\text{F}$?
-- (b) Calculate the charge on the capacitor if it is connected to a $12 \, \text{V}$ battery.
+Capacitor with Teflon dielectric (k=2.1), area 0.50 m², C = 0.10 μF. Find:
+- (a) thickness of Teflon
+- (b) charge at 12V
 </p>
 
-<div class="tikz-diagram">
-<p>
-\begin{tikzpicture}[scale=1.1, >=stealth]
-    % Top plate
-    \draw[thick, red] (0,1.5) rectangle (4,1.8);
-    \node[red] at (2,2) {$+$};
-</p>
+<div class="diagram">
+<svg width="350" height="150" viewBox="0 0 350 150">
+    <rect x="50" y="15" width="250" height="12" fill="#e74c3c"/>
+    <text x="310" y="25" font-size="12" fill="#e74c3c">+</text>
 
-<p>
-    % Dielectric (Teflon)
-    \draw[fill=yellow!30] (0,-0.3) rectangle (4,1.5);
-    \node[yellow!80!black] at (2,0.6) {Teflon};
-    \node[yellow!80!black] at (2,0.2) {$k = 2.1$};
-</p>
+    <rect x="50" y="50" width="250" height="70" fill="#f1c40f" fill-opacity="0.4"/>
+    <text x="175" y="90" text-anchor="middle" font-size="14" fill="#b7950b">Teflon</text>
+    <text x="175" y="108" text-anchor="middle" font-size="11" fill="#b7950b">k = 2.1</text>
 
-<p>
-    % Bottom plate
-    \draw[thick, blue] (0,-0.3) rectangle (4,-0.6);
-    \node[blue] at (2,-0.9) {$-$};
-</p>
+    <rect x="50" y="125" width="250" height="12" fill="#3498db"/>
+    <text x="310" y="135" font-size="12" fill="#3498db">−</text>
 
-<p>
-    % Labels
-    \draw[<->] (-0.5,1.5) -- (-0.5,-0.3) node[midway,left] {$d = ?$};
-    \node at (2,-1.3) {$C = 0.10\,\mu\text{F}$};
-    \node at (2,2.3) {$V = 12\,$V};
-</p>
+    <text x="35" y="85" font-size="10" fill="#666">d = ?</text>
+    <line x1="40" y1="50" x2="40" y2="120" stroke="#666" stroke-width="1"/>
 
-<p>
-    % Capacitance formula
-    \node[align=left] at (5,0.6) {$C = \dfrac{k\varepsilon_0 A}{d}$};
-\end{tikzpicture}
-</p>
+    <text x="175" y="15" font-size="10">A = 0.50 m²</text>
+    <text x="175" y="150" font-size="10">C = 0.10 μF, V = 12V</text>
+</svg>
 </div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-For (a), use $C = k\varepsilon_0 A/d$ and solve for $d$. For (b), use $Q = CV$. The dielectric constant $k$ increases capacitance by factor of $k$.
+Use $C = k\varepsilon_0 A/d$ to find d. Then $Q = CV$.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
-<p>
-- Area: $A = 0.50 \, \text{m}^2$
-- Dielectric constant: $k = 2.1$ (for Teflon)
-- Capacitance: $C = 0.10 \, \mu\text{F} = 1.0 \times 10^{-7} \, \text{F}$
-- Voltage: $V = 12 \, \text{V}$
-- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{F/m}$
-</p>
+<strong>(a)</strong> $d = \frac{k\varepsilon_0 A}{C} = \frac{(2.1)(8.85 \times 10^{-12})(0.50)}{1.0 \times 10^{-7}} = 9.29 \times 10^{-6}\,$m = 9.29 μm
 
-<strong>(a) Thickness of Teflon:</strong>
+<strong>(b)</strong> $Q = CV = (1.0 \times 10^{-7})(12) = 1.2 \times 10^{-6}\,$C = 1.2 μC
 
-<p>
-From $C = \dfrac{k\varepsilon_0 A}{d}$:
-</p>
-$$d = \frac{k\varepsilon_0 A}{C}$$
-
-$$d = \frac{(2.1)(8.85 \times 10^{-12})(0.50)}{1.0 \times 10^{-7}}$$
-
-$$d = 9.29 \times 10^{-6} \, \text{m} = 9.29 \, \mu\text{m}$$
-
-<strong>(b) Charge on the capacitor:</strong>
-
-$$Q = CV = (1.0 \times 10^{-7})(12) = 1.2 \times 10^{-6} \, \text{C} = 1.2 \, \mu\text{C}$$
-
-<p><strong>⚠️ Nuance:</strong> The dielectric constant $k$ (also written as $\kappa$) represents how much the capacitance increases compared to a vacuum. Teflon has $k = 2.1$, meaning the capacitance is 2.1× larger than if there were air between the plates.</p>
-</details>
-
-<p>
----
-</p>
-
-<h2>Question 3 [5 marks]</h2>
-<p>
-A parallel-plate capacitor has plates with an area of $405 \, \text{cm}^2$ and an air-filled gap between the plates that is $2.25 \, \text{mm}$ thick. The capacitor is charged by a battery to $575 \, \text{V}$ and then is disconnected from the battery. Calculate the energy stored in the capacitor.
-</p>
-
-<details><summary><strong>Need a hint?</strong></summary>
-<p>
-Since it's disconnected from the battery, charge is constant. First find capacitance: $C = \varepsilon_0 A/d$. Then energy $U = \frac{1}{2}CV^2$. Remember to convert area to m² and thickness to m.
-</p>
-</details>
-<details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
-<p>
-- Area: $A = 405 \, \text{cm}^2 = 405 \times 10^{-4} \, \text{m}^2 = 4.05 \times 10^{-2} \, \text{m}^2$
-- Separation: $d = 2.25 \, \text{mm} = 2.25 \times 10^{-3} \, \text{m}$
-- Voltage: $V = 575 \, \text{V}$
-- $\varepsilon_0 = 8.85 \times 10^{-12} \, \text{F/m}$
-</p>
-
-<strong>Step 1: Calculate capacitance:</strong>
-$$C = \frac{\varepsilon_0 A}{d} = \frac{(8.85 \times 10^{-12})(4.05 \times 10^{-2})}{2.25 \times 10^{-3}}$$
-
-$$C = 1.59 \times 10^{-10} \, \text{F} = 159 \, \text{pF}$$
-
-<strong>Step 2: Calculate energy stored:</strong>
-$$U = \frac{1}{2}CV^2 = \frac{1}{2}(1.59 \times 10^{-10})(575)^2$$
-
-$$U = 2.63 \times 10^{-5} \, \text{J} = 26.3 \, \mu\text{J}$$
-
-<p><strong>⚠️ Nuance:</strong> When a capacitor is disconnected from the battery, the charge Q stays constant. The energy formula $U = \frac{Q^2}{2C}$ might be more appropriate if Q were given. However, since voltage is given, $U = \frac{1}{2}CV^2$ is the direct formula.</p>
+<p><strong>⚠️ Nuance:</strong> Dielectric constant k increases capacitance by factor k.</p>
 </details>
 
 <p>
@@ -251,70 +156,55 @@ $$U = 2.63 \times 10^{-5} \, \text{J} = 26.3 \, \mu\text{J}$$
 
 <h2>Question 4 [5 marks]</h2>
 <p>
-Three capacitors of $2 \, \mu\text{F}$, $3 \, \mu\text{F}$, and $4 \, \mu\text{F}$ are connected in series with a $6 \, \text{V}$ battery. When the current stops flowing, calculate the potential difference across the $4 \, \mu\text{F}$ capacitor.
+Three capacitors (2μF, 3μF, 4μF) in series with 6V battery. Find V across 4μF capacitor.
 </p>
 
-<div class="tikz-diagram">
-<p>
-\begin{tikzpicture}[scale=1.2, >=stealth]
-    % Battery
-    \draw[thick] (-1,0) -- (-1,1) node[above] {$6\,$V};
-    \draw[thick] (1,0) -- (1,1);
-    \draw[thick] (-1,0) to[short, *-] (-3,0);
-    \draw[thick] (1,0) to[short, *-] (5,0);
-</p>
+<div class="diagram">
+<svg width="400" height="150" viewBox="0 0 400 150">
+    <!-- Battery -->
+    <line x1="50" y1="50" x2="50" y2="100" stroke="#333" stroke-width="2"/>
+    <text x="40" y="70" font-size="12">6V</text>
+    <line x1="70" y1="50" x2="70" y2="100" stroke="#333" stroke-width="2"/>
 
-<p>
-    % Capacitors in series
-    \draw (-3,0) to [capacitor={$2\,\mu\text{F}$}] (-1,0);
-    \draw (-1,0) to [capacitor={$3\,\mu\text{F}$}] (1,0);
-    \draw (1,0) to [capacitor={$4\,\mu\text{F}$}] (3,0);
-    \draw (3,0) -- (5,0);
-</p>
+    <!-- Capacitors in series -->
+    <line x1="70" y1="65" x2="120" y2="65" stroke="#333"/>
+    <rect x="120" y="50" width="20" height="30" fill="none" stroke="#e74c3c"/>
+    <text x="145" y="70" font-size="10">2μF</text>
 
-<p>
-    % Voltage labels
-    \node at (-2,-0.5) {$V_1$};
-    \node at (0,-0.5) {$V_2$};
-    \node at (2,-0.5) {$V_3 = ?$};
-</p>
+    <line x1="140" y1="65" x2="200" y2="65" stroke="#333"/>
+    <rect x="200" y="50" width="20" height="30" fill="none" stroke="#3498db"/>
+    <text x="225" y="70" font-size="10">3μF</text>
 
-<p>
-    % Formula
-    \node[align=left] at (0,-1.5) {In series: $Q$ is same\\$V = V_1 + V_2 + V_3 = 6\,$V\\$V_3 = Q/C_3$};
-\end{tikzpicture}
-</p>
+    <line x1="220" y1="65" x2="280" y2="65" stroke="#333"/>
+    <rect x="280" y="50" width="20" height="30" fill="none" stroke="#9b59b6"/>
+    <text x="305" y="70" font-size="10">4μF</text>
+    <text x="305" y="90" font-size="10" fill="#9b59b6">V = ?</text>
+
+    <line x1="300" y1="65" x2="350" y2="65" stroke="#333"/>
+    <line x1="350" y1="50" x2="350" y2="100" stroke="#333"/>
+    <line x1="50" y1="100" x2="350" y2="100" stroke="#333"/>
+</svg>
 </div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-In series, the same charge Q goes through each capacitor. First find the equivalent capacitance: $1/C_{eq} = 1/C_1 + 1/C_2 + 1/C_3$. Then find Q from $Q = C_{eq}V$. Finally, V = Q/C for the 4 μF capacitor.
+In series, same Q on each capacitor. Find C_eq, then Q = C_eq × V, then V = Q/C.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
 <p>
-- $C_1 = 2 \, \mu\text{F}$, $C_2 = 3 \, \mu\text{F}$, $C_3 = 4 \, \mu\text{F}$
-- $V_{\text{total}} = 6 \, \text{V}$
+$1/C_{eq} = 1/2 + 1/3 + 1/4 = 13/12$ ⇒ $C_{eq} = 12/13$ μF
 </p>
 
-<strong>Step 1: Find equivalent capacitance:</strong>
-$$\frac{1}{C_{eq}} = \frac{1}{2} + \frac{1}{3} + \frac{1}{4} = \frac{6}{12} + \frac{4}{12} + \frac{3}{12} = \frac{13}{12}$$
-
-$$C_{eq} = \frac{12}{13} \, \mu\text{F} = 0.923 \, \mu\text{F}$$
-
-<strong>Step 2: Find total charge:</strong>
-$$Q = C_{eq}V = \left(\frac{12}{13} \times 10^{-6}\right)(6) = \frac{72}{13} \times 10^{-6} \, \text{C} = 5.54 \times 10^{-6} \, \text{C}$$
-
-<strong>Step 3: Find voltage across 4 μF capacitor:</strong>
 <p>
-In series, the same charge Q is on each capacitor.
+$Q = C_{eq}V = (12/13 \times 10^{-6})(6) = 72/13 \times 10^{-6}$ C
 </p>
-$$V_3 = \frac{Q}{C_3} = \frac{72/13 \times 10^{-6}}{4 \times 10^{-6}} = \frac{72}{13 \times 4} = \frac{72}{52} = \frac{18}{13} \, \text{V}$$
 
-$$V_3 = 1.38 \, \text{V}$$
+<p>
+$V_{4\mu F} = Q/C = (72/13 \times 10^{-6})/(4 \times 10^{-6}) = 18/13 = 1.38$ V
+</p>
 
-<p><strong>⚠️ Nuance:</strong> In series, the voltage drops add up: $V_{\text{total}} = V_1 + V_2 + V_3$. Since the same charge Q is on each capacitor but different capacitances, the voltage divides inversely proportional to capacitance. The smallest capacitor (2 μF) gets the largest voltage drop.</p>
+<p><strong>⚠️ Nuance:</strong> In series, voltage divides inversely proportional to capacitance.</p>
 </details>
 
 <p>
@@ -323,85 +213,73 @@ $$V_3 = 1.38 \, \text{V}$$
 
 <h2>Question 5 [5 marks]</h2>
 <p>
-An uncharged capacitor of $58 \, \mu\text{F}$ is connected in series with a resistor of $100 \, k\Omega$ and a battery. Then the capacitor starts charging through the resistor. Calculate the time required for the capacitor to reach 30% of its maximum charge.
+RC circuit: C = 58 μF, R = 100 kΩ. Find time for capacitor to reach 30% of max charge.
 </p>
 
-<div class="tikz-diagram">
-<p>
-\begin{tikzpicture}[scale=1.2, >=stealth]
-    % Battery
-    \draw[thick] (-1.5,1) -- (-1.5,1.5);
-    \node at (-1.5,1.75) {$V_0$};
-</p>
+<div class="diagram">
+<svg width="380" height="160" viewBox="0 0 380 160">
+    <!-- Battery -->
+    <line x1="60" y1="40" x2="60" y2="20" stroke="#333" stroke-width="2"/>
+    <text x="50" y="30" font-size="11">V₀</text>
 
-<p>
-    % Resistor
-    \draw (-1.5,0.5) to [ resistor = {$100\,k\Omega$} ] (0,0.5);
-</p>
+    <!-- Switch -->
+    <line x1="60" y1="60" x2="60" y2="80" stroke="#333" stroke-width="2"/>
+    <circle cx="60" cy="65" r="3" fill="none" stroke="#333"/>
 
-<p>
-    % Capacitor
-    \draw (0,0.5) to [ capacitor = {$58\,\mu\text{F}$} ] (1.5,0.5);
-</p>
+    <!-- Resistor -->
+    <rect x="90" y="70" width="40" height="20" fill="none" stroke="#27ae60"/>
+    <text x="110" y="65" font-size="10" fill="#27ae60">100kΩ</text>
 
-<p>
-    % Switch (open initially)
-    \draw (-1.5,1) to[switch, *-] (-1.5,0.5);
-</p>
+    <!-- Capacitor -->
+    <line x1="130" y1="80" x2="160" y2="80" stroke="#333"/>
+    <rect x="160" y="65" width="15" height="30" fill="none" stroke="#e74c3c"/>
+    <text x="190" y="85" font-size="10" fill="#e74c3c">58μF</text>
 
-<p>
-    % Labels
-    \node at (0.75,1) {$Q(t) = Q_0(1 - e^{-t/\tau})$};
-    \node at (0.75,0) {$\tau = RC = 5.8\,$s};
-</p>
+    <!-- Return path -->
+    <line x1="175" y1="80" x2="200" y2="80" stroke="#333"/>
+    <line x1="200" y1="50" x2="200" y2="110" stroke="#333"/>
+    <line x1="60" y1="110" x2="200" y2="110" stroke="#333"/>
 
-<p>
-    % Charging curve
-    \begin{scope}[xshift=4cm, yshift=0.5cm]
-        \draw[->] (0,0) -- (2.5,0) node[right] {$t$};
-        \draw[->] (0,0) -- (0,1.5) node[above] {$Q/Q_0$};
-        \draw[thick, red, domain=0:2] plot (\x, {1 - exp(-\x/0.7)});
-        \draw[dashed] (0,1) -- (2,1);
-        \draw[dashed] (0.5,0) -- (0.5,0.3);
-        \node at (0.5,-0.2) {$t=0.3\tau$};
-    \end{scope}
-\end{tikzpicture}
-</p>
+    <!-- Charging curve -->
+    <g transform="translate(230, 30)">
+        <line x1="0" y1="100" x2="130" y2="100" stroke="#333" stroke-width="1"/>
+        <line x1="0" y1="100" x2="0" y2="20" stroke="#333" stroke-width="1"/>
+        <text x="130" y="115" font-size="10">t</text>
+        <text x="-5" y="20" font-size="10">Q</text>
+
+        <!-- Exponential curve -->
+        <path d="M 0 100 Q 30 100 60 50 T 120 22" stroke="#e74c3c" stroke-width="2" fill="none"/>
+        <line x1="0" y1="22" x2="130" y2="22" stroke="#999" stroke-dasharray="3"/>
+        <text x="50" y="35" font-size="9" fill="#666">0.3Q₀</text>
+    </g>
+
+    <text x="180" y="145" font-size="10">τ = RC = 5.8 s</text>
+</svg>
 </div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-For an RC charging circuit, $Q = Q_0(1 - e^{-t/\tau})$, where $\tau = RC$ is the time constant. Set $Q/Q_0 = 0.30$ and solve for $t$. Remember $Q_{\text{max}} = CV$.
+Use $Q = Q_0(1 - e^{-t/\tau})$. Set Q/Q₀ = 0.30 and solve for t.
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
 <p>
-- Capacitance: $C = 58 \, \mu\text{F} = 58 \times 10^{-6} \, \text{F}$
-- Resistance: $R = 100 \, k\Omega = 100 \times 10^3 \, \Omega = 10^5 \, \Omega$
-- Fraction of maximum charge: $Q/Q_0 = 0.30$
+$\tau = RC = 10^5 \times 58 \times 10^{-6} = 5.8$ s
 </p>
 
-<strong>Step 1: Calculate time constant:</strong>
-$$\tau = RC = (10^5)(58 \times 10^{-6}) = 5.8 \, \text{s}$$
-
-<strong>Step 2: Use charging equation:</strong>
-$$Q = Q_0(1 - e^{-t/\tau})$$
+<p>
+$0.30 = 1 - e^{-t/5.8}$
+</p>
 
 <p>
-Given $Q/Q_0 = 0.30$:
+$e^{-t/5.8} = 0.70$
 </p>
-$$0.30 = 1 - e^{-t/\tau}$$
 
-$$e^{-t/\tau} = 1 - 0.30 = 0.70$$
+<p>
+$t = -5.8 \ln(0.70) = 2.07$ s
+</p>
 
-$$-\frac{t}{\tau} = \ln(0.70)$$
-
-$$t = -\tau \ln(0.70) = \tau \ln\left(\frac{1}{0.70}\right)$$
-
-$$t = 5.8 \times \ln(1.4286) = 5.8 \times 0.3567 = 2.07 \, \text{s}$$
-
-<p><strong>⚠️ Nuance:</strong> After time $t = \tau$ (one time constant), the capacitor reaches about 63% of its maximum charge (since $1 - e^{-1} = 0.632$). After $5\tau$, it's over 99% charged. The 30% mark happens before one time constant.</p>
+<p><strong>⚠️ Nuance:</strong> After 1τ, capacitor reaches 63% of max charge.</p>
 </details>
 
 <p>
@@ -410,103 +288,59 @@ $$t = 5.8 \times \ln(1.4286) = 5.8 \times 0.3567 = 2.07 \, \text{s}$$
 
 <h2>Question 6 [6 marks]</h2>
 <p>
-A fully charged capacitor has $12.0 \, \mu\text{F}$ and $6.0 \, \text{mC}$. The capacitor has been discharged through a $100 \, \Omega$ resistor. Determine:
-- (a) Potential difference across the capacitor
-- (b) The time constant for the discharging circuit
-- (c) Find the time required for 80% of the charge to be discharged from the capacitor
-- (d) Sketch $I$-$t$ graph to show the process
+Capacitor (12 μF, 6 mC) discharges through 100 Ω resistor. Find:
+- (a) V
+- (b) τ
+- (c) time for 80% discharge
 </p>
 
-<div class="tikz-diagram">
-<p>
-\begin{tikzpicture}[scale=1.2, >=stealth]
-    % Capacitor
-    \draw (0,0) to [capacitor={$12.0\,\mu\text{F}$}] (2,0);
-    \draw (0,0) -- (0,-0.5);
-    \draw (2,0) -- (2,-0.5);
-</p>
+<div class="diagram">
+<svg width="350" height="120" viewBox="0 0 350 120">
+    <!-- Capacitor -->
+    <rect x="80" y="30" width="15" height="40" fill="none" stroke="#e74c3c"/>
+    <line x1="95" y1="50" x2="130" y2="50" stroke="#333"/>
+    <line x1="95" y1="70" x2="130" y2="70" stroke="#333"/>
 
-<p>
-    % Resistor
-    \draw (0,-0.5) to [ resistor = {$100\,\Omega$} ] (2,-0.5);
-</p>
+    <!-- Resistor -->
+    <rect x="130" y="40" width="30" height="20" fill="none" stroke="#27ae60"/>
+    <text x="145" y="35" font-size="9" fill="#27ae60">100Ω</text>
 
-<p>
-    % Initial conditions
-    \node at (1,0.8) {$Q_0 = 6.0\,$mC};
-    \node at (1,-1.3) {$V_0 = Q/C = 500\,$V};
-</p>
+    <!-- Return path -->
+    <line x1="160" y1="50" x2="180" y2="50" stroke="#333"/>
+    <line x1="180" y1="50" x2="180" y2="70" stroke="#333"/>
+    <line x1="80" y1="70" x2="180" y2="70" stroke="#333"/>
 
-<p>
-    % Discharge curve
-    \begin{scope}[xshift=4cm]
-        \draw[->] (0,0) -- (3,0) node[right] {$t$};
-        \draw[->] (0,0) -- (0,2) node[above] {$I$};
-        \draw[thick, red, domain=0:2.5] plot (\x, {2*exp(-\x/0.15)});
-</p>
+    <!-- Labels -->
+    <text x="30" y="55" font-size="11">C = 12μF</text>
+    <text x="30" y="85" font-size="11">Q₀ = 6mC</text>
+    <text x="200" y="55" font-size="10">V = Q/C = 500V</text>
 
-<p>
-        % Time constant marker
-        \draw[dashed] (0.15,0) -- (0.15,0.74);
-        \draw[dashed] (0.15,0.74) -- (0,0.74);
-        \node at (0.15,-0.2) {$\tau$};
-        \node at (-0.3,0.37) {$I_0/e$};
-    \end{scope}
-\end{tikzpicture}
-</p>
+    <!-- Decay curve -->
+    <g transform="translate(220, 20)">
+        <line x1="0" y1="80" x2="100" y2="80" stroke="#333"/>
+        <line x1="0" y1="80" x2="0" y2="20" stroke="#333"/>
+        <path d="M 0 25 Q 20 25 40 55 T 100 75" stroke="#e74c3c" stroke-width="2" fill="none"/>
+        <text x="50" y="50" font-size="9">I(t)</text>
+    </g>
+</svg>
 </div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
-For (a), use $V = Q/C$. For (b), $\tau = RC$. For (c), during discharge $Q = Q_0 e^{-t/\tau}$, so for 80% discharged (20% remaining), solve $0.20 = e^{-t/\tau}$. For (d), $I = I_0 e^{-t/\tau}$ - it's an exponential decay starting at $I_0 = V_0/R$.
+For discharge: Q = Q₀e^(-t/τ), I = I₀e^(-t/τ)
 </p>
 </details>
 <details><summary><strong>Show solution</strong></summary>
-<strong>Given:</strong>
+<strong>(a)</strong> $V = Q/C = 6 \times 10^{-3}/(12 \times 10^{-6}) = 500$ V
+
+<strong>(b)</strong> $\tau = RC = 100 \times 12 \times 10^{-6} = 1.2$ ms
+
+<strong>(c)</strong> For 80% discharged (20% left): $0.20 = e^{-t/1.2\times10^{-3}}$
 <p>
-- Capacitance: $C = 12.0 \, \mu\text{F} = 12.0 \times 10^{-6} \, \text{F}$
-- Charge: $Q_0 = 6.0 \, \text{mC} = 6.0 \times 10^{-3} \, \text{C}$
-- Resistance: $R = 100 \, \Omega$
+$t = 1.93$ ms
 </p>
 
-<strong>(a) Potential difference:</strong>
-$$V = \frac{Q}{C} = \frac{6.0 \times 10^{-3}}{12.0 \times 10^{-6}} = 500 \, \text{V}$$
-
-<strong>(b) Time constant:</strong>
-$$\tau = RC = (100)(12.0 \times 10^{-6}) = 1.2 \times 10^{-3} \, \text{s} = 1.2 \, \text{ms}$$
-
-<strong>(c) Time for 80% discharge:</strong>
-
-<p>
-For discharge, $Q = Q_0 e^{-t/\tau}$
-</p>
-
-<p>
-When 80% is discharged, 20% remains:
-</p>
-$$\frac{Q}{Q_0} = 0.20 = e^{-t/\tau}$$
-
-$$-\frac{t}{\tau} = \ln(0.20)$$
-
-$$t = -\tau \ln(0.20) = \tau \ln\left(\frac{1}{0.20}\right)$$
-
-$$t = (1.2 \times 10^{-3}) \times \ln(5) = 1.2 \times 10^{-3} \times 1.609 = 1.93 \times 10^{-3} \, \text{s} = 1.93 \, \text{ms}$$
-
-<strong>(d) I-t graph:</strong>
-
-<p>
-Current during discharge: $I = I_0 e^{-t/\tau}$ where $I_0 = \dfrac{V_0}{R} = \dfrac{500}{100} = 5 \, \text{A}$
-</p>
-
-<p>
-The graph shows exponential decay from $I = 5 \, \text{A}$ at $t = 0$ toward $I = 0$ as $t \to \infty$.
-</p>
-
-<p>
-After one time constant (1.2 ms), current drops to $I_0/e \approx 1.84 \, \text{A}$.
-</p>
-
-<p><strong>⚠️ Nuance:</strong> For discharge, current direction is opposite to charging. The initial current $I_0 = V_0/R$ can be quite large (here 5A) because the capacitor voltage is high initially. Notice that after one time constant, the charge drops to about 37% of initial (not 63% like in charging).</p>
+<p><strong>⚠️ Nuance:</strong> After 1τ, charge drops to 36.8% of initial.</p>
 </details>
 
 <p>
@@ -515,40 +349,13 @@ After one time constant (1.2 ms), current drops to $I_0/e \approx 1.84 \, \text{
 
 <h2>Common Patterns</h2>
 
-<strong>Capacitance Formulas:</strong>
-<p>
-- Parallel-plate (air): $C = \varepsilon_0 A/d$
-- Parallel-plate (dielectric): $C = k\varepsilon_0 A/d$
-- Series combination: $1/C_{eq} = \sum 1/C_i$
-- Parallel combination: $C_{eq} = \sum C_i$
-</p>
+<strong>Capacitance:</strong> $C = \varepsilon_0 A/d$ (parallel plate)
 
-<strong>Energy Stored:</strong>
-<p>
-- $U = \frac{1}{2}CV^2 = \frac{Q^2}{2C} = \frac{1}{2}QV$
-</p>
+<strong>Energy:</strong> $U = \frac{1}{2}CV^2 = \frac{Q^2}{2C}$
 
-<strong>RC Circuits - Charging:</strong>
-<p>
-- $Q(t) = Q_0(1 - e^{-t/\tau})$
-- $I(t) = \frac{V_0}{R}e^{-t/\tau}$
-- $\tau = RC$ (time constant)
-</p>
+<strong>RC Charging:</strong> $Q = Q_0(1 - e^{-t/\tau})$
 
-<strong>RC Circuits - Discharging:</strong>
-<p>
-- $Q(t) = Q_0 e^{-t/\tau}$
-- $I(t) = -\frac{Q_0}{RC} e^{-t/\tau} = -\frac{V_0}{R}e^{-t/\tau}$
-- At $t = \tau$: charge drops to $36.8\%$ of initial
-</p>
-
-<strong>Key Percentages:</strong>
-<p>
-- After 1τ: 63.2% charged, 36.8% discharged
-- After 2τ: 86.5% charged, 13.5% discharged  
-- After 3τ: 95.0% charged, 5.0% discharged
-- After 5τ: 99.3% charged, 0.7% discharged
-</p>
+<strong>RC Discharging:</strong> $Q = Q_0 e^{-t/\tau}$
 
 <p>
 ---
