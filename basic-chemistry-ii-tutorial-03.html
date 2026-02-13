@@ -29,6 +29,19 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,20 +52,334 @@
 <hr>
 
 <div class="subject-nav">
-<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="daily-revision.html">Daily Revision</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
 </div>
 
 <hr>
 
-<h1>Tutorial 03</h1>
+<h1>Tutorial 3: Buffers and Titrations</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Overview</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+This tutorial covers buffer solutions, buffer calculations, salt hydrolysis, qualitative analysis of salt solutions, and titration curves with pH calculations.
 </p>
 
-<hr>
+<strong>Topics:</strong> Buffer solutions, Henderson-Hasselbalch equation, salt hydrolysis, titration curves, indicators  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 150 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [10 marks]</h2>
+
+<p>
+State the definition of buffer solution.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Buffer Solution:</strong> A solution that maintains its pH when small amounts of acid or base are added to it.</p>
+<p>A buffer consists of a weak acid and its conjugate base (or weak base and its conjugate acid).</p>
+<p><strong>Examples:</strong> Acetic acid + sodium acetate, ammonia + ammonium chloride</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [25 marks]</h2>
+
+<p>
+A one liter of a buffer solution, which was prepared by dissolving 0.0250 mol of formic acid and 0.018 mol of sodium formate has a pH value of 3.63. If 5.0 mL of 0.10 M NaOH is added, what is the new pH value of this buffer solution? By comparing both pH values, what can you conclude? (Ka for formic acid = 1.7 × 10⁻⁴)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Given:</strong></p>
+<p>Formic acid (HCOOH): 0.0250 mol</p>
+<p>Sodium formate (HCOONa): 0.018 mol</p>
+<p>Initial pH = 3.63</p>
+<p>Ka = 1.7 × 10⁻⁴</p>
+<p>Added NaOH: 5.0 mL × 0.10 M = 0.0005 mol</p>
+
+<p><strong>Step 1:</strong> Verify initial pH using Henderson-Hasselbalch</p>
+<p>$$pK_a = -\log(1.7 \times 10^{-4}) = 3.77$$</p>
+<p>$$pH = pK_a + \log\left(\frac{[A^-]}{[HA]}\right)$$</p>
+<p>$$3.63 = 3.77 + \log\left(\frac{0.018}{0.0250}\right)$$</p>
+<p>$$\log\left(\frac{0.018}{0.0250}\right) = -0.14$$</p>
+<p>$$\frac{0.018}{[0.0250]} = 0.724$$</p>
+<p>This is consistent with the given pH.</p>
+
+<p><strong>Step 2:</strong> Calculate change after NaOH addition</p>
+<p>NaOH reacts with formic acid:</p>
+<p>$$HCOOH + OH^- \rightarrow HCOO^- + H_2O$$</p>
+<p>Moles of HCOOH after reaction = 0.0250 - 0.0005 = 0.0245 mol</p>
+<p>Moles of HCOO⁻ after reaction = 0.018 + 0.0005 = 0.0185 mol</p>
+
+<p><strong>Step 3:</strong> Calculate new pH</p>
+<p>$$pH = pK_a + \log\left(\frac{[A^-]}{[HA]}\right)$$</p>
+<p>$$pH = 3.77 + \log\left(\frac{0.0185}{0.0245}\right)$$</p>
+<p>$$pH = 3.77 + \log(0.755)$$</p>
+<p>$$pH = 3.77 + (-0.122)$$</p>
+<p>$$pH = \boxed{3.65}$$</p>
+
+<p><strong>Conclusion:</strong> The pH change is very small (from 3.63 to 3.65) - only 0.02 units. This demonstrates the <strong>buffer effect</strong>: buffers resist changes in pH when small amounts of acid or base are added.</p>
+
+<p><strong>Critical Nuance:</strong> If we had added the same amount of NaOH to pure water, the pH would have changed dramatically. The buffer maintains pH by consuming the added OH⁻ through reaction with the weak acid.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [25 marks]</h2>
+
+<p>
+Salt is produced from the reaction of acid and base. Write the chemical equation that produces salt based on the reaction below. Explain qualitatively, whether the solution is acidic, neutral, or basic.
+</p>
+
+<h3>Part (a) [4 marks]</h3>
+<p>
+KOH + HNO₃
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $KOH + HNO_3 \rightarrow KNO_3 + H_2O$</p>
+<p><strong>Salt:</strong> KNO₃ (potassium nitrate)</p>
+<p><strong>Type of solution:</strong> <strong>Neutral</strong></p>
+<p><strong>Reason:</strong> KOH is a strong base, HNO₃ is a strong acid → salt of strong acid and strong base hydrolyzes neither, solution is neutral.</p>
+</details>
+
+<h3>Part (b) [4 marks]</h3>
+<p>
+C₅H₅N + HBr
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $C_5H_5N + HBr \rightarrow C_5H_5NH^+ + Br^-$</p>
+<p><strong>Salt:</strong> Pyridinium bromide</p>
+<p><strong>Type of solution:</strong> <strong>Acidic</strong></p>
+<p><strong>Reason:</strong> Pyridine (weak base) + HBr (strong acid) → salt contains conjugate acid ($C_5H_5NH^+$) which hydrolyzes to produce H⁺.</p>
+</details>
+
+<h3>Part (c) [4 marks]</h3>
+<p>
+CH₃CH₂COOH + NH₃
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $CH_3CH_2COOH + NH_3 \rightarrow CH_3CH_2COONH_4$</p>
+<p><strong>Salt:</strong> Ammonium propionate</p>
+<p><strong>Type of solution:</strong> <strong>Depends on Ka and Kb</strong></p>
+<p><strong>Reason:</strong> Contains cation $NH_4^+$ (weak acid) and anion $CH_3CH_2COO^-$ (weak base). Need to compare Ka of $NH_4^+$ (5.6 × 10⁻¹⁰) with Kb of propionate. Since Ka ≈ Kb, the solution is approximately neutral.</p>
+</details>
+
+<h3>Part (d) [4 marks]</h3>
+<p>
+CH₃COOH + KOH
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $CH_3COOH + KOH \rightarrow CH_3COOK + H_2O$</p>
+<p><strong>Salt:</strong> Potassium acetate (CH₃COOK)</p>
+<p><strong>Type of solution:</strong> <strong>Basic</strong></p>
+<p><strong>Reason:</strong> KOH (strong base) + CH₃COOH (weak acid) → salt contains acetate ion ($CH_3COO^-$) which hydrolyzes to produce OH⁻.</p>
+</details>
+
+<h3>Part (e) [4 marks]</h3>
+<p>
+NH₃ + HNO₂
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $NH_3 + HNO_2 \rightarrow NH_4NO_2$</p>
+<p><strong>Salt:</strong> Ammonium nitrite</p>
+<p><strong>Type of solution:</strong> <strong>Acidic</strong></p>
+<p><strong>Reason:</strong> Compare Ka of $NH_4^+$ (5.6 × 10⁻¹⁰) with Kb of $NO_2^-$ (calculated from Ka of HNO₂ ≈ 4.5 × 10⁻⁴, so Kb = 2.2 × 10⁻¹¹). Since Ka > Kb, the solution is slightly acidic.</p>
+</details>
+
+<h3>Part (f) [5 marks]</h3>
+<p>
+C₆H₈O₆ + CH₃NH₂
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Reaction:</strong> $C_6H_8O_6 + CH_3NH_2 \rightarrow C_6H_7O_6^- + CH_3NH_3^+$</p>
+<p><strong>Salt:</strong> Methylammonium ascorbate (ascorbic acid + methylamine)</p>
+<p><strong>Type of solution:</strong> <strong>Depends on relative strengths</strong></p>
+<p><strong>Reason:</strong> Ascorbic acid (C₆H₈O₆) is a weak acid (Ka ≈ 8 × 10⁻⁵). CH₃NH₂ is a weak base (Kb ≈ 4.4 × 10⁻⁴). Since Kb > Ka, the solution will be slightly basic.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [40 marks]</h2>
+
+<p>
+Sketch a titration curve and suggest a suitable indicator for the titration between 25.0 mL of 0.50 M NaOH with 0.50 M HF. Calculate the pH of:
+</p>
+
+<p>
+Given: Ka for hydrofluoric acid = 7.1 × 10⁻⁴
+</p>
+
+<h3>Part (a) [5 marks]</h3>
+<p>
+the initial NaOH
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Initial NaOH is a strong base with no acid present.</p>
+<p>Since there's no acid added yet, the pH is determined solely by the NaOH concentration.</p>
+<p>However, we need to consider that NaOH is a strong base:</p>
+<p>$$[OH^-] = 0.50 \text{ M}$$</p>
+<p>$$pOH = -\log(0.50) = 0.30$$</p>
+<p>$$pH = 14 - 0.30 = \boxed{13.70}$$</p>
+
+<p><strong>Note:</strong> This is the pH of 0.50 M NaOH solution before any acid is added.</p>
+</details>
+
+<h3>Part (b) [6 marks]</h3>
+<p>
+when 15 mL of HF is added
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles</p>
+<p>Moles of NaOH = 0.0250 L × 0.50 = 0.0125 mol</p>
+<p>Moles of HF added = 0.015 L × 0.50 = 0.0075 mol</p>
+
+<p><strong>Step 2:</strong> Determine reaction</p>
+<p>NaOH + HF → NaF + H₂O</p>
+<p>NaOH is in excess by: 0.0125 - 0.0075 = 0.0050 mol</p>
+
+<p><strong>Step 3:</strong> Calculate [OH⁻]</p>
+<p>Total volume = 25.0 + 15.0 = 40.0 mL = 0.040 L</p>
+<p>[OH⁻] = 0.0050 / 0.040 = 0.125 M</p>
+
+<p><strong>Step 4:</strong> Calculate pH</p>
+<p>$$pOH = -\log(0.125) = 0.903$$</p>
+<p>$$pH = 14 - 0.903 = \boxed{13.10}$$</p>
+</details>
+
+<h3>Part (c) [6 marks]</h3>
+<p>
+when 24.5 mL of HF is added
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles</p>
+<p>Moles of NaOH = 0.0125 mol (unchanged)</p>
+<p>Moles of HF = 0.0245 L × 0.50 = 0.01225 mol</p>
+
+<p><strong>Step 2:</strong> Excess</p>
+<p>Excess NaOH = 0.0125 - 0.01225 = 0.00025 mol</p>
+
+<p><strong>Step 3:</strong> [OH⁻]</p>
+<p>Total volume = 25.0 + 24.5 = 49.5 mL = 0.0495 L</p>
+<p>[OH⁻] = 0.00025 / 0.0495 = 5.05 × 10⁻³ M</p>
+
+<p><strong>Step 4:</strong> pH</p>
+<p>$$pOH = -\log(5.05 \times 10^{-3}) = 2.30$$</p>
+<p>$$pH = 14 - 2.30 = \boxed{11.70}$$</p>
+</details>
+
+<h3>Part (d) [8 marks]</h3>
+<p>
+at equivalence point
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Find volume at equivalence point</p>
+<p>Moles of NaOH = 0.0125 mol</p>
+<p>Volume of HF needed = 0.0125 / 0.50 = 0.0250 L = 25.0 mL</p>
+
+<p><strong>Step 2:</strong> At equivalence point</p>
+<p>All NaOH reacts with HF to form NaF:</p>
+<p>$$NaOH + HF \rightarrow NaF + H_2O$$</p>
+<p>Moles of NaF formed = 0.0125 mol</p>
+<p>Total volume = 25.0 + 25.0 = 50.0 mL = 0.0500 L</p>
+<p>[NaF] = 0.0125 / 0.0500 = 0.25 M</p>
+
+<p><strong>Step 3:</strong> Hydrolysis of F⁻</p>
+<p>F⁻ is the conjugate base of HF:</p>
+<p>$$K_b = \frac{K_w}{K_a} = \frac{1.0 \times 10^{-14}}{7.1 \times 10^{-4}} = 1.41 \times 10^{-11}$$</p>
+<p>$$F^- + H_2O \rightleftharpoons HF + OH^-$$</p>
+<p>Let x = [OH⁻]</p>
+<p>$$K_b = \frac{x^2}{0.25 - x} = 1.41 \times 10^{-11}$$</p>
+<p>Since Kb is very small, x << 0.25</p>
+<p>$$x^2 = 1.41 \times 10^{-11} \times 0.25 = 3.53 \times 10^{-12}$$</p>
+<p>$$x = 1.88 \times 10^{-6} \text{ M}$$</p>
+
+<p><strong>Step 4:</strong> pH</p>
+<p>$$pOH = -\log(1.88 \times 10^{-6}) = 5.73$$</p>
+<p>$$pH = 14 - 5.73 = \boxed{8.27}$$</p>
+
+<p><strong>Critical Nuance:</strong> The equivalence point is slightly basic because F⁻ (conjugate base of weak acid) hydrolyzes to produce OH⁻.</p>
+</details>
+
+<h3>Part (e) [7 marks]</h3>
+<p>
+when 25.5 mL of HF is added
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles</p>
+<p>Moles of NaOH = 0.0125 mol</p>
+<p>Moles of HF added = 0.0255 L × 0.50 = 0.01275 mol</p>
+
+<p><strong>Step 2:</strong> Excess HF</p>
+<p>Excess HF = 0.01275 - 0.0125 = 0.00025 mol</p>
+
+<p><strong>Step 3:</strong> Volume</p>
+<p>Total volume = 25.0 + 25.5 = 50.5 mL = 0.0505 L</p>
+<p>[HF] = 0.00025 / 0.0505 = 4.95 × 10⁻³ M</p>
+
+<p><strong>Step 4:</strong> Calculate pH using weak acid formula</p>
+<p>For HF: Ka = 7.1 × 10⁻⁴</p>
+<p>Let x = [H⁺]</p>
+<p>$$K_a = \frac{x^2}{[HF] - x} = \frac{x^2}{4.95 \times 10^{-3}}$$</p>
+<p>$$x^2 = 7.1 \times 10^{-4} \times 4.95 \times 10^{-3} = 3.51 \times 10^{-6}$$</p>
+<p>$$x = 1.87 \times 10^{-3} \text{ M}$$</p>
+<p>$$pH = -\log(1.87 \times 10^{-3}) = \boxed{2.73}$$</p>
+</details>
+
+<h3>Part (f) [8 marks]</h3>
+<p>
+when 50 mL of HF is added
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles</p>
+<p>Moles of NaOH = 0.0125 mol</p>
+<p>Moles of HF added = 0.050 L × 0.50 = 0.025 mol</p>
+
+<p><strong>Step 2:</strong> Excess HF</p>
+<p>Excess HF = 0.025 - 0.0125 = 0.0125 mol</p>
+
+<p><strong>Step 3:</strong> Volume</p>
+<p>Total volume = 25.0 + 50.0 = 75.0 mL = 0.0750 L</p>
+<p>[HF] = 0.0125 / 0.0750 = 0.167 M</p>
+
+<p><strong>Step 4:</strong> pH</p>
+<p>$$K_a = \frac{x^2}{0.167 - x}$$</p>
+<p>$$x^2 = 7.1 \times 10^{-4} \times 0.167 = 1.19 \times 10^{-4}$$</p>
+<p>$$x = 1.09 \times 10^{-2} \text{ M}$$</p>
+<p>$$pH = -\log(1.09 \times 10^{-2}) = \boxed{1.96}$$</p>
+
+<p><strong>Suggested Indicator:</strong></p>
+<p>The equivalence point pH is 8.27 (slightly basic). Suitable indicators would be:</p>
+<ul>
+<li><strong>Phenolphthalein</strong> (pH range 8.2-10.0) - most suitable</li>
+<li><strong>Thymol blue</strong> (pH range 8.0-9.6)</li>
+</ul>
+<p>Since the equivalence point is in the basic region, phenolphthalein is the best choice.</p>
+</details>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 

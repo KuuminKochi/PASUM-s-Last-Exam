@@ -29,6 +29,19 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,20 +52,372 @@
 <hr>
 
 <div class="subject-nav">
-<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="daily-revision.html">Daily Revision</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
 </div>
 
 <hr>
 
-<h1>Tutorial 02</h1>
+<h1>Tutorial 2: Acid-Base Equilibrium</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Overview</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+This tutorial covers acid-base theories (Arrhenius, Bronsted-Lowry, Lewis), pH calculations, weak acid/base dissociation, hydrolysis, buffer solutions, and common ion effect.
 </p>
 
-<hr>
+<strong>Topics:</strong> pH, pOH, weak acids/bases, buffer solutions, hydrolysis, common ion effect  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 120 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [20 marks]</h2>
+
+<p>
+What are the terms or principles associated with the following statements?
+</p>
+
+<h3>Part (i) [5 marks]</h3>
+<p>
+A negative logarithmic scale that measures the hydrogen ion concentration in a solution.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Answer: pH</strong></p>
+<p>pH is defined as the negative logarithm of hydrogen ion concentration:</p>
+<p>$$pH = -\log[H^+]$$</p>
+</details>
+
+<h3>Part (ii) [5 marks]</h3>
+<p>
+The reaction of cations or anions of a salt, or both, with water to produce acidic or basic solution.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Answer: Hydrolysis</strong></p>
+<p>Hydrolysis is the reaction of salt ions with water to produce acidic or basic solutions.</p>
+<p>Example: $CH_3COONa + H_2O \rightarrow CH_3COOH + Na^+ + OH^-$ (basic)</p>
+</details>
+
+<h3>Part (iii) [5 marks]</h3>
+<p>
+The product of H⁺ and OH⁻ ion concentrations in water at a given temperature.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Answer: Ion product of water (Kw)</strong></p>
+<p>$$K_w = [H^+][OH^-]$$</p>
+<p>At 25°C, $K_w = 1.0 \times 10^{-14}$ mol² dm⁻⁶</p>
+</details>
+
+<h3>Part (iv) [5 marks]</h3>
+<p>
+The suppression or reduction of degree of ionization of a weak acid or base by addition of a salt containing an ion common with the weak acid or base.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Answer: Common Ion Effect</strong></p>
+<p>The common ion effect explains how adding a salt with an ion common to a weak electrolyte suppresses its ionization.</p>
+<p>Example: Adding NaCH₃COO to acetic acid reduces [H⁺] because of the common ion CH₃COO⁻</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [20 marks]</h2>
+
+<h3>Part (i) [10 marks]</h3>
+<p>
+State the type of species for each reactant in the equation below according to Lewis theory.
+</p>
+$$Ni^{2+}(aq) + 6NH_3(aq) \rightarrow [Ni(NH_3)_6]^{2+}(aq)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Lewis Acid:</strong> $Ni^{2+}$ (electron pair acceptor)</p>
+<p><strong>Lewis Base:</strong> $NH_3$ (electron pair donor)</p>
+<p>The $NH_3$ molecules donate lone pairs to the empty orbitals of $Ni^{2+}$, forming coordinate covalent bonds.</p>
+</details>
+
+<h3>Part (ii) [10 marks]</h3>
+<p>
+Identify which of the following species is Arrhenius acid or base, Bronsted-Lowry acid or base and their conjugate.
+</p>
+$$HCO_3^- + H_2O \rightleftharpoons H_2CO_3 + OH^-$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Bronsted-Lowry Analysis:</strong></p>
+<p><strong>Acid:</strong> $HCO_3^-$ (proton donor) → Conjugate base: $CO_3^{2-}$</p>
+<p><strong>Base:</strong> $H_2O$ (proton acceptor) → Conjugate acid: $H_3O^+$</p>
+<p><strong>Note:</strong> In this reaction, $HCO_3^-$ acts as a Bronsted-Lowry base (accepting H⁺ to form $H_2CO_3$).</p>
+<p>However, $HCO_3^-$ can also act as an acid:</p>
+<p>$HCO_3^- + H_2O \rightleftharpoons H_3O^+ + CO_3^{2-}$</p>
+<p>In that case: $HCO_3^-$ is the acid, $H_2O$ is the base</p>
+<p><strong>Arrhenius:</strong> $H_2O$ can produce OH⁻, so it's a base in the Arrhenius sense.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [10 marks]</h2>
+
+<p>
+Consider the list of bases and their respective Kb values:
+</p>
+
+<p>
+- Aniline (C₆H₅NH₂); Kb = 3.9 × 10⁻¹⁰
+- Ethylamine (C₂H₅NH₂); Kb = 5.6 × 10⁻⁴
+- Ammonia (NH₃); Kb = 1.8 × 10⁻⁵
+</p>
+
+<p>
+Arrange the following bases in order of decreasing base strength.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Order of decreasing base strength:</strong></p>
+<p><strong>Ethylamine > Ammonia > Aniline</strong></p>
+<p><strong>Reason:</strong> Larger Kb means stronger base</p>
+<p>Kb values: Ethylamine (5.6 × 10⁻⁴) > Ammonia (1.8 × 10⁻⁵) > Aniline (3.9 × 10⁻¹⁰)</p>
+<p><strong>Critical Nuance:</strong> Aniline is a very weak base because the lone pair on nitrogen is delocalized into the benzene ring, making it less available for protonation.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [15 marks]</h2>
+
+<p>
+Given a H⁺ concentration of a solution is 6.6 × 10⁻⁴ M at 25°C, calculate:
+</p>
+
+<h3>Part (i) [5 marks]</h3>
+<p>
+the pH of the solution
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$pH = -\log[H^+] = -\log(6.6 \times 10^{-4})$$</p>
+<p>$$pH = -\log(6.6) - \log(10^{-4}) = -0.8195 + 4 = \boxed{3.18}$$</p>
+</details>
+
+<h3>Part (ii) [5 marks]</h3>
+<p>
+the concentration of hydroxide ion of solution
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Using $K_w = [H^+][OH^-] = 1.0 \times 10^{-14}$</p>
+<p>$$[OH^-] = \frac{K_w}{[H^+]} = \frac{1.0 \times 10^{-14}}{6.6 \times 10^{-4}}$$</p>
+<p>$$[OH^-] = 1.52 \times 10^{-11} \text{ M}$$</p>
+</details>
+
+<h3>Part (iii) [5 marks]</h3>
+<p>
+the concentration of hydrogen ion in a solution with pOH of 3.9
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$pH + pOH = 14$$</p>
+<p>$$pH = 14 - 3.9 = 10.1$$</p>
+<p>$$[H^+] = 10^{-pH} = 10^{-10.1} = 7.94 \times 10^{-11} \text{ M}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [15 marks]</h2>
+
+<p>
+Benzoic acid, C₆H₅COOH is used as a preservative in fruit juices as it inhibits the growth of microorganisms. It is found to be more effective if the pH of the fruit juice is below 5. The dissociation constant for benzoic acid is 1.0 × 10⁻⁴.
+</p>
+
+<h3>Part (i) [3 marks]</h3>
+<p>
+Define the term of acid according to the Arrhenius theory.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Arrhenius Acid:</strong> A substance that produces H⁺ ions when dissolved in water.</p>
+<p>$$HA \rightarrow H^+ + A^-$$</p>
+</details>
+
+<h3>Part (ii) [4 marks]</h3>
+<p>
+Write the dissociation equation in water and an expression for the acidity constant Ka for benzoic acid.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation equation:</strong></p>
+<p>$$C_6H_5COOH(aq) \rightleftharpoons C_6H_5COO^-(aq) + H^+(aq)$$</p>
+<p><strong>Ka expression:</strong></p>
+<p>$$K_a = \frac{[C_6H_5COO^-][H^+]}{[C_6H_5COOH]} = 1.0 \times 10^{-4}$$</p>
+</details>
+
+<h3>Part (iii) [8 marks]</h3>
+<p>
+Calculate the pH value of a 0.010 M benzoic acid solution.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Write ICE table</p>
+<p>Let x = [H⁺] at equilibrium</p>
+<p>| | C₆H₅COOH | C₆H₅COO⁻ | H⁺ |</p>
+<p>|---|---|---|---|</p>
+<p>|I | 0.010 | 0 | 0 |</p>
+<p>|C | -x | +x | +x |</p>
+<p>|E | 0.010-x | x | x |</p>
+
+<p><strong>Step 2:</strong> Substitute into Ka expression</p>
+<p>$$K_a = \frac{x^2}{0.010 - x} = 1.0 \times 10^{-4}$$</p>
+
+<p><strong>Step 3:</strong> Assume x << 0.010 (valid since Ka is relatively large)</p>
+<p>$$x^2 = 1.0 \times 10^{-4} \times 0.010 = 1.0 \times 10^{-6}$$</p>
+<p>$$x = 1.0 \times 10^{-3} \text{ M}$$</p>
+
+<p><strong>Step 4:</strong> Calculate pH</p>
+<p>$$pH = -\log(1.0 \times 10^{-3}) = \boxed{3.00}$$</p>
+
+<p><strong>Critical Nuance:</strong> The assumption x << 0.010 is valid here since x = 0.001 which is 10% of 0.010. For more precise calculation, solving the quadratic gives x = 9.5 × 10⁻⁴ M, pH = 3.02.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [20 marks]</h2>
+
+<p>
+Ethylamine, CH₃CH₂NH₂ is widely used in chemical industry and organic synthesis. It is a component of tobacco smoke. The main hazardous properties of ethylamine are its corrosive potential and flammability.
+</p>
+
+<h3>Part (i) [10 marks]</h3>
+<p>
+Calculate the pH of 0.50 M ethylamine solution
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Ethylamine is a weak base with Kb = 5.6 × 10⁻⁴</p>
+<p><strong>Dissociation:</strong> $CH_3CH_2NH_2 + H_2O \rightleftharpoons CH_3CH_2NH_3^+ + OH^-$</p>
+
+<p><strong>ICE Table:</strong></p>
+<p>Let x = [OH⁻] at equilibrium</p>
+<p>| | CH₃CH₂NH₂ | CH₃CH₂NH₃⁺ | OH⁻ |</p>
+<p>|---|---|---|---|</p>
+<p>|I | 0.50 | 0 | 0 |</p>
+<p>|C | -x | +x | +x |</p>
+<p>|E | 0.50-x | x | x |</p>
+
+<p>$$K_b = \frac{[CH_3CH_2NH_3^+][OH^-]}{[CH_3CH_2NH_2]} = \frac{x^2}{0.50 - x} = 5.6 \times 10^{-4}$$</p>
+
+<p>Assuming x << 0.50:</p>
+<p>$$x^2 = 5.6 \times 10^{-4} \times 0.50 = 2.8 \times 10^{-4}$$</p>
+<p>$$x = 1.67 \times 10^{-2} \text{ M}$$</p>
+
+<p>$$pOH = -\log(1.67 \times 10^{-2}) = 1.78$$</p>
+<p>$$pH = 14 - 1.78 = \boxed{12.22}$$</p>
+</details>
+
+<h3>Part (ii) [10 marks]</h3>
+<p>
+Calculate the pH of 0.10 M CH₃CH₂NH₃Cl solution and state the type of solution produced.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>CH₃CH₂NH₃Cl is a salt that dissociates completely:</p>
+<p>$$CH_3CH_2NH_3Cl \rightarrow CH_3CH_2NH_3^+ + Cl^-$$</p>
+<p>The $CH_3CH_2NH_3^+$ is the conjugate acid of ethylamine and will hydrolyze:</p>
+<p>$$CH_3CH_2NH_3^+ + H_2O \rightleftharpoons CH_3CH_2NH_2 + H_3O^+$$</p>
+<p>Ka for $CH_3CH_2NH_3^+$ can be calculated from Kb for ethylamine:</p>
+<p>$$K_a \times K_b = K_w$$</p>
+<p>$$K_a = \frac{K_w}{K_b} = \frac{1.0 \times 10^{-14}}{5.6 \times 10^{-4}} = 1.79 \times 10^{-11}$$</p>
+
+<p>$$CH_3CH_2NH_3^+ \rightleftharpoons CH_3CH_2NH_2 + H^+$$</p>
+<p>Let x = [H⁺] at equilibrium</p>
+<p>$$K_a = \frac{x^2}{0.10 - x} = 1.79 \times 10^{-11}$$</p>
+
+<p>Since Ka is very small, x << 0.10</p>
+<p>$$x^2 = 1.79 \times 10^{-11} \times 0.10 = 1.79 \times 10^{-12}$$</p>
+<p>$$x = 1.34 \times 10^{-6} \text{ M}$$</p>
+<p>$$pH = -\log(1.34 \times 10^{-6}) = \boxed{5.87}$$</p>
+
+<p><strong>Type of solution:</strong> <strong>Acidic</strong> (pH < 7)</p>
+<p><strong>Critical Nuance:</strong> The salt of a weak base and strong acid produces an acidic solution.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 7 [20 marks]</h2>
+
+<p>
+A buffer solution is prepared by mixing 40.0 mL of 0.3 M pyridine with 60.0 mL of 0.20 M pyridinium chloride.
+</p>
+
+<h3>Part (i) [10 marks]</h3>
+<p>
+Calculate the pH of the buffer solution. (Kb for pyridine = 1.7 × 10⁻⁹)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles of each species</p>
+<p>Moles of pyridine: $0.040 \text{ L} \times 0.3 \text{ M} = 0.012$ mol</p>
+<p>Moles of pyridinium: $0.060 \text{ L} \times 0.20 \text{ M} = 0.012$ mol</p>
+<p>Total volume = 40.0 + 60.0 = 100 mL = 0.100 L</p>
+
+<p><strong>Step 2:</strong> Calculate concentrations in buffer</p>
+<p>[Pyridine] = 0.012 / 0.100 = 0.12 M</p>
+<p>[Pyridinium] = 0.012 / 0.100 = 0.12 M</p>
+
+<p><strong>Step 3:</strong> Use Henderson-Hasselbalch equation for bases</p>
+<p>First, calculate pKa from Kb:</p>
+<p>$$pK_b = -\log(1.7 \times 10^{-9}) = 8.77$$</p>
+<p>$$pK_a = 14 - pK_b = 14 - 8.77 = 5.23$$</p>
+
+<p>$$pOH = pK_b + \log\left(\frac{[acid]}{[base]}\right)$$</p>
+<p>$$pOH = 8.77 + \log\left(\frac{0.12}{0.12}\right) = 8.77 + \log(1)$$</p>
+<p>$$pOH = 8.77 + 0 = 8.77$$</p>
+<p>$$pH = 14 - 8.77 = \boxed{5.23}$$</p>
+</details>
+
+<h3>Part (ii) [10 marks]</h3>
+<p>
+Calculate the new pH after 5.0 mL of 0.10 M NaOH is added to the buffer.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate moles of NaOH added</p>
+<p>Moles of NaOH = 0.005 L × 0.10 M = 0.0005 mol = 5.0 × 10⁻⁴ mol</p>
+
+<p><strong>Step 2:</strong> Reaction with buffer</p>
+<p>NaOH reacts with pyridinium (acid):</p>
+<p>$$C_5H_5NH^+ + OH^- \rightarrow C_5H_5N + H_2O$$</p>
+<p>Moles of pyridinium remaining = 0.012 - 0.0005 = 0.0115 mol</p>
+<p>Moles of pyridine formed = 0.012 + 0.0005 = 0.0125 mol</p>
+
+<p><strong>Step 3:</strong> New concentrations (total volume = 105 mL = 0.105 L)</p>
+<p>[Pyridine] = 0.0125 / 0.105 = 0.119 M</p>
+<p>[Pyridinium] = 0.0115 / 0.105 = 0.110 M</p>
+
+<p><strong>Step 4:</strong> Calculate new pOH</p>
+<p>$$pOH = pK_b + \log\left(\frac{[acid]}{[base]}\right)$$</p>
+<p>$$pOH = 8.77 + \log\left(\frac{0.110}{0.119}\right)$$</p>
+<p>$$pOH = 8.77 + \log(0.924)$$</p>
+<p>$$pOH = 8.77 + (-0.034) = 8.74$$</p>
+<p>$$pH = 14 - 8.74 = \boxed{5.26}$$</p>
+
+<p><strong>Critical Nuance:</strong> The pH change is minimal (from 5.23 to 5.26) because the buffer resists changes in pH upon addition of small amounts of strong base.</p>
+</details>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 

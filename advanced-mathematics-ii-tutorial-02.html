@@ -29,6 +29,19 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,20 +52,553 @@
 <hr>
 
 <div class="subject-nav">
-<strong>Subjects:</strong> Advanced Mathematics II | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+<strong>Subjects:</strong> Advanced Mathematics II | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="daily-revision.html">Daily Revision</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
 </div>
 
 <hr>
 
-<h1>Tutorial 02</h1>
+<h1>Tutorial 2: De Moivre's Theorem</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Question 1 [4 marks]</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+Let $z_1 = -4 + 4i$ and $z_2 = -2\sqrt{3} + 2i$. Write in Cartesian form: (a) $z_1^6$ (b) $z_2^6$
 </p>
 
-<hr>
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+First convert to polar form, then use De Moivre's theorem: $z^n = r^n(\cos n\theta + i\sin n\theta)$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $z_1 = -4 + 4i$
+
+<p>
+$r = \sqrt{(-4)^2 + 4^2} = \sqrt{32} = 4\sqrt{2}$
+</p>
+
+<p>
+$\theta = \pi - \pi/4 = 3\pi/4$
+</p>
+
+<p>
+$z_1^6 = (4\sqrt{2})^6 [\cos(6 \times 3\pi/4) + i\sin(6 \times 3\pi/4)]$
+</p>
+
+<p>
+$= (4\sqrt{2})^6 [\cos(9\pi/2) + i\sin(9\pi/2)]$
+</p>
+
+<p>
+$= 4096[\cos(\pi/2 + 4\pi) + i\sin(\pi/2 + 4\pi)]$
+</p>
+
+<p>
+$= 4096[0 + i(1)] = 4096i$
+</p>
+
+<strong>(b)</strong> $z_2 = -2\sqrt{3} + 2i$
+
+<p>
+$r = \sqrt{(-2\sqrt{3})^2 + 2^2} = \sqrt{12 + 4} = 4$
+</p>
+
+<p>
+$\theta = \pi - \pi/6 = 5\pi/6$
+</p>
+
+<p>
+$z_2^6 = 4^6 [\cos(6 \times 5\pi/6) + i\sin(6 \times 5\pi/6)]$
+</p>
+
+<p>
+$= 4096[\cos(5\pi) + i\sin(5\pi)]$
+</p>
+
+<p>
+$= 4096[-1 + i(0)] = -4096$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> When simplifying angles, remember to reduce by $2\pi$ to get the principal angle.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [6 marks]</h2>
+<p>
+Simplify to terms in cos x and sin x:
+(a) $(\cos 7x + i\sin 7x)(\cos 5x - i\sin 5x)$  
+(b) $\frac{\cos 3x + i\sin 3x}{\cos 2x + i\sin 2x}$  
+(c) $(\cos 4x + i\sin 4x)(\cos 2x + i\sin 2x)(\cos x + i\sin x)$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use De Moivre's theorem. For (b), divide complex numbers in polar form. For (c), multiply the angles.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $(\cos 7x + i\sin 7x)(\cos 5x - i\sin 5x) = (\cos 7x + i\sin 7x)(\cos(-5x) + i\sin(-5x))$
+
+<p>
+Using formula: $= \cos(7x - 5x) + i\sin(7x - 5x) = \cos 2x + i\sin 2x$
+</p>
+
+<strong>(b)</strong> $\frac{\cos 3x + i\sin 3x}{\cos 2x + i\sin 2x} = \cos(3x - 2x) + i\sin(3x - 2x) = \cos x + i\sin x$
+
+<strong>(c)</strong> Product of three: $\cos(4x + 2x + x) + i\sin(4x + 2x + x) = \cos 7x + i\sin 7x$
+
+<p><strong>⚠️ Nuance:</strong> Remember: $\cos(-\theta) = \cos\theta$ and $\sin(-\theta) = -\sin\theta$. Division corresponds to subtracting arguments.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [4 marks]</h2>
+<p>
+Express in exponential and Cartesian form:
+(a) $(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6})^4$  
+(b) $(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3})^5$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use De Moivre's theorem: $(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $(\cos\frac{\pi}{6} + i\sin\frac{\pi}{6})^4 = \cos\frac{4\pi}{6} + i\sin\frac{4\pi}{6} = \cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}$
+
+<p>
+Exponential: $e^{i4\pi/6} = e^{i2\pi/3}$
+</p>
+
+<p>
+Cartesian: $\cos(2\pi/3) + i\sin(2\pi/3) = -1/2 + i\sqrt{3}/2$
+</p>
+
+<strong>(b)</strong> $(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3})^5 = \cos\frac{10\pi}{3} + i\sin\frac{10\pi}{3}$
+
+<p>
+Reduce: $10\pi/3 = 2\pi + 4\pi/3$
+</p>
+
+<p>
+$= \cos\frac{4\pi}{3} + i\sin\frac{4\pi}{3}$
+</p>
+
+<p>
+Exponential: $e^{i10\pi/3}$
+</p>
+
+<p>
+Cartesian: $\cos(4\pi/3) + i\sin(4\pi/3) = -1/2 - i\sqrt{3}/2$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Simplify angles by subtracting multiples of $2\pi$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [4 marks]</h2>
+<p>
+Calculate:
+(a) $\arg\left[\frac{\cos\theta + i\sin\theta}{\cos\phi + i\sin\phi}\right]$  
+(b) modulus and argument of $\frac{\cos 2\theta + i\sin 2\theta}{\cos\theta + i\sin\theta}$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use the property: $\arg(z_1/z_2) = \arg(z_1) - \arg(z_2)$. For modulus: $|z_1/z_2| = |z_1|/|z_2|$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $\arg\left[\frac{\cos\theta + i\sin\theta}{\cos\phi + i\sin\phi}\right] = \arg(\cos\theta + i\sin\theta) - \arg(\cos\phi + i\sin\phi) = \theta - \phi$
+
+<strong>(b)</strong> $\frac{\cos 2\theta + i\sin 2\theta}{\cos\theta + i\sin\theta} = \cos(2\theta - \theta) + i\sin(2\theta - \theta) = \cos\theta + i\sin\theta$
+
+<p>
+Modulus = 1, Argument = $\theta$ (or $\theta + 2k\pi$)
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The modulus of any $\cos\theta + i\sin\theta$ is always 1, since $\cos^2\theta + \sin^2\theta = 1$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [6 marks]</h2>
+<p>
+Show that $\cos A + \cos A = 2\cos A$ and $\cos A - \cos A = 2i\sin A$. Deduce:
+(a) $\cos n\theta + \cos(-n\theta) = 2\cos(n\theta)$  
+(b) $\cos n\theta - \cos(-n\theta) = 2i\sin(n\theta)$
+</p>
+
+<p>
+Hence express $\cos 4x$ and $\sin 4x$ in terms of powers of $\cos x$ and $\sin x$.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use sum-to-product identities. For the deduction, note that $\cos(-n\theta) = \cos(n\theta)$ and $\sin(-n\theta) = -\sin(n\theta)$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+Using $e^{i\theta} = \cos\theta + i\sin\theta$:
+</p>
+
+<p>
+$\cos n\theta + \cos(-n\theta) = \frac{e^{in\theta} + e^{-in\theta}}{2} + \frac{e^{in\theta} + e^{-in\theta}}{2} = e^{in\theta} + e^{-in\theta} = 2\cos(n\theta)$
+</p>
+
+<p>
+$\cos n\theta - \cos(-n\theta) = \frac{e^{in\theta} + e^{-in\theta}}{2} - \frac{e^{in\theta} + e^{-in\theta}}{2} = 0$... wait, let me redo:
+</p>
+
+<p>
+$\cos n\theta - \cos(-n\theta) = \frac{e^{in\theta} + e^{-in\theta}}{2} - \frac{e^{-in\theta} + e^{in\theta}}{2}$... actually:
+</p>
+
+<p>
+Using $\cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$ and $\sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$:
+</p>
+
+<p>
+$\cos n\theta + \cos(-n\theta) = 2\cos(n\theta)$
+</p>
+
+<p>
+$\cos n\theta - \cos(-n\theta) = 0$? No, this is wrong.
+</p>
+
+<p>
+Actually: $\cos(-n\theta) = \cos(n\theta)$, so:
+$\cos n\theta + \cos(-n\theta) = \cos n\theta + \cos n\theta = 2\cos(n\theta)$
+</p>
+
+<p>
+And: $\cos n\theta - \cos(-n\theta) = \cos n\theta - \cos n\theta = 0$? That's also wrong.
+</p>
+
+<p>
+Wait - the question says: show $\cos A + \cos A = 2\cos A$ - that's trivial. The actual identity is:
+</p>
+
+<p>
+$\cos A + \cos B = 2\cos(\frac{A+B}{2})\cos(\frac{A-B}{2})$
+</p>
+
+<p>
+$\cos A - \cos B = -2\sin(\frac{A+B}{2})\sin(\frac{A-B}{2})$
+</p>
+
+<p>
+For $\cos 4x$: Use double angle repeatedly or $e^{i4x}$.
+</p>
+
+<p>
+$\cos 4x = \cos^4 x - 6\cos^2 x \sin^2 x + \sin^4 x$
+</p>
+
+<p>
+$\sin 4x = 4\cos^3 x \sin x - 4\cos x \sin^3 x$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Using De Moivre's theorem: $(\cos x + i\sin x)^4 = \cos 4x + i\sin 4x$. Expand using binomial theorem.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [6 marks]</h2>
+<p>
+Prove:
+(a) $\cos 5\theta = 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta$  
+(b) $\sin 5\theta = 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use $(\cos\theta + i\sin\theta)^5 = \cos 5\theta + i\sin 5\theta$ and expand using binomial theorem.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+Using $(\cos\theta + i\sin\theta)^5$:
+</p>
+
+<p>
+$= \cos^5\theta + 5i\cos^4\theta\sin\theta + 10i^2\cos^3\theta\sin^2\theta + 10i^3\cos^2\theta\sin^3\theta + 5i^4\cos\theta\sin^4\theta + i^5\sin^5\theta$
+</p>
+
+<p>
+$= \cos^5\theta + 5i\cos^4\theta\sin\theta - 10\cos^3\theta\sin^2\theta - 10i\cos^2\theta\sin^3\theta + 5\cos\theta\sin^4\theta + i\sin^5\theta$
+</p>
+
+<p>
+Real part (cos 5θ):
+$\cos 5\theta = \cos^5\theta - 10\cos^3\theta\sin^2\theta + 5\cos\theta\sin^4\theta$
+</p>
+
+<p>
+Using $\sin^2\theta = 1 - \cos^2\theta$:
+$= \cos^5\theta - 10\cos^3\theta(1-\cos^2\theta) + 5\cos\theta(1-\cos^2\theta)^2$
+</p>
+
+<p>
+$= \cos^5\theta - 10\cos^3\theta + 10\cos^5\theta + 5\cos\theta - 10\cos^3\theta + 5\cos^5\theta$
+</p>
+
+<p>
+$= 16\cos^5\theta - 20\cos^3\theta + 5\cos\theta$ ✓
+</p>
+
+<p>
+Imaginary part gives (b):
+$\sin 5\theta = 5\cos^4\theta\sin\theta - 10\cos^2\theta\sin^3\theta + \sin^5\theta$
+</p>
+
+<p>
+Using $\cos^2\theta = 1 - \sin^2\theta$:
+$= 5(1-\sin^2\theta)^2\sin\theta - 10(1-\sin^2\theta)\sin^3\theta + \sin^5\theta$
+</p>
+
+<p>
+$= 16\sin^5\theta - 20\sin^3\theta + 5\sin\theta$ ✓
+</p>
+
+<p><strong>⚠️ Nuance:</strong> This pattern continues: $\cos n\theta$ can be expressed as a polynomial in $\cos\theta$ of degree n.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 7 [6 marks]</h2>
+<p>
+Find cube roots of:
+(a) $z = -3 + 3i$  
+(b) $z = 8(\cos\frac{\pi}{3} + i\sin\frac{\pi}{3})$  
+(c) $z = 27$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For $z^n = w$, write $w = re^{i\theta}$, then roots are $r^{1/n}e^{i(\theta + 2k\pi)/n}$ for $k = 0, 1, ..., n-1$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $-3 + 3i$: $r = \sqrt{9+9} = 3\sqrt{2}$, $\theta = 3\pi/4$
+
+<p>
+Cube roots ($n=3$, $k=0,1,2$):
+$r^{1/3} = (3\sqrt{2})^{1/3}$, angles: $(3\pi/4 + 2k\pi)/3$
+</p>
+
+<p>
+$k=0$: $3^{1/3}2^{1/6}e^{i\pi/4} = \sqrt[3]{3\sqrt{2}}e^{i\pi/4}$
+$k=1$: angle = $(3\pi/4 + 2\pi)/3 = 11\pi/12$
+$k=2$: angle = $(3\pi/4 + 4\pi)/3 = 19\pi/12$
+</p>
+
+<strong>(b)</strong> $8(\cos\pi/3 + i\sin\pi/3)$: $r = 8$, $\theta = \pi/3$
+
+<p>
+Cube roots: $8^{1/3} = 2$, angles: $(\pi/3 + 2k\pi)/3$
+</p>
+
+<p>
+$k=0$: $2e^{i\pi/9}$
+$k=1$: $2e^{i7\pi/9}$
+$k=2$: $2e^{i13\pi/9}$
+</p>
+
+<strong>(c)</strong> $27 = 27 + 0i$: $r = 27$, $\theta = 0$
+
+<p>
+Cube roots: $27^{1/3} = 3$, angles: $0, 2\pi/3, 4\pi/3$
+</p>
+
+<p>
+$3$, $3e^{i2\pi/3} = -3/2 + i3\sqrt{3}/2$, $3e^{i4\pi/3} = -3/2 - i3\sqrt{3}/2$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> There are always n roots for an nth root problem. They are equally spaced on the circle.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 8 [4 marks]</h2>
+<p>
+What are the 10th roots of 1? How many are on: real axis? imaginary axis? first quadrant? other quadrants?
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+The 10th roots of 1 are $e^{i2k\pi/10} = e^{ik\pi/5}$ for $k = 0, 1, ..., 9$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+10th roots of 1: $e^{ik\pi/5}$ for $k = 0, 1, ..., 9$
+</p>
+
+<p>
+These are equally spaced points on the unit circle.
+</p>
+
+<strong>Real axis:</strong> Points where $\theta = 0$ or $\pi$: $k=0$ (1) and $k=5$ (-1) → 2 points
+
+<strong>Imaginary axis:</strong> Points where $\theta = \pi/2$ or $3\pi/2$: none among 10th roots → 0 points
+
+<strong>First quadrant:</strong> $\theta$ between 0 and $\pi/2$: $k=1$ ($\pi/5 = 36^\circ$) and $k=2$ ($2\pi/5 = 72^\circ$) → 2 points
+
+<strong>Other quadrants:</strong> Remaining 6 points
+
+<p><strong>⚠️ Nuance:</strong> The n roots of 1 are evenly spaced at angles $2k\pi/n$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 9 [4 marks]</h2>
+<p>
+Find all $z$ for which $z^5 = -32i$ with $\text{Im}(z) > 0$.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Write $-32i$ in polar form: $r = 32$, $\theta = -\pi/2$ (or $3\pi/2$). Then find 5th roots.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+$-32i = 32e^{-i\pi/2}$ (or $32e^{i3\pi/2}$)
+</p>
+
+<p>
+5th roots: $32^{1/5} = 2$, angles: $(-\pi/2 + 2k\pi)/5$
+</p>
+
+<p>
+For $k = 0, 1, 2, 3, 4$:
+- $k=0$: $2e^{-i\pi/10}$ → $\text{Im} < 0$
+- $k=1$: $2e^{i3\pi/10}$ → $\text{Im} > 0$ ✓
+- $k=2$: $2e^{i7\pi/10}$ → $\text{Im} > 0$ ✓
+- $k=3$: $2e^{i11\pi/10}$ → $\text{Im} < 0$
+- $k=4$: $2e^{i15\pi/10} = 2e^{i3\pi/2}$ → $\text{Im} < 0$
+</p>
+
+<p>
+Solutions with Im(z) > 0:
+$z = 2e^{i3\pi/10}$ and $z = 2e^{i7\pi/10}$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Exactly 2 of the 5 roots will have positive imaginary part.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 10 [4 marks]</h2>
+<p>
+Suppose $\sqrt{3} - i$ is a root of $z^4 + 16(1+i)z^2 + a + bi = 0$, where $a, b$ are real. Find $a$ and $b$.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+If $\sqrt{3} - i$ is a root, substitute into the polynomial. Since coefficients are real, the complex conjugate is also a root.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+Let $z = \sqrt{3} - i$. First find $z^2$ and $z^4$:
+</p>
+
+<p>
+$z = \sqrt{3} - i = 2e^{-i\pi/6}$
+</p>
+
+<p>
+$z^2 = 4e^{-i\pi/3} = 4(\cos(-\pi/3) + i\sin(-\pi/3)) = 4(1/2 - i\sqrt{3}/2) = 2 - 2\sqrt{3}i$
+</p>
+
+<p>
+$z^4 = (z^2)^2 = (2 - 2\sqrt{3}i)^2 = 4 - 8\sqrt{3}i + 12 = 16 - 8\sqrt{3}i$
+</p>
+
+<p>
+Substitute into $z^4 + 16(1+i)z^2 + a + bi = 0$:
+</p>
+
+<p>
+$(16 - 8\sqrt{3}i) + 16(1+i)(2 - 2\sqrt{3}i) + a + bi = 0$
+</p>
+
+<p>
+$= 16 - 8\sqrt{3}i + 32 + 32i - 32\sqrt{3}i - 32\sqrt{3}i^2 + a + bi$
+</p>
+
+<p>
+$= (48 + 32 + 32\sqrt{3}) + i(-8\sqrt{3} + 32 - 32\sqrt{3}) + a + bi$
+</p>
+
+<p>
+Wait, let me recalculate $16(1+i)(2-2\sqrt{3}i)$:
+$= 16[(2-2\sqrt{3}i) + i(2-2\sqrt{3}i)] = 16[2 - 2\sqrt{3}i + 2i - 2\sqrt{3}i^2]$
+$= 16[2 + 2i - 2\sqrt{3}i + 2\sqrt{3}] = 32 + 32i - 32\sqrt{3}i + 32\sqrt{3}$
+</p>
+
+<p>
+Total: $16 + 32 + 32\sqrt{3} + (-8\sqrt{3} + 32 - 32\sqrt{3})i + a + bi = 0$
+</p>
+
+<p>
+Real: $48 + 32\sqrt{3} + a = 0$ → $a = -48 - 32\sqrt{3}$
+</p>
+
+<p>
+Imag: $-8\sqrt{3} + 32 + b = 0$ → $b = 8\sqrt{3} - 32$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Since coefficients are real, complex roots come in conjugate pairs.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Common Patterns</h2>
+
+<strong>De Moivre's Theorem:</strong>
+<p>
+$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$
+</p>
+
+<strong>nth Roots of z:</strong>
+<p>
+If $z = re^{i\theta}$, then roots are $r^{1/n}e^{i(\theta + 2k\pi)/n}$ for $k = 0, 1, ..., n-1$
+</p>
+
+<strong>Trigonometric Identities:</strong>
+<p>
+$\cos n\theta = \sum_{k=0}^{\lfloor n/2 \rfloor} \binom{n}{2k} \cos^{n-2k}(-\sin)^{2k}\theta$
+</p>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 

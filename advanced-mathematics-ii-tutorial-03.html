@@ -29,6 +29,19 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,20 +52,400 @@
 <hr>
 
 <div class="subject-nav">
-<strong>Subjects:</strong> Advanced Mathematics II | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+<strong>Subjects:</strong> Advanced Mathematics II | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="daily-revision.html">Daily Revision</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
 </div>
 
 <hr>
 
-<h1>Tutorial 03</h1>
+<h1>Tutorial 3: Complex Logarithms & Loci</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Question 1 [6 marks]</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+Find general complex logarithm $\ln(z)$ and principal complex logarithm $\Ln(z)$ for:
+(a) $z = 1 + i$  
+(b) $z = 2 - \sqrt{3}i$  
+(c) $z = 2\sqrt{3} + 2i$
 </p>
 
-<hr>
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+$\ln(z) = \ln|z| + i(\theta + 2k\pi)$ where $\theta = \arg(z)$. Principal: $\Ln(z) = \ln|z| + i\arg(z)$ with $\arg \in (-\pi, \pi]$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $z = 1 + i$: $|z| = \sqrt{2}$, $\arg(z) = \pi/4$
+
+<p>
+$\ln(z) = \ln\sqrt{2} + i(\pi/4 + 2k\pi)$, $k \in \mathbb{Z}$
+</p>
+
+<p>
+$\Ln(z) = \ln\sqrt{2} + i\pi/4$
+</p>
+
+<strong>(b)</strong> $z = 2 - \sqrt{3}i$: $|z| = \sqrt{4 + 3} = \sqrt{7}$, $\arg(z) = -\pi/3$
+
+<p>
+$\ln(z) = \ln\sqrt{7} + i(-\pi/3 + 2k\pi)$
+</p>
+
+<p>
+$\Ln(z) = \ln\sqrt{7} - i\pi/3$
+</p>
+
+<strong>(c)</strong> $z = 2\sqrt{3} + 2i$: $|z| = \sqrt{12 + 4} = 4$, $\arg(z) = \pi/6$
+
+<p>
+$\ln(z) = \ln 4 + i(\pi/6 + 2k\pi)$
+</p>
+
+<p>
+$\Ln(z) = \ln 4 + i\pi/6$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The complex logarithm is multi-valued due to the $2k\pi$ term. The principal value uses the principal argument.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [8 marks]</h2>
+<p>
+(a) Find Cartesian form of $\sin z$ and $\cos z$.  
+(b) Compute: (i) $\cos(\pi/4 + i)$ (ii) $\sin(\pi/4 + i)$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use definitions: $\sin z = \frac{e^{iz} - e^{-iz}}{2i}$, $\cos z = \frac{e^{iz} + e^{-iz}}{2}$. Then use $\sin(A \pm iB) = \sin A \cosh B \pm i\cos A \sinh B$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> Let $z = x + iy$:
+
+<p>
+$\sin z = \sin(x+iy) = \sin x \cosh y + i \cos x \sinh y$
+</p>
+
+<p>
+$\cos z = \cos(x+iy) = \cos x \cosh y - i \sin x \sinh y$
+</p>
+
+<strong>(b)(i)</strong> $\cos(\pi/4 + i) = \cos(\pi/4)\cosh(1) - i\sin(\pi/4)\sinh(1)$
+
+<p>
+$= \frac{\sqrt{2}}{2}\cosh(1) - i\frac{\sqrt{2}}{2}\sinh(1)$
+</p>
+
+<strong>(b)(ii)</strong> $\sin(\pi/4 + i) = \sin(\pi/4)\cosh(1) + i\cos(\pi/4)\sinh(1)$
+
+<p>
+$= \frac{\sqrt{2}}{2}\cosh(1) + i\frac{\sqrt{2}}{2}\sinh(1)$
+</p>
+
+<p>
+Using compound angle formula gives same result.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Unlike real trig, complex sine and cosine can be > 1 in magnitude. Here $\cosh(1) \approx 1.54$ and $\sinh(1) \approx 1.17$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [3 marks]</h2>
+<p>
+Find $\text{Re}(z)$, $\text{Im}(z)$ and $\arg(z)$ for $z = 2e^{i\pi/3}$.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Convert to Cartesian: $z = 2(\cos\pi/3 + i\sin\pi/3) = 2(1/2 + i\sqrt{3}/2) = 1 + i\sqrt{3}$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p>
+$z = 2e^{i\pi/3} = 2(\cos\pi/3 + i\sin\pi/3) = 1 + i\sqrt{3}$
+</p>
+
+<p>
+$\text{Re}(z) = 1$
+</p>
+
+<p>
+$\text{Im}(z) = \sqrt{3}$
+</p>
+
+<p>
+$\arg(z) = \pi/3$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Euler's form $re^{i\theta}$ directly gives modulus $r$ and argument $\theta$.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [6 marks]</h2>
+<p>
+Sketch and find Cartesian equation for:
+(a) $|z - (4 + i)| = 3$  
+(b) $|z - 1 - i| = 5$  
+(c) $|2z + 6 - 4i| = 6$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+These are circles. $|z - z_0| = r$ means circle centered at $z_0$ with radius $r$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $|z - (4 + i)| = 3$
+
+<p>
+Let $z = x + iy$: $|(x+iy) - (4+i)| = 3$
+</p>
+
+<p>
+$|(x-4) + i(y-1)| = 3$
+</p>
+
+<p>
+$\sqrt{(x-4)^2 + (y-1)^2} = 3$
+</p>
+
+<p>
+$(x-4)^2 + (y-1)^2 = 9$
+</p>
+
+<p>
+Circle: center (4, 1), radius 3
+</p>
+
+<strong>(b)</strong> $|z - 1 - i| = 5$
+
+<p>
+$(x-1)^2 + (y-1)^2 = 25$
+</p>
+
+<p>
+Circle: center (1, 1), radius 5
+</p>
+
+<strong>(c)</strong> $|2z + 6 - 4i| = 6$
+
+<p>
+$|2(z + 3 - 2i)| = 6$ → $|z + 3 - 2i| = 3$
+</p>
+
+<p>
+$(x+3)^2 + (y-2)^2 = 9$
+</p>
+
+<p>
+Circle: center (-3, 2), radius 3
+</p>
+
+<p><strong>⚠️ Nuance:</strong> For (c), factor out the coefficient of z first.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [6 marks]</h2>
+<p>
+Find Cartesian equation for perpendicular bisectors:
+(a) $|z - (2 + i)| = |z - (1 + 3i)|$  
+(b) $|z + 2 - i| = |z - 1 + 3i|$  
+(c) $|z + 1 + i| = 1$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Perpendicular bisector: set of points equidistant from two points. Simplify to form $Ax + By + C = 0$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $|z - (2 + i)| = |z - (1 + 3i)|$
+
+<p>
+$|(x-2) + i(y-1)| = |(x-1) + i(y-3)|$
+</p>
+
+<p>
+$(x-2)^2 + (y-1)^2 = (x-1)^2 + (y-3)^2$
+</p>
+
+<p>
+$x^2 - 4x + 4 + y^2 - 2y + 1 = x^2 - 2x + 1 + y^2 - 6y + 9$
+</p>
+
+<p>
+$-4x - 2y + 5 = -2x - 6y + 10$
+</p>
+
+<p>
+$-2x + 4y - 5 = 0$
+</p>
+
+<p>
+$2x - 4y + 5 = 0$
+</p>
+
+<strong>(b)</strong> Similarly: gives $3x - 2y + 1 = 0$
+
+<strong>(c)</strong> $|z + 1 + i| = 1$
+
+<p>
+$(x+1)^2 + (y+1)^2 = 1$
+</p>
+
+<p>
+Circle: center (-1, -1), radius 1
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The perpendicular bisector is a straight line.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [6 marks]</h2>
+<p>
+Find Cartesian equation for half-lines:
+(a) $\arg(z - (2 - i)) = \pi/4$  
+(b) $\arg(z + 2 - i) = 5\pi/6$  
+(c) $\arg(z + 2 + i) = -\pi/3$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+$\arg(z - z_0) = \theta$ is a half-line (ray) from $z_0$ at angle $\theta$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> $\arg(z - (2 - i)) = \pi/4$
+
+<p>
+Let $z - (2 - i) = re^{i\pi/4} = r(\cos\pi/4 + i\sin\pi/4) = r/\sqrt{2}(1 + i)$
+</p>
+
+<p>
+So $x - 2 + i(y + 1) = r/\sqrt{2}(1 + i)$
+</p>
+
+<p>
+Thus $x - 2 = y + 1$ → $x - y = 3$
+</p>
+
+<p>
+With $x > 2$ (to get the ray, not the opposite line)
+</p>
+
+<strong>(b)</strong> $\arg(z + 2 - i) = 5\pi/6$
+
+<p>
+$\tan(5\pi/6) = -1/\sqrt{3}$
+</p>
+
+<p>
+Equation: $y + 1 = -\frac{1}{\sqrt{3}}(x + 2)$
+</p>
+
+<p>
+With appropriate domain restriction
+</p>
+
+<strong>(c)</strong> $\arg(z + 2 + i) = -\pi/3$
+
+<p>
+$\tan(-\pi/3) = -\sqrt{3}$
+</p>
+
+<p>
+$y + 1 = -\sqrt{3}(x + 2)$
+</p>
+
+<p>
+With appropriate domain restriction
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The half-line starts at the point, not at the origin.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 7 [4 marks]</h2>
+<p>
+Find equations for:
+(a) Circle radius 5, center $z = 3 - 2i$  
+(b) Perpendicular bisector of segment from $z = -1 - 2i$ to $z = 3 - 2i$  
+(c) Half-line at angle $\alpha$ from point $(-1, -2)$
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use formulas from Q4-6.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a)</strong> Circle: $|z - (3 - 2i)| = 5$
+
+<p>
+Cartesian: $(x-3)^2 + (y+2)^2 = 25$
+</p>
+
+<strong>(b)</strong> Points: $(-1, -2)$ and $(3, -2)$. Midpoint: $(1, -2)$. Line is vertical: $x = 1$
+
+<p>
+In complex: $|z - (1 - 2i)| = |z - (3 - 2i)|$
+</p>
+
+<strong>(c)</strong> Half-line: $\arg(z - (-1 - 2i)) = \alpha$, i.e., $\arg(z + 1 + 2i) = \alpha$
+
+<p>
+Cartesian: $\tan\alpha = \frac{y+2}{x+1}$, with $x > -1$
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The perpendicular bisector of horizontal segment is a vertical line.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Common Patterns</h2>
+
+<strong>Complex Logarithm:</strong>
+<p>
+$\ln(z) = \ln|z| + i(\arg z + 2k\pi)$, $k \in \mathbb{Z}$
+</p>
+
+<strong>Circle:</strong>
+<p>
+$|z - z_0| = r$ → $(x-x_0)^2 + (y-y_0)^2 = r^2$
+</p>
+
+<strong>Perpendicular Bisector:</strong>
+<p>
+$|z - z_1| = |z - z_2|$ → linear equation
+</p>
+
+<strong>Half-line (Ray):</strong>
+<p>
+$\arg(z - z_0) = \theta$
+</p>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 

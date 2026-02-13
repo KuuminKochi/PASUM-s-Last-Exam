@@ -29,6 +29,19 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+        .diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
     </style>
 </head>
 <body>
@@ -39,20 +52,321 @@
 <hr>
 
 <div class="subject-nav">
-<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="daily-revision.html">Daily Revision</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
 </div>
 
 <hr>
 
-<h1>Tutorial 04</h1>
+<h1>Tutorial 4: Solubility and Precipitation</h1>
 
-<h2>Content Pending</h2>
-
+<h2>Overview</h2>
 <p>
-This tutorial has been extracted from PDF. Full transcription with solutions is in progress.
+This tutorial covers solubility product (Ksp), molar solubility calculations, precipitation reactions, and the effect of complex ion formation on solubility.
 </p>
 
-<hr>
+<strong>Topics:</strong> Ksp expressions, molar solubility, precipitation, common ion effect, complex ion formation  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 150 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [20 marks]</h2>
+
+<p>
+For each of the following insoluble salts, write a balanced equation showing the equilibrium occurring when the salt is added to water and write the Ksp expression.
+</p>
+
+<h3>Part (i) [5 marks]</h3>
+<p>
+AgCN
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation equation:</strong></p>
+<p>$$AgCN(s) \rightleftharpoons Ag^+(aq) + CN^-(aq)$$</p>
+<p><strong>Ksp expression:</strong></p>
+<p>$$K_{sp} = [Ag^+][CN^-]$$</p>
+</details>
+
+<h3>Part (ii) [5 marks]</h3>
+<p>
+NiCO₃
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation equation:</strong></p>
+<p>$$NiCO_3(s) \rightleftharpoons Ni^{2+}(aq) + CO_3^{2-}(aq)$$</p>
+<p><strong>Ksp expression:</strong></p>
+<p>$$K_{sp} = [Ni^{2+}][CO_3^{2-}]$$</p>
+</details>
+
+<h3>Part (iii) [5 marks]</h3>
+<p>
+AuBr₃
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation equation:</strong></p>
+<p>$$AuBr_3(s) \rightleftharpoons Au^{3+}(aq) + 3Br^-(aq)$$</p>
+<p><strong>Ksp expression:</strong></p>
+<p>$$K_{sp} = [Au^{3+}][Br^-]^3$$</p>
+</details>
+
+<h3>Part (iv) [5 marks]</h3>
+<p>
+Mg(OH)₂
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation equation:</strong></p>
+<p>$$Mg(OH)_2(s) \rightleftharpoons Mg^{2+}(aq) + 2OH^-(aq)$$</p>
+<p><strong>Ksp expression:</strong></p>
+<p>$$K_{sp} = [Mg^{2+}][OH^-]^2$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [20 marks]</h2>
+
+<h3>Part (a) [10 marks]</h3>
+<p>
+Given that the molar solubility of CaF₂ is 2.04 × 10⁻⁴ mol L⁻¹, calculate the solubility product, Ksp of CaF₂.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation:</strong> $CaF_2(s) \rightleftharpoons Ca^{2+}(aq) + 2F^-(aq)$</p>
+<p><strong>ICE Table:</strong></p>
+<p>Let s = molar solubility = 2.04 × 10⁻⁴ M</p>
+<p>[Ca²⁺] = s = 2.04 × 10⁻⁴ M</p>
+<p>[F⁻] = 2s = 4.08 × 10⁻⁴ M</p>
+
+<p><strong>Ksp calculation:</strong></p>
+<p>$$K_{sp} = [Ca^{2+}][F^-]^2$$</p>
+<p>$$K_{sp} = (2.04 \times 10^{-4})(4.08 \times 10^{-4})^2$$</p>
+<p>$$K_{sp} = (2.04 \times 10^{-4})(1.664 \times 10^{-7})$$</p>
+<p>$$K_{sp} = \boxed{3.39 \times 10^{-11}}$$</p>
+</details>
+
+<h3>Part (b) [10 marks]</h3>
+<p>
+The solubility of calcium carbonate, CaCO₃ is 0.015 g L⁻¹. Calculate the solubility product, Ksp for CaCO₃. Given that the molar mass for CaCO₃ is 100.09 g mol⁻¹.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Convert solubility to mol/L</p>
+<p>Molar solubility = $\frac{0.015 \text{ g/L}}{100.09 \text{ g/mol}} = 1.498 \times 10^{-4} \text{ M}$</p>
+
+<p><strong>Step 2:</strong> Write dissociation and ICE table</p>
+<p>$$CaCO_3(s) \rightleftharpoons Ca^{2+}(aq) + CO_3^{2-}(aq)$$</p>
+<p>Let s = 1.498 × 10⁻⁴ M</p>
+<p>[Ca²⁺] = s = 1.498 × 10⁻⁴ M</p>
+<p>[CO₃²⁻] = s = 1.498 × 10⁻⁴ M</p>
+
+<p><strong>Step 3:</strong> Calculate Ksp</p>
+<p>$$K_{sp} = [Ca^{2+}][CO_3^{2-}]$$</p>
+<p>$$K_{sp} = (1.498 \times 10^{-4})^2$$</p>
+<p>$$K_{sp} = \boxed{2.24 \times 10^{-8}}$$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [20 marks]</h2>
+
+<h3>Part (a) [10 marks]</h3>
+<p>
+Calculate the solubility of Ca(OH)₂ at 25 °C, in moles per liter and gram per liter. (Ksp for Ca(OH)₂ is 5.5 × 10⁻⁵ and molar mass of Ca(OH)₂ is 74 g mol⁻¹)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation:</strong> $Ca(OH)_2(s) \rightleftharpoons Ca^{2+}(aq) + 2OH^-(aq)$</p>
+<p>Let s = molar solubility</p>
+<p>[Ca²⁺] = s</p>
+<p>[OH⁻] = 2s</p>
+
+<p>$$K_{sp} = [Ca^{2+}][OH^-]^2$$</p>
+<p>$$5.5 \times 10^{-5} = s(2s)^2 = 4s^3$$</p>
+<p>$$s^3 = \frac{5.5 \times 10^{-5}}{4} = 1.375 \times 10^{-5}$$</p>
+<p>$$s = (1.375 \times 10^{-5})^{1/3} = 2.40 \times 10^{-2} \text{ M}$$</p>
+
+<p><strong>Solubility in mol/L:</strong> $\boxed{2.40 \times 10^{-2} \text{ M}}$</p>
+
+<p><strong>Solubility in g/L:</strong></p>
+<p>$$= 2.40 \times 10^{-2} \text{ mol/L} \times 74 \text{ g/mol} = \boxed{1.78 \text{ g/L}}$$</p>
+</details>
+
+<h3>Part (b) [10 marks]</h3>
+<p>
+Calculate the concentration of barium ion, Ba²⁺ and fluorine ion, F⁻ in a saturated solution of barium fluoride, BaF₂. Given that the Ksp value for BaF₂ is 1.7 × 10⁻⁶ mol³ L⁻³.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation:</strong> $BaF_2(s) \rightleftharpoons Ba^{2+}(aq) + 2F^-(aq)$</p>
+<p>Let s = molar solubility</p>
+<p>[Ba²⁺] = s</p>
+<p>[F⁻] = 2s</p>
+
+<p>$$K_{sp} = [Ba^{2+}][F^-]^2$$</p>
+<p>$$1.7 \times 10^{-6} = s(2s)^2 = 4s^3$$</p>
+<p>$$s^3 = \frac{1.7 \times 10^{-6}}{4} = 4.25 \times 10^{-7}$$</p>
+<p>$$s = (4.25 \times 10^{-7})^{1/3} = 7.52 \times 10^{-3} \text{ M}$$</p>
+
+<p><strong>[Ba²⁺] = s =</strong> $\boxed{7.52 \times 10^{-3} \text{ M}}$</p>
+<p><strong>[F⁻] = 2s =</strong> $\boxed{1.50 \times 10^{-2} \text{ M}}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [25 marks]</h2>
+
+<h3>Part (a) [12 marks]</h3>
+<p>
+Will a precipitate form when 0.02 mol of MgCl₂ and 0.40 mol of Ba(OH)₂ are dissolved in a total volume of 1.50 L of solution? (Ksp Mg(OH)₂ = 6 × 10⁻¹² mol³ L⁻³)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate ion concentrations</p>
+<p>$$[Mg^{2+}] = \frac{0.02 \text{ mol}}{1.50 \text{ L}} = 0.0133 \text{ M}$$</p>
+<p>$$[OH^-] = \frac{0.40 \text{ mol}}{1.50 \text{ L}} = 0.267 \text{ M}$$</p>
+
+<p><strong>Step 2:</strong> Calculate reaction quotient Q</p>
+<p>$$Q = [Mg^{2+}][OH^-]^2$$</p>
+<p>$$Q = (0.0133)(0.267)^2$$</p>
+<p>$$Q = (0.0133)(0.0713) = 9.48 \times 10^{-4}$$</p>
+
+<p><strong>Step 3:</strong> Compare Q with Ksp</p>
+<p>Ksp = 6 × 10⁻¹²</p>
+<p>Q = 9.48 × 10⁻⁴</p>
+
+<p><strong>Since Q > Ksp,</strong> $\boxed{\text{Yes, a precipitate will form.}}$</p>
+
+<p><strong>Critical Nuance:</strong> Even though [OH⁻] is high, the product [Mg²⁺][OH⁻]² exceeds Ksp, so Mg(OH)₂ will precipitate until Q = Ksp.</p>
+</details>
+
+<h3>Part (b) [13 marks]</h3>
+<p>
+Solid MgSO₄ is slowly added to a solution containing 0.03 M Ba²⁺ and 0.03 M Pb²⁺. (Ksp BaSO₄ = 1.1 × 10⁻¹⁰, Ksp PbSO₄ = 2.0 × 10⁻⁸)
+</p>
+
+<h4>(i) [6 marks]</h4>
+<p>
+Which ion will begin to precipitate first?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Find the concentration of SO₄²⁻ needed to precipitate each ion:</p>
+<p><strong>For BaSO₄:</strong></p>
+<p>$$K_{sp} = [Ba^{2+}][SO_4^{2-}]$$</p>
+<p>$$[SO_4^{2-}] = \frac{K_{sp}}{[Ba^{2+}]} = \frac{1.1 \times 10^{-10}}{0.03} = 3.67 \times 10^{-9} \text{ M}$$</p>
+
+<p><strong>For PbSO₄:</strong></p>
+<p>$$[SO_4^{2-}] = \frac{K_{sp}}{[Pb^{2+}]} = \frac{2.0 \times 10^{-8}}{0.03} = 6.67 \times 10^{-7} \text{ M}$$</p>
+
+<p><strong>Conclusion:</strong> <strong>Ba²⁺ precipitates first</strong> because it requires a lower [SO₄²⁻] (3.67 × 10⁻⁹ M < 6.67 × 10⁻⁷ M)</p>
+</details>
+
+<h4>(ii) [7 marks]</h4>
+<p>
+What will be the concentration of the ion precipitated first when the other ion just begins to form a precipitate?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>When PbSO₄ just begins to precipitate, [SO₄²⁻] = 6.67 × 10⁻⁷ M</p>
+<p>At this point, calculate [Ba²⁺] remaining:</p>
+<p>$$K_{sp} = [Ba^{2+}][SO_4^{2-}]$$</p>
+<p>$$[Ba^{2+}] = \frac{K_{sp}}{[SO_4^{2-}]} = \frac{1.1 \times 10^{-10}}{6.67 \times 10^{-7}}$$</p>
+<p>$$[Ba^{2+}] = \boxed{1.65 \times 10^{-4} \text{ M}}$$</p>
+
+<p><strong>Critical Nuance:</strong> By the time Pb²⁺ starts precipitating, most of the Ba²⁺ (from 0.03 M to 1.65 × 10⁻⁴ M) has already precipitated as BaSO₄.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [15 marks]</h2>
+
+<p>
+Lead(II) fluoride, PbF₂, is a sparingly soluble ionic compound that establishes an equilibrium with its ions when placed in water.
+</p>
+
+<h3>Part (a) [7 marks]</h3>
+<p>
+Calculate the molar solubility of PbF₂ in pure water by writing the appropriate equilibrium expression and using the given Ksp = 3.6 × 10⁻⁸.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Dissociation:</strong> $PbF_2(s) \rightleftharpoons Pb^{2+}(aq) + 2F^-(aq)$</p>
+<p>Let s = molar solubility</p>
+<p>[Pb²⁺] = s</p>
+<p>[F⁻] = 2s</p>
+
+<p>$$K_{sp} = [Pb^{2+}][F^-]^2$$</p>
+<p>$$3.6 \times 10^{-8} = s(2s)^2 = 4s^3$$</p>
+<p>$$s^3 = \frac{3.6 \times 10^{-8}}{4} = 9.0 \times 10^{-9}$$</p>
+<p>$$s = (9.0 \times 10^{-9})^{1/3} = \boxed{2.08 \times 10^{-3} \text{ M}}$$</p>
+</details>
+
+<h3>Part (b) [8 marks]</h3>
+<p>
+Consider a second system in which solid PbF₂ is added to a solution that already contains 0.20 M sodium fluoride, NaF. Since NaF dissociates completely in water to produce fluoride ions, calculate the molar solubility of PbF₂ in this solution.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Initial [F⁻] = 0.20 M from NaF</p>
+<p><strong>Dissociation:</strong> $PbF_2(s) \rightleftharpoons Pb^{2+}(aq) + 2F^-(aq)$</p>
+<p>Let s = molar solubility of PbF₂ in this solution</p>
+<p>[Pb²⁺] = s</p>
+<p>[F⁻] = 0.20 + 2s ≈ 0.20 M (since s is very small)</p>
+
+<p>$$K_{sp} = [Pb^{2+}][F^-]^2$$</p>
+<p>$$3.6 \times 10^{-8} = s(0.20)^2$$</p>
+<p>$$s = \frac{3.6 \times 10^{-8}}{0.04} = \boxed{9.0 \times 10^{-7} \text{ M}}$$</p>
+
+<p><strong>Critical Nuance:</strong> The solubility decreased dramatically (from 2.08 × 10⁻³ M to 9.0 × 10⁻⁷ M) due to the <strong>common ion effect</strong> - the added F⁻ from NaF suppresses the dissolution of PbF₂.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [Optional - Complex Ion Effect]</h2>
+
+<p>
+Now consider that 0.10 M NH₃ is added to the solution in part (b). Lead(II) ions can form a complex ion with ammonia:
+</p>
+$$Pb^{2+} + 4NH_3 \rightleftharpoons [Pb(NH_3)_4]^{2+}$$
+
+<p>
+Explain qualitatively how the addition of NH₃ affects the solubility of PbF₂. Predict whether the solubility will increase, decrease, or remain unchanged, and justify your answer using the concept of complex ion formation.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Answer: The solubility will <strong>increase</strong>.</strong></p>
+
+<p><strong>Reason:</strong></p>
+<p>When NH₃ is added, it reacts with Pb²⁺ to form the complex ion $[Pb(NH_3)_4]^{2+}$. This removes free Pb²⁺ ions from the solution.</p>
+
+<p>According to Le Chatelier's principle:</p>
+<p>1. NH₃ binds Pb²⁺ → [Pb²⁺] decreases</p>
+<p>2. To maintain Ksp, more PbF₂ dissolves to produce more Pb²⁺</p>
+<p>3. The equilibrium shifts to the right → more PbF₂ dissolves</p>
+
+<p><strong>Conclusion:</strong> The formation of the complex ion $[Pb(NH_3)_4]^{2+}$ effectively removes Pb²⁺ from solution, causing more PbF₂ to dissolve to replenish Pb²⁺. Therefore, <strong>solubility increases</strong>.</p>
+
+<p><strong>Critical Nuance:</strong> This is an example of how complex ion formation can increase the solubility of sparingly soluble salts. This principle is used in qualitative analysis and in dissolving certain precipitates.</p>
+</details>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 
