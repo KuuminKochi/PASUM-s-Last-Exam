@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision Data - Chemistry II Tutorial 1</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<p><strong>Subjects:</strong> <a href="demo-minimal.html">Math II</a> | <a href="math3-demo.html">Math III</a> | <a href="#">Physics II</a> | <a href="#">Chemistry II</a></p>
+
+<hr>
+
+<h2>Tutorial 1: Chemical Equilibrium</h2>
+<p>Topics: Equilibrium constants, $K_c$, $K_p$, Reaction Quotient | Difficulty: Medium | 7 questions • 100 marks • ~90 minutes</p>
+
+<h3>Question 1 Part (a) [15 marks]</h3>
+<p>For each reaction, write $K_c$ and $K_p$ expressions and units (conc. in mol dm⁻³, pressure in atm).</p>
+
+<h4>I. $4A(g) + B(g) \rightleftharpoons 2C(g) + 2D(g)$</h4>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$K_c = \frac{[C]^2[D]^2}{[A]^4[B]}$$</p>
+<p>$$K_p = \frac{(P_C)^2(P_D)^2}{(P_A)^4(P_B)}$$</p>
+<p>Units: $K_c$: mol⁻¹ dm³, $K_p$: atm⁻¹</p>
+</details>
+
+<h4>II. $E(g) + F(s) \rightleftharpoons G(g) + H(g)$</h4>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Note:</strong> Solids are excluded from equilibrium expressions</p>
+<p>$$K_c = \frac{[G][H]}{[E]}$$, $K_p = \frac{P_G \cdot P_H}{P_E}$$</p>
+<p>Units: $K_c$: mol dm⁻³, $K_p$: atm</p>
+</details>
+
+<h4>V. $Cu^{2+}(aq) + 4NH_3(aq) \rightleftharpoons Cu(NH_3)_4^{2+}(aq)$</h4>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$K_c = \frac{[Cu(NH_3)_4^{2+}]}{[Cu^{2+}][NH_3]^4}$$</p>
+<p><strong>No $K_p$</strong> - aqueous solutions</p>
+<p>Unit: mol⁻⁴ dm¹²</p>
+</details>
+
+<h3>Question 1 Part (b) [5 marks]</h3>
+<p>For $N_2 + 3H_2 \rightleftharpoons 2NH_3$ with $K_c = 3.7 \times 10^8$:</p>
+
+<h4>(i) Reverse: $2NH_3 \rightleftharpoons N_2 + 3H_2$</h4>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$K_c' = \frac{1}{K_c} = \frac{1}{3.7 \times 10^8} = \boxed{2.7 \times 10^{-9}}$ mol² L⁻²</p>
+</details>
+
+<h4>(ii) Halved: $\frac{1}{2}N_2 + \frac{3}{2}H_2 \rightleftharpoons NH_3$</h4>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$K_c' = (K_c)^{1/2} = (3.7 \times 10^8)^{1/2} = \boxed{1.9 \times 10^4}$ mol⁻¹ L</p>
+</details>
+
+<h3>Question 2 Part (a) [4 marks]</h3>
+<p>$C(s) + CO_2(g) \rightleftharpoons 2CO(g)$ at 700°C</p>
+<p>2.5 L flask: 0.10 mol CO, 0.25 mol CO₂, 0.40 mol C. Find $K_c$.</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$[CO] = \frac{0.10}{2.5} = 0.04$ M, $[CO_2] = \frac{0.25}{2.5} = 0.10$ M</p>
+<p>$$K_c = \frac{[CO]^2}{[CO_2]} = \frac{(0.04)^2}{0.10} = \boxed{0.016}$$</p>
+<p><strong>⚠️ Nuance:</strong> Solid C is excluded from $K_c$ expression</p>
+</details>
+
+<h3>Question 3 Part (a) [6 marks]</h3>
+<p>$S_2Cl_4(g) \rightleftharpoons 2SCl_2(g)$</p>
+<p>3.0 moles S₂Cl₄ in 1.5 L. At equilibrium, 0.5 moles remain. Find $K_c$.</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>ICE Table:</strong></p>
+<p>S₂Cl₄ dissociated: $3.0 - 0.5 = 2.5$ mol</p>
+<p>SCl₂ formed: $2 \times 2.5 = 5.0$ mol</p>
+<p>$[S_2Cl_4] = \frac{0.5}{1.5} = 0.333$ M, $[SCl_2] = \frac{5.0}{1.5} = 3.333$ M</p>
+<p>$$K_c = \frac{[SCl_2]^2}{[S_2Cl_4]} = \frac{(3.333)^2}{0.333} = \boxed{33.3}$$</p>
+</details>
+
+<h3>Question 6 Part (iii) [6 marks]</h3>
+<p>$2HI(g) \rightleftharpoons H_2(g) + I_2(g)$, $\Delta H = -53$ kJ mol⁻¹</p>
+<p>What happens when temperature is increased?</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\Delta H = -53$ kJ (exothermic)</p>
+<p>Increasing T: Equilibrium shifts to <strong>left</strong> (toward reactants)</p>
+<p>$K_c$ <strong>decreases</strong></p>
+<p><strong>⚠️ Nuance:</strong> For exothermic reactions, increasing T favors reactants</p>
+</details>
+
+<hr>
+
+<p><em>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026</em></p>
+
+<p style="margin-top: 2em; padding-top: 1em; border-top: 1px solid #ccc; font-size: 0.9em; color: #666;">
+<strong>Tutorials and solutions provided by:</strong> Faith Law Lyk Tong<br>
+<em>Centre for Foundation Studies in Science, University of Malaya</em>
+</p>
+
+<p style="margin-top: 1em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+</body>
+</html>

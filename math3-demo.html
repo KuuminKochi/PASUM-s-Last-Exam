@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision Data - Math III Tutorial 1</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<p><strong>Subjects:</strong> <a href="demo-minimal.html">Math II</a> | <a href="#">Math III</a> | <a href="#">Physics II</a> | <a href="chemistry-demo.html">Chemistry II</a></p>
+
+<hr>
+
+<h2>Tutorial 1: Counting, Permutation, Combination, and Probability</h2>
+<p>Topics: Counting, Permutation, Combination, Probability | Difficulty: Beginner | 16 questions • 100 marks • ~90 minutes</p>
+
+<h3>Section A: Counting and Permutation</h3>
+
+<h4>Question 1 [5 marks]</h4>
+<p>Without using a calculator, evaluate $\frac{_nP_r}{_nP_{r-1}}$.</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Recall that $_nP_r = \frac{n!}{(n-r)!}$. Write out both permutations and simplify.</p>
+</details>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Using permutation formula</p>
+<p>$$\frac{_nP_r}{_nP_{r-1}} = \frac{\frac{n!}{(n-r)!}}{\frac{n!}{(n-r+1)!}} = \frac{(n-r+1)!}{(n-r)!} = \boxed{n-r+1}$$</p>
+<p><strong>⚠️ Nuance:</strong> Remember $_nP_r = \frac{n!}{(n-r)!}$ and simplify carefully.</p>
+</details>
+
+<h4>Question 2 [6 marks]</h4>
+<p>In a pet competition, in how many ways can the organiser arrange 3 dogs and 5 cats in a row such that the dogs must be separated?</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>First arrange the 5 cats, then place the 3 dogs in the gaps between cats.</p>
+</details>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Gap method</p>
+<p>Step 1: Arrange 5 cats in $5!$ ways</p>
+<p>Step 2: This creates 6 gaps: _ C _ C _ C _ C _ C _</p>
+<p>Step 3: Choose 3 gaps from 6: $_6P_3 = 6 \times 5 \times 4$</p>
+<p>Total: $5! \times 6 \times 5 \times 4 = \boxed{14400}$</p>
+</details>
+
+<h4>Question 3 Part (a) [3 marks]</h4>
+<p>Find the number of ways to arrange the ten letters of MOTIVATION with no restriction.</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>MOTIVATION has 10 letters with T repeated twice.</p>
+<p>Ways: $\frac{10!}{2!} = \boxed{1814400}$</p>
+</details>
+
+<h3>Section B: Combination</h3>
+
+<h4>Question 1 Part (a) [3 marks]</h4>
+<p>Find $n$ if $_nC_6 = {_nC_3}$.</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Property: If $_nC_r = {_nC_s}$ and $r \neq s$, then $r + s = n$</p>
+<p>$n = 6 + 3 = \boxed{9}$</p>
+</details>
+
+<h4>Question 1 Part (b) [3 marks]</h4>
+<p>Find $n$ if $_nC_2 = 28$.</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\frac{n(n-1)}{2} = 28$</p>
+<p>$n(n-1) = 56$</p>
+<p>$n^2 - n - 56 = 0$</p>
+<p>$(n-8)(n+7) = 0$</p>
+<p>$n = \boxed{8}$</p>
+</details>
+
+<h4>Question 2 Part (a) [3 marks]</h4>
+<p>A team of 5 from 12 boys and 9 girls. How many ways if 3 boys and 2 girls?</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$_{12}C_3 \times {_9C_2} = 220 \times 36 = \boxed{7920}$</p>
+</details>
+
+<h3>Section C: Probability</h3>
+
+<h4>Question 1 Part (a) [2 marks]</h4>
+<p>A number from {1, 2, 3, ..., 250}. Probability it's divisible by 5?</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Numbers divisible by 5: $\frac{250}{5} = 50$</p>
+<p>$P = \frac{50}{250} = \boxed{\frac{1}{5}}$</p>
+</details>
+
+<h4>Question 1 Part (c) [2 marks]</h4>
+<p>Probability divisible by 3 or 4?</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(3) = \frac{83}{250}$, $P(4) = \frac{62}{250}$, $P(12) = \frac{20}{250}$</p>
+<p>$P(3 \cup 4) = \frac{83 + 62 - 20}{250} = \boxed{\frac{1}{2}}$</p>
+</details>
+
+<hr>
+
+<p><em>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026</em></p>
+
+<p style="margin-top: 2em; padding-top: 1em; border-top: 1px solid #ccc; font-size: 0.9em; color: #666;">
+<strong>Tutorials and solutions provided by:</strong> Faith Law Lyk Tong<br>
+<em>Centre for Foundation Studies in Science, University of Malaya</em>
+</p>
+
+<p style="margin-top: 1em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+</body>
+</html>

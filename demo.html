@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision Data - Mathematics II Tutorial 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+
+        /* Navigation */
+        .nav {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e1e4e8;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            background: white;
+            color: #667eea;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Tutorial Header */
+        .tutorial-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .tutorial-header h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .tag.topic {
+            background: #ebf8ff;
+            color: #2b6cb0;
+        }
+
+        .tag.difficulty {
+            background: #f0fff4;
+            color: #276749;
+        }
+
+        .tag.time {
+            background: #faf5ff;
+            color: #6b46c1;
+        }
+
+        .quick-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-item .number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .info-item .label {
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        /* View Toggle */
+        .view-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .view-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background: transparent;
+            color: #4a5568;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .view-btn:hover {
+            background: #f7fafc;
+        }
+
+        .view-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Question Card */
+        .question-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .question-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .marks {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .question-content {
+            font-size: 1.05rem;
+            margin: 1rem 0;
+        }
+
+        .question-meta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+
+        /* Toggleable Hint */
+        .hint-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .hint-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            cursor: pointer;
+            color: #667eea;
+            font-weight: 500;
+            user-select: none;
+        }
+
+        .hint-toggle:hover {
+            color: #553c9a;
+        }
+
+        .hint-icon {
+            transition: transform 0.2s;
+            font-size: 0.8rem;
+        }
+
+        .hint-toggle.open .hint-icon {
+            transform: rotate(90deg);
+        }
+
+        .hint-content {
+            display: none;
+            padding: 1rem;
+            margin-top: 0.5rem;
+            background: #fffaf0;
+            border-left: 3px solid #ed8936;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .hint-content.show {
+            display: block;
+            animation: fadeIn 0.2s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hint-label {
+            font-weight: 600;
+            color: #c05621;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+
+        .hint-text {
+            color: #744210;
+            font-size: 0.95rem;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .solution-toggle {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            background: #48bb78;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .solution-toggle:hover {
+            background: #38a169;
+        }
+
+        .solution-content {
+            display: none;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 8px;
+        }
+
+        .solution-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .method {
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .key-steps {
+            background: white;
+            padding: 1rem;
+            border-radius: 6px;
+            margin: 1rem 0;
+            overflow-x: auto;
+        }
+
+        .nuance {
+            background: #fff5f5;
+            border-left: 3px solid #fc8181;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .nuance-label {
+            font-weight: 600;
+            color: #c53030;
+            margin-bottom: 0.5rem;
+        }
+
+        .working-ref {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #ebf8ff;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .working-ref img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Progress Bar */
+        .progress-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #718096;
+            font-size: 0.875rem;
+            margin-top: 3rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 640px) {
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .tutorial-header {
+                padding: 1.5rem;
+            }
+
+            .question-card {
+                padding: 1rem;
+            }
+
+            .quick-info {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .hint-toggle,
+            .solution-toggle,
+            .nav {
+                display: none;
+            }
+
+            .hint-content,
+            .solution-content {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>📚 Revision Data</h1>
+        <div class="subtitle">University of Malaya | Session 2025/2026</div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <button class="nav-btn active" onclick="switchSubject('math-ii')">Mathematics II</button>
+        <button class="nav-btn" onclick="switchSubject('math-iii')">Mathematics III</button>
+        <button class="nav-btn" onclick="switchSubject('adv-math')">Advanced Math II</button>
+        <button class="nav-btn" onclick="switchSubject('physics')">Physics II</button>
+        <button class="nav-btn" onclick="switchSubject('chemistry')">Chemistry II</button>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Progress -->
+        <div class="progress-section">
+            <div class="progress-header">
+                <span style="font-weight: 600;">Your Progress</span>
+                <span style="color: #667eea; font-weight: 600;">3 of 22 completed</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 14%"></div>
+            </div>
+        </div>
+
+        <!-- Tutorial Header -->
+        <div class="tutorial-header">
+            <h2>Tutorial 1: Integration Techniques - Part 1</h2>
+            
+            <div class="meta-tags">
+                <span class="tag topic">Basic Integration</span>
+                <span class="tag topic">Integration by Substitution</span>
+                <span class="tag difficulty">Beginner</span>
+                <span class="tag time">~60 minutes</span>
+            </div>
+
+            <p style="color: #4a5568; line-height: 1.7;">
+                This tutorial covers basic integration techniques including direct integration, 
+                exponential functions, trigonometric integrals, and introduction to substitution.
+            </p>
+
+            <div class="quick-info">
+                <div class="info-item">
+                    <div class="number">22</div>
+                    <div class="label">Questions</div>
+                </div>
+                <div class="info-item">
+                    <div class="number">100</div>
+                    <div class="label">Total Marks</div>
+                </div>
+                <div class="info-item">
+                    <div class="number">2</div>
+                    <div class="label">Main Topics</div>
+                </div>
+                <div class="info-item">
+                    <div class="number">4</div>
+                    <div class="label">Common Patterns</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button class="view-btn active" onclick="switchView('questions')">Questions Only</button>
+            <button class="view-btn" onclick="switchView('study')">Study Mode</button>
+            <button class="view-btn" onclick="switchView('practice')">Practice Mode</button>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Question 1</span>
+                <span class="marks">60 marks</span>
+            </div>
+            
+            <p style="margin-bottom: 1rem; color: #4a5568;">
+                Find the indefinite integrals for the following functions.
+            </p>
+        </div>
+
+        <!-- Question 1a -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Part (a)</span>
+                <span class="marks">5 marks</span>
+            </div>
+            
+            <div class="question-content">
+                $$\\int (3e^{4x} - 5e^{-6x}) \\, dx$$
+            </div>
+
+            <div class="question-meta">
+                <span>🎯 Exponential integration, linearity</span>
+                <span>📐 Key: $\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C$</span>
+            </div>
+
+            <!-- Toggleable Hint -->
+            <div class="hint-section">
+                <div class="hint-toggle" onclick="toggleHint(this)">
+                    <span class="hint-icon">▶</span>
+                    <span>Need a hint?</span>
+                </div>
+                <div class="hint-content">
+                    <div class="hint-label">💡 Hint</div>
+                    <div class="hint-text">
+                        Split the integral using linearity: $\\int (f(x) - g(x)) \\, dx = \\int f(x) \\, dx - \\int g(x) \\, dx$.<br>
+                        Remember that $\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C$. Watch out for the negative coefficient!
+                    </div>
+                </div>
+            </div>
+
+            <!-- Solution Section -->
+            <div class="solution-section">
+                <button class="solution-toggle" onclick="toggleSolution(this)">
+                    <span>👁️</span>
+                    <span>Show Solution</span>
+                </button>
+                
+                <div class="solution-content">
+                    <div class="method">Method: Direct integration using exponential rule</div>
+                    
+                    <div class="key-steps">
+                        $$\\begin{aligned}
+                        \\int (3e^{4x} - 5e^{-6x}) \\, dx 
+                        &= \\frac{3e^{4x}}{4} - \\frac{5e^{-6x}}{-6} + C \\\\
+                        &= \\boxed{\\frac{3}{4}e^{4x} + \\frac{5}{6}e^{-6x} + C}
+                        \\end{aligned}$$
+                    </div>
+
+                    <div class="nuance">
+                        <div class="nuance-label">⚠️ Critical Nuance</div>
+                        Watch the sign when integrating $e^{-6x}$. The negative exponent becomes positive 
+                        in the denominator, but the negative sign in front of 5 makes it positive overall. 
+                        Students often miss this and get $-\\frac{5}{6}$ instead of $+\\frac{5}{6}$.
+                    </div>
+
+                    <div class="working-ref">
+                        <strong>Original Working:</strong><br>
+                        <img src="../subjects/mathematics-ii/tutorial-01/assets/page-02.png" alt="Solution" style="max-height: 200px; object-fit: contain;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 1b -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Part (b)</span>
+                <span class="marks">5 marks</span>
+            </div>
+            
+            <div class="question-content">
+                $$\\int (6x^6 + 4x^3 + 8) \\, dx$$
+            </div>
+
+            <div class="question-meta">
+                <span>🎯 Power rule for integration</span>
+            </div>
+
+            <div class="hint-section">
+                <div class="hint-toggle" onclick="toggleHint(this)">
+                    <span class="hint-icon">▶</span>
+                    <span>Need a hint?</span>
+                </div>
+                <div class="hint-content">
+                    <div class="hint-label">💡 Hint</div>
+                    <div class="hint-text">
+                        Use the power rule: $\\int x^n \\, dx = \\frac{x^{n+1}}{n+1} + C$ for each term.<br>
+                        Remember to add 1 to the exponent, then divide by the new exponent.
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <button class="solution-toggle" onclick="toggleSolution(this)">
+                    <span>👁️</span>
+                    <span>Show Solution</span>
+                </button>
+                
+                <div class="solution-content">
+                    <div class="method">Method: Power rule for integration</div>
+                    
+                    <div class="key-steps">
+                        $$\\begin{aligned}
+                        \\int (6x^6 + 4x^3 + 8) \\, dx
+                        &= \\frac{6x^7}{7} + \\frac{4x^4}{4} + 8x + C \\\\
+                        &= \\boxed{\\frac{6}{7}x^7 + x^4 + 8x + C}
+                        \\end{aligned}$$
+                    </div>
+
+                    <div class="nuance">
+                        <div class="nuance-label">⚠️ Critical Nuance</div>
+                        When integrating $x^3$, the exponent becomes 4, not $4x^4$. Divide by the new exponent.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 1f (with identity) -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Part (f)</span>
+                <span class="marks">5 marks</span>
+            </div>
+            
+            <div class="question-content">
+                $$\\int \\frac{\\sin^2 x + \\cos^2 x}{3x} \\, dx$$
+            </div>
+
+            <div class="question-meta">
+                <span>🎯 Trigonometric identity, logarithmic integration</span>
+            </div>
+
+            <div class="hint-section">
+                <div class="hint-toggle" onclick="toggleHint(this)">
+                    <span class="hint-icon">▶</span>
+                    <span>Need a hint?</span>
+                </div>
+                <div class="hint-content">
+                    <div class="hint-label">💡 Hint</div>
+                    <div class="hint-text">
+                        Before integrating, look at the numerator. Is there a trigonometric identity that 
+                        simplifies $\\sin^2 x + \\cos^2 x$?<br><br>
+                        Once simplified, you'll have $\\frac{1}{3x}$ which is a standard logarithmic integral.
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <button class="solution-toggle" onclick="toggleSolution(this)">
+                    <span>👁️</span>
+                    <span>Show Solution</span>
+                </button>
+                
+                <div class="solution-content">
+                    <div class="method">Method: Trigonometric identity + logarithmic integration</div>
+                    
+                    <div class="key-steps">
+                        $$\\begin{aligned}
+                        \\int \\frac{\\sin^2 x + \\cos^2 x}{3x} \\, dx
+                        &= \\int \\frac{1}{3x} \\, dx \\quad \\text{(since } \\sin^2 x + \\cos^2 x = 1\\text{)} \\\\
+                        &= \\frac{1}{3} \\int \\frac{1}{x} \\, dx \\\\
+                        &= \\boxed{\\frac{1}{3}\\ln|x| + C}
+                        \\end{aligned}$$
+                    </div>
+
+                    <div class="nuance">
+                        <div class="nuance-label">⚠️ Critical Nuance</div>
+                        Many students miss the identity $\\sin^2 x + \\cos^2 x = 1$. Without this, the problem 
+                        becomes much harder. Always look for simplifications before integrating!
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Question 2</span>
+                <span class="marks">40 marks</span>
+            </div>
+            
+            <p style="margin-bottom: 1rem; color: #4a5568;">
+                Use appropriate substitution to find:
+            </p>
+        </div>
+
+        <!-- Question 2a -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Part (a)</span>
+                <span class="marks">4 marks</span>
+            </div>
+            
+            <div class="question-content">
+                $$\\int 3x^2(x^3 - 2)^3 \\, dx$$
+            </div>
+
+            <div class="question-meta">
+                <span>🎯 u-substitution</span>
+            </div>
+
+            <div class="hint-section">
+                <div class="hint-toggle" onclick="toggleHint(this)">
+                    <span class="hint-icon">▶</span>
+                    <span>Need a hint?</span>
+                </div>
+                <div class="hint-content">
+                    <div class="hint-label">💡 Hint</div>
+                    <div class="hint-text">
+                        Try $u = x^3 - 2$. Calculate $du$ and see if $3x^2 \\, dx$ appears in the integral.<br><br>
+                        Remember: $du = \\frac{du}{dx} \\, dx = 3x^2 \\, dx$
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <button class="solution-toggle" onclick="toggleSolution(this)">
+                    <span>👁️</span>
+                    <span>Show Solution</span>
+                </button>
+                
+                <div class="solution-content">
+                    <div class="method">Method: u-substitution</div>
+                    
+                    <div class="key-steps">
+                        $$\\begin{aligned}
+                        &\\text{Let } u = x^3 - 2, \\quad du = 3x^2 \\, dx, \\quad x^2 \\, dx = \\frac{du}{3} \\\\
+                        &\\int 3x^2(x^3 - 2)^3 \\, dx = \\int 3 \\cdot u^3 \\cdot \\frac{du}{3} = \\int u^3 \\, du \\\\
+                        &= \\frac{u^4}{4} + C = \\boxed{\\frac{(x^3 - 2)^4}{4} + C}
+                        \\end{aligned}$$
+                    </div>
+
+                    <div class="nuance">
+                        <div class="nuance-label">⚠️ Critical Nuance</div>
+                        Notice that $3x^2$ is the derivative of $x^3 - 2$. This makes substitution straightforward. 
+                        Look for this pattern: $f(g(x)) \\cdot g'(x)$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Question 2j (Polynomial division) -->
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-title">Part (j)</span>
+                <span class="marks">4 marks</span>
+            </div>
+            
+            <div class="question-content">
+                $$\\int \\frac{x^3 + 2x^2 + 5x + 6}{x + 2} \\, dx$$
+            </div>
+
+            <div class="question-meta">
+                <span>🎯 Polynomial long division, then integration</span>
+            </div>
+
+            <div class="hint-section">
+                <div class="hint-toggle" onclick="toggleHint(this)">
+                    <span class="hint-icon">▶</span>
+                    <span>Need a hint?</span>
+                </div>
+                <div class="hint-content">
+                    <div class="hint-label">💡 Hint</div>
+                    <div class="hint-text">
+                        When the degree of the numerator is greater than or equal to the degree of the denominator, 
+                        perform polynomial long division first.<br><br>
+                        Divide $x^3 + 2x^2 + 5x + 6$ by $x + 2$.
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <button class="solution-toggle" onclick="toggleSolution(this)">
+                    <span>👁️</span>
+                    <span>Show Solution</span>
+                </button>
+                
+                <div class="solution-content">
+                    <div class="method">Method: Polynomial long division</div>
+                    
+                    <div class="key-steps">
+                        $$\\begin{aligned}
+                        &\\frac{x^3 + 2x^2 + 5x + 6}{x + 2} = (x^2 + 5) - \\frac{4}{x + 2} \\\\
+                        &\\int \\frac{x^3 + 2x^2 + 5x + 6}{x + 2} \\, dx = \\int \\left(x^2 + 5 - \\frac{4}{x + 2}\\right) \\, dx \\\\
+                        &= \\frac{x^3}{3} + 5x - 4\\ln|x + 2| + C
+                        \\end{aligned}$$
+                    </div>
+
+                    <div class="nuance">
+                        <div class="nuance-label">⚠️ Critical Nuance</div>
+                        When degree of numerator $\\geq$ degree of denominator, perform polynomial long division first! 
+                        This is a common mistake - students try to use partial fractions or other methods when 
+                        division is the correct first step.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Common Patterns Section -->
+        <div class="tutorial-header" style="margin-top: 3rem;">
+            <h2 style="margin-bottom: 1.5rem;">📊 Common Patterns Identified</h2>
+            
+            <div style="display: grid; gap: 1rem;">
+                <div style="padding: 1rem; background: #fff5f5; border-left: 4px solid #fc8181; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #c53030; margin-bottom: 0.5rem;">Pattern 1: Sign Errors with Exponential Functions</h4>
+                    <p style="font-size: 0.9rem; color: #744210; margin-bottom: 0.5rem;">
+                        <strong>Frequency:</strong> High | <strong>Seen in:</strong> Q1a, Q1j
+                    </p>
+                    <p style="font-size: 0.9rem; color: #4a5568;">
+                        <strong>Root Cause:</strong> Confusion when integrating $e^{-ax}$<br>
+                        <strong>Strategy:</strong> Write out $\\frac{1}{-a} = -\\frac{1}{a}$ explicitly
+                    </p>
+                </div>
+
+                <div style="padding: 1rem; background: #fffaf0; border-left: 4px solid #ed8936; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #c05621; margin-bottom: 0.5rem;">Pattern 2: Missing Algebraic Simplification</h4>
+                    <p style="font-size: 0.9rem; color: #744210; margin-bottom: 0.5rem;">
+                        <strong>Frequency:</strong> High | <strong>Seen in:</strong> Q1f, Q1j
+                    </p>
+                    <p style="font-size: 0.9rem; color: #4a5568;">
+                        <strong>Root Cause:</strong> Trying to integrate before simplifying<br>
+                        <strong>Strategy:</strong> Always look for cancellations and identities first
+                    </p>
+                </div>
+
+                <div style="padding: 1rem; background: #f0fff4; border-left: 4px solid #48bb78; border-radius: 0 8px 8px 0;">
+                    <h4 style="color: #276749; margin-bottom: 0.5rem;">Pattern 3: Substitution Recognition</h4>
+                    <p style="font-size: 0.9rem; color: #276749; margin-bottom: 0.5rem;">
+                        <strong>Frequency:</strong> High | <strong>Seen in:</strong> Question 2
+                    </p>
+                    <p style="font-size: 0.9rem; color: #4a5568;">
+                        <strong>Root Cause:</strong> Not recognizing derivative patterns<br>
+                        <strong>Strategy:</strong> Look for $f(g(x)) \\cdot g'(x)$ structure
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya</p>
+        <p style="margin-top: 0.5rem;">Session 2025/2026</p>
+    </footer>
+
+    <script>
+        // Toggle hints
+        function toggleHint(element) {
+            element.classList.toggle('open');
+            const content = element.nextElementSibling;
+            content.classList.toggle('show');
+        }
+
+        // Toggle solutions
+        function toggleSolution(button) {
+            const content = button.nextElementSibling;
+            content.classList.toggle('show');
+            
+            const span = button.querySelector('span:last-child');
+            if (content.classList.contains('show')) {
+                span.textContent = 'Hide Solution';
+                button.style.background = '#718096';
+            } else {
+                span.textContent = 'Show Solution';
+                button.style.background = '#48bb78';
+            }
+        }
+
+        // Switch view modes
+        function switchView(mode) {
+            document.querySelectorAll('.view-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (mode === 'questions') {
+                // Hide all solutions
+                document.querySelectorAll('.solution-content').forEach(el => el.classList.remove('show'));
+                document.querySelectorAll('.solution-toggle').forEach(btn => {
+                    btn.querySelector('span:last-child').textContent = 'Show Solution';
+                    btn.style.background = '#48bb78';
+                });
+            } else if (mode === 'study') {
+                // Show hints, keep solutions hidden
+                document.querySelectorAll('.hint-toggle').forEach(el => {
+                    if (!el.classList.contains('open')) el.click();
+                });
+            } else if (mode === 'practice') {
+                // Hide hints, show solutions
+                document.querySelectorAll('.hint-toggle').forEach(el => {
+                    if (el.classList.contains('open')) el.click();
+                });
+                document.querySelectorAll('.solution-toggle').forEach(btn => {
+                    if (!btn.nextElementSibling.classList.contains('show')) btn.click();
+                });
+            }
+        }
+
+        // Switch subjects (placeholder)
+        function switchSubject(subject) {
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // In real implementation, this would load different content
+            if (subject !== 'math-ii') {
+                alert('Coming soon! Only Mathematics II Tutorial 1 is available in this demo.');
+            }
+        }
+    </script>
+</body>
+</html>

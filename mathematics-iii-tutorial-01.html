@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics III - Tutorial 01</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | Mathematics III
+</div>
+
+<hr>
+
+<h1>Tutorial 1: Counting, Permutation, Combination, and Probability</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers fundamental counting principles, permutations, combinations, and basic probability concepts.
+</p>
+
+<strong>Topics:</strong> Counting, Permutation, Combination, Probability  
+<strong>Difficulty:</strong> Beginner  
+<strong>Estimated Time:</strong> 90 minutes
+
+<p>
+---
+</p>
+
+<h2>Section A: Counting and Permutation</h2>
+
+<h3>Question 1 [5 marks]</h3>
+<p>
+Without using a calculator, evaluate $\frac{_{n}P_{r}}{_{n}P_{r-1}}$.
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>Recall that $_nP_r = \frac{n!}{(n-r)!}$. Write out both permutations and simplify.</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Using permutation formula</p>
+<p>$$\frac{_nP_r}{_nP_{r-1}} = \frac{\frac{n!}{(n-r)!}}{\frac{n!}{(n-r+1)!}} = \frac{(n-r+1)!}{(n-r)!} = \boxed{n-r+1}$$</p>
+<p><strong>⚠️ Nuance:</strong> Remember $_nP_r = \frac{n!}{(n-r)!}$ and simplify carefully.</p>
+</details>
+
+<h3>Question 2 [6 marks]</h3>
+<p>
+In a pet competition, in how many ways can the organiser arrange 3 dogs and 5 cats in a row such that the dogs must be separated?
+</p>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>First arrange the 5 cats, then place the 3 dogs in the gaps between cats.</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Gap method</p>
+<p>Step 1: Arrange 5 cats in $5!$ ways</p>
+<p>Step 2: This creates 6 gaps (including ends): _ C _ C _ C _ C _ C _</p>
+<p>Step 3: Choose 3 gaps from 6 and arrange 3 dogs: $_6P_3 = 6 \times 5 \times 4$</p>
+<p>Total ways: $5! \times 6 \times 5 \times 4 = 120 \times 120 = \boxed{14400}$</p>
+</details>
+
+<h3>Question 3 [15 marks]</h3>
+<p>
+Find the number of ways in which all ten letters of the word MOTIVATION can be arranged if:
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+there is no restriction
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>MOTIVATION has 10 letters with T repeated twice.</p>
+<p>Number of arrangements: $\frac{10!}{2!} = \boxed{1814400}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+the arrangement must end with V
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Fix V at the end. Arrange remaining 9 letters with T repeated.</p>
+<p>Ways: $\frac{9!}{2!} = \boxed{181440}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+two letters T must be placed next to each other
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Treat TT as one block. Now we have 9 objects to arrange.</p>
+<p>Ways: $9! = \boxed{362880}$</p>
+</details>
+
+<h4>Part (d) [3 marks]</h4>
+<p>
+two letters O must not be placed next to each other
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Total arrangements minus arrangements where OO are together.</p>
+<p>Total: $\frac{10!}{2!}$ (T is the repeated letter, not O - wait, let me check)</p>
+<p><strong>⚠️ Correction:</strong> MOTIVATION has letters: M,O,T,I,V,A,T,I,O,N</p>
+<p>Repeated: T (2 times), O (2 times), I (2 times)</p>
+<p>Total: $\frac{10!}{2! \times 2! \times 2!}$</p>
+<p>With OO together: Treat OO as one, so 9 objects with T×2, I×2</p>
+<p>Ways with OO together: $\frac{9!}{2! \times 2!}$</p>
+<p>Answer: $\frac{10!}{8} - \frac{9!}{4} = 453600 - 90720 = \boxed{362880}$</p>
+</details>
+
+<h4>Part (e) [3 marks]</h4>
+<p>
+the arrangements starts with A and end with I
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Fix A at start and I at end. Arrange remaining 8 letters with T×2, O×2.</p>
+<p>Ways: $\frac{8!}{2! \times 2!} = \boxed{10080}$</p>
+</details>
+
+<h3>Question 4 [5 marks]</h3>
+<p>
+Eight different beads are formed into a ring. How many different ways are there?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Method:</strong> Circular permutation</p>
+<p>For circular arrangements: $(n-1)!$</p>
+<p>For a ring (can be flipped): $\frac{(n-1)!}{2}$</p>
+<p>Ways: $\frac{7!}{2} = \frac{5040}{2} = \boxed{2520}$</p>
+</details>
+
+<h3>Question 5 [6 marks]</h3>
+<p>
+In how many ways can 5 people sit in a round table if
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+they can sit anywhere
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Circular permutation: $(5-1)! = 4! = \boxed{24}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+2 particular people must not sit next to each other
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Total arrangements minus arrangements where they sit together.</p>
+<p>Total: $4! = 24$</p>
+<p>With 2 people together: Treat them as one, so 4 objects in circle: $3! = 6$</p>
+<p>But the pair can swap: $6 \times 2 = 12$</p>
+<p>Answer: $24 - 12 = \boxed{12}$</p>
+</details>
+
+<h3>Question 6 [15 marks]</h3>
+<p>
+Consider the digits from 1, 2, 3, …, 9. In how many ways four digits numbers can be formed if
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+they can only be used once?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Permutation: $_9P_4 = 9 \times 8 \times 7 \times 6 = \boxed{3024}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+repetitions are allowed?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Each digit has 9 choices: $9^4 = \boxed{6561}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+the numbers are even?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Last digit must be even: 2, 4, 6, 8 (4 choices)</p>
+<p>Other 3 digits: $_8P_3 = 8 \times 7 \times 6$</p>
+<p>Total: $4 \times 8 \times 7 \times 6 = \boxed{1344}$</p>
+</details>
+
+<h4>Part (d) [3 marks]</h4>
+<p>
+they are greater than 6000?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>First digit must be 6, 7, 8, or 9 (4 choices)</p>
+<p>Other 3 digits: $_8P_3$</p>
+<p>Total: $4 \times 8 \times 7 \times 6 = \boxed{1344}$</p>
+</details>
+
+<h4>Part (e) [3 marks]</h4>
+<p>
+they are between 2000 and 8000 and repetitions are allowed?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>First digit: 2, 3, 4, 5, 6, 7 (6 choices)</p>
+<p>Other digits: $9^3$ each</p>
+<p>Total: $6 \times 9^3 = 6 \times 729 = \boxed{4374}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Section B: Combination</h2>
+
+<h3>Question 1 [9 marks]</h3>
+<p>
+Find the value of $n$.
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+$_nC_6 = {_nC_3}$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Property: If $_nC_r = {_nC_s}$, then either $r = s$ or $r + s = n$</p>
+<p>$6 \neq 3$, so $n = 6 + 3 = \boxed{9}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+$_nC_2 = 28$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$_nC_2 = \frac{n(n-1)}{2} = 28$</p>
+<p>$n(n-1) = 56$</p>
+<p>$n^2 - n - 56 = 0$</p>
+<p>$(n-8)(n+7) = 0$</p>
+<p>$n = \boxed{8}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+$_{n+1}C_3 = 4 \times {_nC_2}$
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$\frac{(n+1)!}{3!(n-2)!} = 4 \times \frac{n!}{2!(n-2)!}$$</p>
+<p>$$\frac{(n+1)n(n-1)}{6} = 4 \times \frac{n(n-1)}{2}$$</p>
+<p>$$\frac{n+1}{6} = 2$$</p>
+<p>$n + 1 = 12$</p>
+<p>$n = \boxed{11}$</p>
+</details>
+
+<h3>Question 2 [9 marks]</h3>
+<p>
+A team of 5 students is to be chosen from a class of 12 boys and 9 girls. In how many ways can a team be chosen if they consists of:
+</p>
+
+<h4>Part (a) [3 marks]</h4>
+<p>
+3 boys and 2 girls
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$_{12}C_3 \times {_9C_2} = 220 \times 36 = \boxed{7920}$</p>
+</details>
+
+<h4>Part (b) [3 marks]</h4>
+<p>
+3 girls and 2 boys
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$_{9}C_3 \times {_{12}C_2} = 84 \times 66 = \boxed{5544}$</p>
+</details>
+
+<h4>Part (c) [3 marks]</h4>
+<p>
+at least 3 girls?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Cases: (3G,2B), (4G,1B), (5G,0B)</p>
+<p>$= {_9C_3} \times {_{12}C_2} + {_9C_4} \times {_{12}C_1} + {_9C_5}$</p>
+<p>$= 84 \times 66 + 126 \times 12 + 126$</p>
+<p>$= 5544 + 1512 + 126 = \boxed{7182}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Section C: Probability, Mutually Exclusive</h2>
+
+<h3>Question 1 [6 marks]</h3>
+<p>
+A number is randomly selected from the set {1, 2, 3, …, 250}. What is the probability that it is
+</p>
+
+<h4>Part (a) [2 marks]</h4>
+<p>
+divisible by 5
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Numbers divisible by 5: $\frac{250}{5} = 50$</p>
+<p>$P = \frac{50}{250} = \boxed{\frac{1}{5}}$</p>
+</details>
+
+<h4>Part (b) [2 marks]</h4>
+<p>
+odd
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Odd numbers: 125 (half of 250)</p>
+<p>$P = \frac{125}{250} = \boxed{\frac{1}{2}}$</p>
+</details>
+
+<h4>Part (c) [2 marks]</h4>
+<p>
+divisible by 3 or 4
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$P(3) = \frac{83}{250}$, $P(4) = \frac{62}{250}$, $P(3 \cap 4) = P(12) = \frac{20}{250}$</p>
+<p>$P(3 \cup 4) = \frac{83 + 62 - 20}{250} = \frac{125}{250} = \boxed{\frac{1}{2}}$</p>
+</details>
+
+<hr>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026</p>
+<p style="margin-top: 0.5em;">Tutorials contributed by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

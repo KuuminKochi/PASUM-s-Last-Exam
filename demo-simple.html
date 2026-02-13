@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revision Data - Math II Tutorial 1</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body style="font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; max-width: 800px; margin: 0 auto; padding: 20px; background: #fff;">
+
+    <header style="border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 30px;">
+        <h1 style="margin: 0; font-size: 24px;">📚 Revision Data</h1>
+        <p style="margin: 5px 0 0 0; color: #666; font-size: 14px;">University of Malaya | Session 2025/2026</p>
+    </header>
+
+    <nav style="margin-bottom: 30px;">
+        <button style="padding: 8px 16px; margin-right: 10px; border: 1px solid #333; background: #333; color: white;">Math II</button>
+        <button style="padding: 8px 16px; margin-right: 10px; border: 1px solid #ccc; background: white;">Math III</button>
+        <button style="padding: 8px 16px; margin-right: 10px; border: 1px solid #ccc; background: white;">Physics II</button>
+        <button style="padding: 8px 16px; border: 1px solid #ccc; background: white;">Chemistry II</button>
+    </nav>
+
+    <div style="background: #f5f5f5; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+        <h2 style="margin-top: 0;">Tutorial 1: Integration Techniques - Part 1</h2>
+        <p>
+            <span style="background: #e3f2fd; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Basic Integration</span>
+            <span style="background: #e8f5e9; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Substitution</span>
+            <span style="background: #fff3e0; padding: 4px 8px; border-radius: 4px; font-size: 12px;">Beginner</span>
+        </p>
+        <p style="color: #666; font-size: 14px;">22 questions • 100 marks • ~60 minutes</p>
+    </div>
+
+    <div style="margin-bottom: 20px;">
+        <button style="padding: 10px 20px; margin-right: 10px; border: 1px solid #333; background: #333; color: white;">Questions Only</button>
+        <button style="padding: 10px 20px; margin-right: 10px; border: 1px solid #ccc; background: white;">Study Mode (Hints)</button>
+        <button style="padding: 10px 20px; border: 1px solid #ccc; background: white;">Practice Mode (Solutions)</button>
+    </div>
+
+    <!-- Question 1 -->
+    <div style="border-left: 3px solid #333; padding-left: 20px; margin-bottom: 40px;">
+        <h3 style="margin-top: 0;">Question 1 <span style="color: #666; font-size: 14px; font-weight: normal;">[60 marks]</span></h3>
+        <p>Find the indefinite integrals for the following functions.</p>
+    </div>
+
+    <!-- Part (a) -->
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+        <h4 style="margin-top: 0;">Part (a) <span style="color: #666; font-size: 12px; font-weight: normal;">[5 marks]</span></h4>
+        
+        <p style="font-size: 18px; margin: 15px 0;">$$\\int (3e^{4x} - 5e^{-6x}) \\, dx$$</p>
+        
+        <p style="color: #666; font-size: 13px;">💡 Concepts: Exponential integration, linearity | Key: $\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C$</p>
+
+        <!-- Hint Toggle -->
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #0066cc; font-weight: 500;">Need a hint?</summary>
+            <div style="background: #fff8e1; padding: 15px; margin-top: 10px; border-left: 3px solid #ffa000;">
+                <p style="margin: 0;"><strong>Hint:</strong> Split the integral using linearity: $\\int (f(x) - g(x)) \\, dx = \\int f(x) \\, dx - \\int g(x) \\, dx$.</p>
+                <p style="margin: 10px 0 0 0;">Remember that $\\int e^{ax} \\, dx = \\frac{1}{a}e^{ax} + C$. Watch out for the negative coefficient!</p>
+            </div>
+        </details>
+
+        <!-- Solution Toggle -->
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #2e7d32; font-weight: 500;">Show solution</summary>
+            <div style="background: #f5f5f5; padding: 15px; margin-top: 10px;">
+                <p><strong>Method:</strong> Direct integration using exponential rule</p>
+                
+                <div style="background: white; padding: 10px; margin: 10px 0; overflow-x: auto;">
+$$\\begin{aligned}
+\\int (3e^{4x} - 5e^{-6x}) \\, dx 
+&= \\frac{3e^{4x}}{4} - \\frac{5e^{-6x}}{-6} + C \\\\
+&= \\boxed{\\frac{3}{4}e^{4x} + \\frac{5}{6}e^{-6x} + C}
+\\end{aligned}$$
+                </div>
+
+                <div style="background: #ffebee; padding: 10px; border-left: 3px solid #c62828; margin-top: 10px;">
+                    <strong>⚠️ Critical Nuance:</strong> Watch the sign when integrating $e^{-6x}$. The negative exponent becomes positive in the denominator, but the negative sign in front of 5 makes it positive overall. Students often miss this and get $-\\frac{5}{6}$ instead of $+\\frac{5}{6}$.
+                </div>
+
+                <p style="margin-top: 15px;"><a href="#" style="color: #666; font-size: 13px;">📄 View original handwritten working</a></p>
+            </div>
+        </details>
+    </div>
+
+    <!-- Part (f) - with identity -->
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+        <h4 style="margin-top: 0;">Part (f) <span style="color: #666; font-size: 12px; font-weight: normal;">[5 marks]</span></h4>
+        
+        <p style="font-size: 18px; margin: 15px 0;">$$\\int \\frac{\\sin^2 x + \\cos^2 x}{3x} \\, dx$$</p>
+        
+        <p style="color: #666; font-size: 13px;">💡 Concepts: Trigonometric identity, logarithmic integration</p>
+
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #0066cc; font-weight: 500;">Need a hint?</summary>
+            <div style="background: #fff8e1; padding: 15px; margin-top: 10px; border-left: 3px solid #ffa000;">
+                <p style="margin: 0;"><strong>Hint:</strong> Before integrating, look at the numerator. Is there a trigonometric identity that simplifies $\\sin^2 x + \\cos^2 x$?</p>
+            </div>
+        </details>
+
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #2e7d32; font-weight: 500;">Show solution</summary>
+            <div style="background: #f5f5f5; padding: 15px; margin-top: 10px;">
+                <p><strong>Method:</strong> Trigonometric identity + logarithmic integration</p>
+                
+                <div style="background: white; padding: 10px; margin: 10px 0; overflow-x: auto;">
+$$\\begin{aligned}
+\\int \\frac{\\sin^2 x + \\cos^2 x}{3x} \\, dx
+&= \\int \\frac{1}{3x} \\, dx \\quad \\text{(since } \\sin^2 x + \\cos^2 x = 1\\text{)} \\\\
+&= \\frac{1}{3} \\int \\frac{1}{x} \\, dx \\\\
+&= \\boxed{\\frac{1}{3}\\ln|x| + C}
+\\end{aligned}$$
+                </div>
+
+                <div style="background: #ffebee; padding: 10px; border-left: 3px solid #c62828; margin-top: 10px;">
+                    <strong>⚠️ Critical Nuance:</strong> Many students miss the identity $\\sin^2 x + \\cos^2 x = 1$. Without this, the problem becomes much harder. Always look for simplifications before integrating!
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- Question 2 -->
+    <div style="border-left: 3px solid #333; padding-left: 20px; margin: 40px 0;">
+        <h3 style="margin-top: 0;">Question 2 <span style="color: #666; font-size: 14px; font-weight: normal;">[40 marks]</span></h3>
+        <p>Use appropriate substitution to find:</p>
+    </div>
+
+    <!-- Part 2(a) -->
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 4px;">
+        <h4 style="margin-top: 0;">Part (a) <span style="color: #666; font-size: 12px; font-weight: normal;">[4 marks]</span></h4>
+        
+        <p style="font-size: 18px; margin: 15px 0;">$$\\int 3x^2(x^3 - 2)^3 \\, dx$$</p>
+        
+        <p style="color: #666; font-size: 13px;">💡 Concepts: u-substitution</p>
+
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #0066cc; font-weight: 500;">Need a hint?</summary>
+            <div style="background: #fff8e1; padding: 15px; margin-top: 10px; border-left: 3px solid #ffa000;">
+                <p style="margin: 0;"><strong>Hint:</strong> Try $u = x^3 - 2$. Calculate $du$ and see if $3x^2 \\, dx$ appears in the integral.</p>
+            </div>
+        </details>
+
+        <details style="margin-top: 15px;">
+            <summary style="cursor: pointer; color: #2e7d32; font-weight: 500;">Show solution</summary>
+            <div style="background: #f5f5f5; padding: 15px; margin-top: 10px;">
+                <p><strong>Method:</strong> u-substitution</p>
+                
+                <div style="background: white; padding: 10px; margin: 10px 0; overflow-x: auto;">
+$$\\begin{aligned}
+&\\text{Let } u = x^3 - 2, \\quad du = 3x^2 \\, dx \\\\
+&\\int 3x^2(x^3 - 2)^3 \\, dx = \\int u^3 \\, du = \\frac{u^4}{4} + C = \\boxed{\\frac{(x^3 - 2)^4}{4} + C}
+\\end{aligned}$$
+                </div>
+
+                <div style="background: #ffebee; padding: 10px; border-left: 3px solid #c62828; margin-top: 10px;">
+                    <strong>⚠️ Critical Nuance:</strong> Notice that $3x^2$ is the derivative of $x^3 - 2$. This makes substitution straightforward. Look for this pattern: $f(g(x)) \\cdot g'(x)$
+                </div>
+            </div>
+        </details>
+    </div>
+
+    <!-- Common Patterns -->
+    <div style="margin-top: 50px; padding-top: 30px; border-top: 2px solid #333;">
+        <h2>📊 Common Patterns Identified</h2>
+        
+        <div style="background: #ffebee; padding: 15px; margin: 15px 0; border-left: 4px solid #c62828;">
+            <h4 style="margin-top: 0; color: #c62828;">Pattern 1: Sign Errors with Exponential Functions</h4>
+            <p style="font-size: 13px; color: #666; margin: 5px 0;"><strong>Frequency:</strong> High | <strong>Seen in:</strong> Q1a, Q1j</p>
+            <p style="margin: 10px 0;"><strong>Root Cause:</strong> Confusion when integrating $e^{-ax}$</p>
+            <p style="margin: 10px 0;"><strong>Strategy:</strong> Write out $\\frac{1}{-a} = -\\frac{1}{a}$ explicitly</p>
+        </div>
+
+        <div style="background: #fff8e1; padding: 15px; margin: 15px 0; border-left: 4px solid #ffa000;">
+            <h4 style="margin-top: 0; color: #ef6c00;">Pattern 2: Missing Algebraic Simplification</h4>
+            <p style="font-size: 13px; color: #666; margin: 5px 0;"><strong>Frequency:</strong> High | <strong>Seen in:</strong> Q1f, Q1j</p>
+            <p style="margin: 10px 0;"><strong>Root Cause:</strong> Trying to integrate before simplifying</p>
+            <p style="margin: 10px 0;"><strong>Strategy:</strong> Always look for cancellations and identities first</p>
+        </div>
+
+        <div style="background: #e8f5e9; padding: 15px; margin: 15px 0; border-left: 4px solid #2e7d32;">
+            <h4 style="margin-top: 0; color: #2e7d32;">Pattern 3: Substitution Recognition</h4>
+            <p style="font-size: 13px; color: #666; margin: 5px 0;"><strong>Frequency:</strong> High | <strong>Seen in:</strong> Question 2</p>
+            <p style="margin: 10px 0;"><strong>Root Cause:</strong> Not recognizing derivative patterns</p>
+            <p style="margin: 10px 0;"><strong>Strategy:</strong> Look for $f(g(x)) \\cdot g'(x)$ structure</p>
+        </div>
+    </div>
+
+    <footer style="margin-top: 50px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 13px;">
+        <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya</p>
+        <p>Session 2025/2026</p>
+    </footer>
+
+</body>
+</html>

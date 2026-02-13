@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Chemistry II - Tutorial 01</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | Basic Chemistry II | <a href="basic-physics-ii.html">Basic Physics II</a> | <a href="mathematics-ii.html">Mathematics II</a> | <a href="mathematics-iii.html">Mathematics III</a>
+</div>
+
+<hr>
+
+<h1>Tutorial 1: Chemical Equilibrium</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers chemical equilibrium concepts including equilibrium constants ($K_c$ and $K_p$), reaction quotient, and equilibrium calculations.
+</p>
+
+<strong>Topics:</strong> Equilibrium constants, $K_c$, $K_p$, Reaction Quotient  
+<strong>Difficulty:</strong> Medium  
+<strong>Estimated Time:</strong> 90 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [20 marks]</h2>
+
+<h3>Part (a) [15 marks]</h3>
+<p>
+For each of the following reactions:
+(i) Write expression for $K_c$ and $K_p$
+(ii) Write the unit of the equilibrium constants $K_c$ and $K_p$ if concentrations are measured in mol dm⁻³ and partial pressures in atm.
+</p>
+
+<h4>I. [3 marks]</h4>
+$$4A(g) + B(g) \rightleftharpoons 2C(g) + 2D(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>(i) Expressions:</strong></p>
+<p>$$K_c = \frac{[C]^2[D]^2}{[A]^4[B]}$$</p>
+<p>$$K_p = \frac{(P_C)^2(P_D)^2}{(P_A)^4(P_B)}$$</p>
+<p><strong>(ii) Units:</strong></p>
+<p>$K_c$: $\frac{(\text{mol dm}^{-3})^4}{(\text{mol dm}^{-3})^5} = \text{mol}^{-1} \text{dm}^3$</p>
+<p>$K_p$: $\frac{\text{atm}^4}{\text{atm}^5} = \text{atm}^{-1}$</p>
+</details>
+
+<h4>II. [3 marks]</h4>
+$$E(g) + F(s) \rightleftharpoons G(g) + H(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Note:</strong> Solids are not included in equilibrium expressions</p>
+<p>$$K_c = \frac{[G][H]}{[E]}$$</p>
+<p>$$K_p = \frac{P_G \cdot P_H}{P_E}$$</p>
+<p><strong>Units:</strong> $K_c$: mol dm⁻³, $K_p$: atm</p>
+</details>
+
+<h4>III. [3 marks]</h4>
+$$2J(g) + L(g) \rightleftharpoons M(g) + 2N(s)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$K_c = \frac{[M]}{[J]^2[L]}$$</p>
+<p>$$K_p = \frac{P_M}{(P_J)^2 \cdot P_L}$$</p>
+<p><strong>Units:</strong> $K_c$: mol⁻² dm⁶, $K_p$: atm⁻²</p>
+</details>
+
+<h4>IV. [3 marks]</h4>
+$$Fe(s) + 5CO(g) \rightleftharpoons Fe(CO)_5(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$K_c = \frac{[Fe(CO)_5]}{[CO]^5}$$</p>
+<p>$$K_p = \frac{P_{Fe(CO)_5}}{(P_{CO})^5}$$</p>
+<p><strong>Units:</strong> $K_c$: mol⁻⁴ dm¹², $K_p$: atm⁻⁴</p>
+</details>
+
+<h4>V. [3 marks]</h4>
+$$Cu^{2+}(aq) + 4NH_3(aq) \rightleftharpoons Cu(NH_3)_4^{2+}(aq)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$$K_c = \frac{[Cu(NH_3)_4^{2+}]}{[Cu^{2+}][NH_3]^4}$$</p>
+<p><strong>No $K_p$</strong> - aqueous solutions, not gases</p>
+<p><strong>Unit:</strong> $K_c$: mol⁻⁴ dm¹²</p>
+</details>
+
+<h3>Part (b) [5 marks]</h3>
+<p>
+Consider: $N_2(g) + 3H_2(g) \rightleftharpoons 2NH_3(g)$ with $K_c = 3.7 \times 10^8$ mol⁻² L² at 25°C
+</p>
+
+<p>
+Determine $K_c$ for:
+</p>
+
+<h4>(i) [2 marks]</h4>
+$$2NH_3(g) \rightleftharpoons N_2(g) + 3H_2(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Reverse reaction: $K_c' = \frac{1}{K_c} = \frac{1}{3.7 \times 10^8} = \boxed{2.7 \times 10^{-9}}$ mol² L⁻²</p>
+</details>
+
+<h4>(ii) [2 marks]</h4>
+$$\frac{1}{2}N_2(g) + \frac{3}{2}H_2(g) \rightleftharpoons NH_3(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Halved coefficients: $K_c' = (K_c)^{1/2} = (3.7 \times 10^8)^{1/2} = \boxed{1.9 \times 10^4}$ mol⁻¹ L</p>
+</details>
+
+<h4>(iii) [1 mark]</h4>
+$$NH_3(g) \rightleftharpoons \frac{1}{2}N_2(g) + \frac{3}{2}H_2(g)$$
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Reverse of (ii): $K_c' = \frac{1}{1.9 \times 10^4} = \boxed{5.3 \times 10^{-5}}$ mol L⁻¹</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 2 [16 marks]</h2>
+
+<h3>Part (a) [4 marks]</h3>
+<p>
+Carbon dioxide reacts with carbon: $C(s) + CO_2(g) \rightleftharpoons 2CO(g)$
+</p>
+
+<p>
+At 700°C, a 2.5 L flask contains 0.10 mol CO, 0.25 mol CO₂ and 0.40 mol C. Calculate $K_c$.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>Step 1:</strong> Calculate concentrations</p>
+<p>$[CO] = \frac{0.10}{2.5} = 0.04$ M</p>
+<p>$[CO_2] = \frac{0.25}{2.5} = 0.10$ M</p>
+<p><strong>Step 2:</strong> Write $K_c$ expression (exclude solid C)</p>
+<p>$$K_c = \frac{[CO]^2}{[CO_2]} = \frac{(0.04)^2}{0.10} = \frac{0.0016}{0.10} = \boxed{0.016}$$</p>
+</details>
+
+<h3>Part (b) [12 marks]</h3>
+<p>
+$H_2(g) + I_2(g) \rightleftharpoons 2HI(g)$
+</p>
+
+<p>
+Equilibrium mixture: 0.2 mol H₂ and 0.4 mol I₂ in 2.0 L. Given $K_c = 1.5 \times 10^{-6}$.
+</p>
+
+<h4>(i) [2 marks]</h4>
+<p>
+Is the system at homogeneous or heterogeneous equilibrium?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>All species are gases → <strong>Homogeneous equilibrium</strong></p>
+</details>
+
+<h4>(ii) [4 marks]</h4>
+<p>
+Calculate the equilibrium concentration of HI.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$[H_2] = \frac{0.2}{2.0} = 0.1$ M, $[I_2] = \frac{0.4}{2.0} = 0.2$ M</p>
+<p>$$K_c = \frac{[HI]^2}{[H_2][I_2]}$$</p>
+<p>$$1.5 \times 10^{-6} = \frac{[HI]^2}{(0.1)(0.2)}$$</p>
+<p>$[HI]^2 = 3.0 \times 10^{-8}$</p>
+<p>$[HI] = \boxed{1.73 \times 10^{-4}}$ M</p>
+</details>
+
+<h4>(iii) [3 marks]</h4>
+<p>
+Predict the position of equilibrium.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$K_c = 1.5 \times 10^{-6} \ll 1$</p>
+<p>Equilibrium lies far to the <strong>left</strong> (reactants favored)</p>
+</details>
+
+<h4>(iv) [3 marks]</h4>
+<p>
+Determine $K_c$ for the reverse reaction.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$K_c' = \frac{1}{K_c} = \frac{1}{1.5 \times 10^{-6}} = \boxed{6.67 \times 10^5}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 3 [14 marks]</h2>
+
+<h3>Part (a) [6 marks]</h3>
+<p>
+$S_2Cl_4(g) \rightleftharpoons 2SCl_2(g)$
+</p>
+
+<p>
+3.0 moles of S₂Cl₄ in 1.5 L vessel. At equilibrium, 0.5 moles of S₂Cl₄ remain. Calculate $K_c$.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p><strong>ICE Table:</strong></p>
+<p>| | S₂Cl₄ | SCl₂ |</p>
+<p>|---|-------|------|</p>
+<p>|I | 3.0 | 0 |</p>
+<p>|C | -2.5 | +5.0 |</p>
+<p>|E | 0.5 | 5.0 |</p>
+
+<p>Concentrations: $[S_2Cl_4] = \frac{0.5}{1.5} = 0.333$ M</p>
+<p>$[SCl_2] = \frac{5.0}{1.5} = 3.333$ M</p>
+
+<p>$$K_c = \frac{[SCl_2]^2}{[S_2Cl_4]} = \frac{(3.333)^2}{0.333} = \boxed{33.3}$$</p>
+</details>
+
+<h3>Part (b) [8 marks]</h3>
+<p>
+$PCl_5(g) \rightleftharpoons PCl_3(g) + Cl_2(g)$
+</p>
+
+<p>
+5.0 mol PCl₅ in 2.5 dm³ at T°C. $K_c = 0.02$ mol dm⁻³.
+</p>
+
+<h4>(i) [6 marks]</h4>
+<p>
+Calculate equilibrium concentrations of all species.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Initial $[PCl_5] = \frac{5.0}{2.5} = 2.0$ M</p>
+<p>Let degree of dissociation = $\alpha$</p>
+<p>At equilibrium: $[PCl_5] = 2(1-\alpha)$, $[PCl_3] = 2\alpha$, $[Cl_2] = 2\alpha$</p>
+<p>$$K_c = \frac{(2\alpha)(2\alpha)}{2(1-\alpha)} = \frac{4\alpha^2}{2(1-\alpha)} = 0.02$$</p>
+<p>Solving: $\alpha = 0.095$</p>
+<p>$[PCl_5] = 2(0.905) = \boxed{1.81}$ M</p>
+<p>$[PCl_3] = [Cl_2] = 2(0.095) = \boxed{0.19}$ M</p>
+</details>
+
+<h4>(ii) [2 marks]</h4>
+<p>
+Find the degree of dissociation, $\alpha$.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\alpha = \boxed{0.095}$ or $\boxed{9.5\%}$</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [8 marks]</h2>
+
+<p>
+Mixture: 4.0 mol NO₂, 2.0 mol NO, 1.5 mol O₂ in 2.0 dm³ at 300°C.
+</p>
+
+<p>
+$2NO_2(g) \rightleftharpoons 2NO(g) + O_2(g)$, $\Delta H = -120$ kJ, $K_c = 0.168$ mol dm⁻³
+</p>
+
+<p>
+Find $Q_c$ and predict reaction direction.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Concentrations: $[NO_2] = 2.0$, $[NO] = 1.0$, $[O_2] = 0.75$ M</p>
+<p>$$Q_c = \frac{[NO]^2[O_2]}{[NO_2]^2} = \frac{(1.0)^2(0.75)}{(2.0)^2} = \frac{0.75}{4} = 0.1875$$</p>
+<p>$Q_c = 0.188 > K_c = 0.168$</p>
+<p>Since $Q_c > K_c$, reaction shifts to the <strong>left</strong> (toward reactants)</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [10 marks]</h2>
+
+<p>
+$H_2(g) + Cl_2(g) \rightleftharpoons 2HCl(g)$
+</p>
+
+<p>
+20.0 g Cl₂ heated with 1.0 g H₂ at 470°C. At equilibrium, 14.0 g Cl₂ remain.
+</p>
+
+<p>
+Calculate $K_c$ and predict equilibrium position.
+(RAM: H = 1.0, Cl = 35.5)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Molar masses: H₂ = 2, Cl₂ = 71, HCl = 36.5</p>
+<p>Initial moles: H₂ = 0.5, Cl₂ = 0.282</p>
+<p>Cl₂ reacted = 20.0 - 14.0 = 6.0 g = $\frac{6.0}{71} = 0.0845$ mol</p>
+<p>From stoichiometry:</p>
+<p>H₂ reacted = 0.0845 mol, HCl formed = 0.169 mol</p>
+<p>Equilibrium moles: H₂ = 0.4155, Cl₂ = 0.1975, HCl = 0.169</p>
+<p>(Assuming 1 L volume for $K_c$ calculation)</p>
+<p>$$K_c = \frac{[HCl]^2}{[H_2][Cl_2]} = \frac{(0.169)^2}{(0.4155)(0.1975)} = \boxed{0.348}$$</p>
+<p>$K_c < 1$ → Equilibrium lies slightly to the <strong>left</strong></p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 6 [18 marks]</h2>
+
+<p>
+$2HI(g) \rightleftharpoons H_2(g) + I_2(g)$, $\Delta H = -53$ kJ mol⁻¹
+</p>
+
+<p>
+3.0 mol HI in 2.0 L at 500°C. At equilibrium, 60% of HI dissociated.
+</p>
+
+<h3>Part (i) [6 marks]</h3>
+<p>
+How many moles of each gas at equilibrium?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>HI dissociated = 60% of 3.0 = 1.8 mol</p>
+<p>From equation: 2HI → H₂ + I₂</p>
+<p>H₂ formed = I₂ formed = $\frac{1.8}{2} = 0.9$ mol</p>
+<p>HI remaining = 3.0 - 1.8 = 1.2 mol</p>
+<p>Answer: HI = <strong>1.2 mol</strong>, H₂ = <strong>0.9 mol</strong>, I₂ = <strong>0.9 mol</strong></p>
+</details>
+
+<h3>Part (ii) [6 marks]</h3>
+<p>
+Calculate $K_c$ and $K_p$ at 500°C. (R = 0.0821 L atm K⁻¹ mol⁻¹)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Concentrations: $[HI] = 0.6$, $[H_2] = [I_2] = 0.45$ M</p>
+<p>$$K_c = \frac{(0.45)(0.45)}{(0.6)^2} = \frac{0.2025}{0.36} = \boxed{0.5625}$$</p>
+<p>$K_p = K_c(RT)^{\Delta n}$ where $\Delta n = 0$</p>
+<p>$K_p = K_c = \boxed{0.5625}$ (or 0.56 to 2 s.f.)</p>
+</details>
+
+<h3>Part (iii) [6 marks]</h3>
+<p>
+What happens to equilibrium position and $K_c$ when:
+</p>
+
+<h4>(I) [3 marks]</h4>
+<p>
+Temperature is increased?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$\Delta H = -53$ kJ (exothermic)</p>
+<p>Increasing T: Equilibrium shifts to <strong>left</strong> (toward reactants)</p>
+<p>$K_c$ <strong>decreases</strong></p>
+</details>
+
+<h4>(II) [3 marks]</h4>
+<p>
+More HI is added?
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>Adding HI (reactant): Equilibrium shifts to <strong>right</strong> (toward products)</p>
+<p>$K_c$ <strong>unchanged</strong> (constant at constant T)</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 7 [14 marks]</h2>
+
+<p>
+$N_2O_4(g) \rightleftharpoons 2NO_2(g)$ at 25°C
+</p>
+
+<p>
+Initial $P_{N_2O_4} = 2.5$ atm. At equilibrium, $P_{N_2O_4} = 1.75$ atm.
+</p>
+
+<h3>Part (i) [8 marks]</h3>
+<p>
+Calculate $K_p$.
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$N_2O_4$ dissociated: $2.5 - 1.75 = 0.75$ atm</p>
+<p>$NO_2$ formed: $2 \times 0.75 = 1.5$ atm</p>
+<p>Total pressure at equilibrium: $1.75 + 1.5 = 3.25$ atm</p>
+<p>$$K_p = \frac{(P_{NO_2})^2}{P_{N_2O_4}} = \frac{(1.5)^2}{1.75} = \frac{2.25}{1.75} = \boxed{1.29}$$ atm</p>
+</details>
+
+<h3>Part (ii) [6 marks]</h3>
+<p>
+Calculate $K_c$ at same temperature. (R = 0.0821 L atm K⁻¹ mol⁻¹)
+</p>
+
+<details><summary><strong>Show solution</strong></summary>
+<p>$K_p = K_c(RT)^{\Delta n}$ where $\Delta n = 2 - 1 = 1$</p>
+<p>$1.29 = K_c(0.0821 \times 298)^1$</p>
+<p>$K_c = \frac{1.29}{24.47} = \boxed{0.0527}$ mol L⁻¹</p>
+</details>
+
+<p>
+---
+</p>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
+
+<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
+<strong>Thank you so much Faith for helping me make this possible!</strong>
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026</p>
+<p style="margin-top: 0.5em;">Tutorials contributed by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>

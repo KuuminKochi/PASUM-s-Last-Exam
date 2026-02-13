@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematics II - Tutorial 01</title>
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 { margin-top: 1.5em; }
+        h3 { margin-top: 2em; margin-bottom: 0.5em; }
+        h4 { margin-top: 1.5em; margin-bottom: 0.3em; }
+        p { margin: 0.5em 0; }
+        details { margin: 8px 0; }
+        summary { cursor: pointer; }
+        hr { margin: 2em 0; }
+        .subject-nav { margin: 1em 0; }
+        .subject-nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+
+<h1>📚 Revision Data</h1>
+<p>University of Malaya | Session 2025/2026</p>
+
+<hr>
+
+<div class="subject-nav">
+<strong>Subjects:</strong> <a href="advanced-mathematics-ii.html">Advanced Mathematics II</a> | <a href="basic-chemistry-ii.html">Basic Chemistry II</a> | <a href="basic-physics-ii.html">Basic Physics II</a> | Mathematics II | <a href="mathematics-iii.html">Mathematics III</a>
+</div>
+
+<hr>
+
+<h1>Tutorial 1: Integration Techniques - Part 1</h1>
+
+<h2>Overview</h2>
+<p>
+This tutorial covers basic integration techniques including direct integration, exponential functions, trigonometric integrals, and introduction to substitution.
+</p>
+
+<strong>Topics:</strong> Basic Integration, Integration by Substitution  
+<strong>Difficulty:</strong> Beginner  
+<strong>Estimated Time:</strong> 60 minutes
+
+<p>
+---
+</p>
+
+<h2>Question 1 [60 marks]</h2>
+<p>
+Find the indefinite integrals for the following functions.
+</p>
+
+<h3>Part (a) [5 marks]\n$$\int (3e^{4x} - 5e^{-6x}) \, dx$$</h3>
+
+<strong>Concepts:</strong> Exponential integration, linearity of integrals  
+<strong>Key Formula:</strong> $\int e^{ax} \, dx = \frac{1}{a}e^{ax} + C$
+
+<h3>Part (b) [5 marks]</h3>
+$$\int (6x^6 + 4x^3 + 8) \, dx$$
+
+<strong>Concepts:</strong> Power rule for integration
+
+<h3>Part (c) [5 marks]</h3>
+$$\int (e^y + \sin y) \, dy$$
+
+<strong>Concepts:</strong> Variable substitution ($y$ instead of $x$), trigonometric integration
+
+<h3>Part (d) [5 marks]</h3>
+$$\int 4a^2 e^x \, dx$$
+
+<strong>Concepts:</strong> Constants in integration ($a$ is a constant)
+
+<h3>Part (e) [5 marks]</h3>
+$$\int (2\tan x + 3\sec x) \, dx$$
+
+<strong>Concepts:</strong> Trigonometric integrals
+
+<h3>Part (f) [5 marks]</h3>
+$$\int \frac{\sin^2 x + \cos^2 x}{3x} \, dx$$
+
+<strong>Concepts:</strong> Trigonometric identity ($\sin^2 x + \cos^2 x = 1$), logarithmic integration
+
+<h3>Part (g) [5 marks]</h3>
+$$\int (4 + 2x)^5 \, dx$$
+
+<strong>Concepts:</strong> Chain rule in reverse, substitution preparation
+
+<h3>Part (h) [5 marks]</h3>
+$$\int 4e^4 \, dx$$
+
+<strong>Concepts:</strong> Constant integration (note: $e^4$ is a constant)
+
+<h3>Part (i) [5 marks]</h3>
+$$\int (x + \sec x \tan x) \, dx$$
+
+<strong>Concepts:</strong> Standard integral $\int \sec x \tan x \, dx = \sec x + C$
+
+<h3>Part (j) [5 marks]</h3>
+$$\int \frac{(xe^{-2x} - 3x)e^x}{2x} \, dx$$
+
+<strong>Concepts:</strong> Algebraic simplification before integration
+
+<h3>Part (k) [5 marks]</h3>
+$$\int \frac{3x^3 - 5x}{x^7} \, dx$$
+
+<strong>Concepts:</strong> Simplifying rational functions, negative exponents
+
+<h3>Part (l) [5 marks]</h3>
+$$\int 5^{7x} \, dx$$
+
+<strong>Concepts:</strong> Integration of $a^x$, using $a^x = e^{x\ln a}$
+
+<p>
+---
+</p>
+
+<h2>Question 2 [40 marks]</h2>
+<p>
+Use appropriate substitution to find:
+</p>
+
+<h3>Part (a) [4 marks]</h3>
+$$\int 3x^2(x^3 - 2)^3 \, dx$$
+
+<strong>Hint:</strong> Try $u = x^3 - 2$
+
+<h3>Part (b) [4 marks]</h3>
+$$\int \cos x \sin^2 x \, dx$$
+
+<strong>Hint:</strong> Try $u = \sin x$
+
+<h3>Part (c) [4 marks]</h3>
+$$\int x\sqrt{x^2 + 1} \, dx$$
+
+<strong>Hint:</strong> Try $u = x^2 + 1$
+
+<h3>Part (d) [4 marks]</h3>
+$$\int \frac{e^{\frac{1}{\mu}}}{\mu^2} \, d\mu$$
+
+<strong>Hint:</strong> Try $u = \frac{1}{\mu}$
+
+<h3>Part (e) [4 marks]</h3>
+$$\int \frac{\sec^2 x}{(1 + \tan x)^3} \, dx$$
+
+<strong>Hint:</strong> Try $u = 1 + \tan x$
+
+<h3>Part (f) [4 marks]</h3>
+$$\int x^2 \tan(x^3) \sec(x^3) \, dx$$
+
+<strong>Hint:</strong> Try $u = x^3$
+
+<h3>Part (g) [4 marks]</h3>
+$$\int \frac{t^2 + 2t}{t^3 + 3t^2 + 10} \, dt$$
+
+<strong>Hint:</strong> Try $u = t^3 + 3t^2 + 10$
+
+<h3>Part (h) [4 marks]</h3>
+$$\int \frac{(\ln x)^5}{x} \, dx$$
+
+<strong>Hint:</strong> Try $u = \ln x$
+
+<h3>Part (i) [4 marks]</h3>
+$$\int \frac{\cos^3(4\theta)}{\sin^3(4\theta)} \, d\theta$$
+
+<strong>Hint:</strong> Rewrite as $\cot^3(4\theta)$ or use substitution $u = \sin(4\theta)$
+
+<h3>Part (j) [4 marks]</h3>
+$$\int \frac{x^3 + 2x^2 + 5x + 6}{x + 2} \, dx$$
+
+<strong>Hint:</strong> Polynomial long division first, or factor numerator
+
+<p>
+---
+</p>
+
+<h2>Quick Reference</h2>
+
+<h3>Essential Integration Formulas</h3>
+<p>
+1. $\int x^n \, dx = \frac{x^{n+1}}{n+1} + C$ (for $n \neq -1$)
+2. $\int e^x \, dx = e^x + C$
+3. $\int e^{ax} \, dx = \frac{1}{a}e^{ax} + C$
+4. $\int a^x \, dx = \frac{a^x}{\ln a} + C$
+5. $\int \frac{1}{x} \, dx = \ln|x| + C$
+6. $\int \sin x \, dx = -\cos x + C$
+7. $\int \cos x \, dx = \sin x + C$
+8. $\int \tan x \, dx = -\ln|\cos x| + C = \ln|\sec x| + C$
+9. $\int \sec x \, dx = \ln|\sec x + \tan x| + C$
+10. $\int \sec^2 x \, dx = \tan x + C$
+11. $\int \sec x \tan x \, dx = \sec x + C$
+</p>
+
+<h3>Substitution Strategy</h3>
+<p>
+- Look for composite functions $f(g(x))$
+- Check if $g'(x)$ appears (up to a constant multiple)
+- Let $u = g(x)$, then $du = g'(x)dx$
+</p>
+
+<p>
+---
+</p>
+
+<h2>Related Tutorials</h2>
+<p>
+- Tutorial 2: Integration by Parts
+- Tutorial 3: Partial Fractions
+- Tutorial 4: Applications of Integration
+</p>
+
+<footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.85em; color: #888; text-align: center;">
+<p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026</p>
+<p style="margin-top: 0.5em;">Tutorials contributed by F.L.L.T.</p>
+</footer>
+
+</body>
+</html>
