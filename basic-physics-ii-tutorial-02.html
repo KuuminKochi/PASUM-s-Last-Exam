@@ -12,6 +12,8 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- TikZ support -->
+    <script src="https://cdn.jsdelivr.net/npm/@tikzjax/tikzjax@0.2.1/dist/tikzjax.js"></script>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -29,6 +31,14 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .tikz-diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +54,7 @@
 
 <hr>
 
-<h1>Tutorial 2: Electrostatics</h1>
+<h1>Tutorial 2: Electrostatics - Gauss's Law</h1>
 
 <h2>Question 1 [2 marks]</h2>
 <p>
@@ -82,6 +92,51 @@ Where:
 <p>
 Electric charge is distributed uniformly along a long charged wire; the charge per unit length is $\lambda$. Find the electric field at distance $r$ from the wire.
 </p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.3, >=stealth]
+    % Charged wire (into page)
+    \draw[thick, red] (0,0) circle (0.1);
+    \node[red] at (0,-0.3) {$+$};
+    \node[red] at (0,-0.55) {$+$};
+    \node[red] at (0,-0.8) {$+$};
+    \node[red] at (-0.25, -0.55) {$\lambda$};
+</p>
+
+<p>
+    % Gaussian cylinder
+    \draw[dashed, blue] (0,0) circle (1.5);
+    \draw[dashed, blue] (-2,-2) -- (2,-2);
+    \draw[dashed, blue] (-2,2) -- (2,2);
+    \draw[dashed, blue] (-2,-2) -- (-2,2);
+    \draw[dashed, blue] (2,-2) -- (2,2);
+</p>
+
+<p>
+    % Radius label
+    \draw[<->, thick] (0,0) -- (1.5,0) node[midway,below] {$r$};
+</p>
+
+<p>
+    % Electric field arrows (radially outward)
+    \foreach \angle in {0,45,90,135,180,225,270,315} {
+        \draw[->, green!60!black] ({\angle+10}:1.6) -- ({\angle+10}:2.2);
+    }
+    \node[green!60!black] at (2.5,1) {$E$};
+</p>
+
+<p>
+    % Length label
+    \draw[<->] (-2.3,-2) -- (-2.3,2) node[midway,left] {$L$};
+</p>
+
+<p>
+    % Area vector on curved surface
+    \draw[->, purple] (45:1.7) -- (45:2.3) node[right] {$d\mathbf{A}$};
+\end{tikzpicture}
+</p>
+</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
@@ -121,7 +176,7 @@ $$E = \frac{2k\lambda}{r}$$
 Where $k = \frac{1}{4\pi\varepsilon_0} = 8.99 \times 10^9 \, \text{N}\cdot\text{m}^2/\text{C}^2$
 </p>
 
-<p><strong>⚠️ Nuance:</strong> The $2\pi r$ in the denominator comes from the circumference of the cylindrical Gaussian surface. This shows the field decreases as $1/r$, not $1/r^2$ like point charges.</p>
+<p><strong>⚠️ Nuance:</strong> The $2\pi r$ in the denominator comes from the circumference of the cylindrical Gaussian surface. This shows the field decreases as $1/r$, not $1/r^2$ like point charges. This is because the "effective area" through which the flux passes grows as $2\pi rL$ (circumference × length).</p>
 </details>
 
 <p>
@@ -134,6 +189,48 @@ An electric field $\mathbf{E}$ is detected between two square metal plates of ar
 - (i) Surface charge density on each plate
 - (ii) Electric field between the plates
 </p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % Top plate (+)
+    \draw[thick, red] (0,1) rectangle (4,1.3);
+    \node[red] at (2,1.15) {$+$};
+    \node[red] at (2,1.5) {$+5.0\,\mu\text{C}$};
+</p>
+
+<p>
+    % Bottom plate (-)
+    \draw[thick, blue] (0,-1.3) rectangle (4,-1);
+    \node[blue] at (2,-1.15) {$-$};
+    \node[blue] at (2,-1.5) {$-5.0\,\mu\text{C}$};
+</p>
+
+<p>
+    % Electric field arrows (downward, + to -)
+    \foreach \x in {0.5,1.5,2.5,3.5} {
+        \draw[->, green!60!black] (\x,0.9) -- (\x,-0.9);
+    }
+    \node[green!60!black] at (4.5,0) {$E$};
+</p>
+
+<p>
+    % Area label
+    \node at (2,0) {$A = 2.0\,$m$^2$};
+</p>
+
+<p>
+    % Surface charge density labels
+    \draw[<->] (-0.3,1) -- (-0.3,1.3) node[midway,left] {$\sigma$};
+    \draw[<->] (-0.3,-1.3) -- (-0.3,-1) node[midway,left] {$\sigma$};
+</p>
+
+<p>
+    % Charge per unit area
+    \node at (2,2) {$\sigma = \dfrac{Q}{A}$};
+\end{tikzpicture}
+</p>
+</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
@@ -205,12 +302,45 @@ $$W = qV = (1.0 \times 10^{-6})(7.19 \times 10^5) = 0.719 \, \text{J} \approx 0.
 Three point charges of values $+2.5 \, \mu\text{C}$, $+3.4 \, \mu\text{C}$ and $+6.6 \, \mu\text{C}$ are respectively at each corner of an equilateral triangle. The side of the triangle is $10.0 \, \text{cm}$. Calculate the electric potential energy of the system.
 </p>
 
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.3, >=stealth]
+    % Equilateral triangle
+    \coordinate (A) at (0,0);
+    \coordinate (B) at (3,0);
+    \coordinate (C) at (1.5,2.598);
+</p>
+
+<p>
+    % Draw triangle
+    \draw[thick] (A) -- (B) -- (C) -- cycle;
+</p>
+
+<p>
+    % Charges at corners
+    \filldraw[red] (A) circle (3pt) node[below left] {$q_1 = +2.5\,\mu\text{C}$};
+    \filldraw[red] (B) circle (3pt) node[below right] {$q_2 = +3.4\,\mu\text{C}$};
+    \filldraw[red] (C) circle (3pt) node[above] {$q_3 = +6.6\,\mu\text{C}$};
+</p>
+
+<p>
+    % Side label
+    \draw[<->] (A) -- (B) node[midway,below] {$10.0\,$cm};
+</p>
+
+<p>
+    % Potential energy formula
+    \node[align=left] at (1.5,-0.8) {$U = U_{12} + U_{13} + U_{23}$ \\ $= k\left(\dfrac{q_1q_2}{r} + \dfrac{q_1q_3}{r} + \dfrac{q_2q_3}{r}\right)$};
+\end{tikzpicture}
+</p>
+</div>
+
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
 Electric potential energy of a system of charges = sum of (k × qᵢqⱼ)/r for all pairs. For 3 charges, there are 3 pairs. Since all charges are positive, the potential energy will be positive (repulsive - work is required to bring them together).
 </p>
 </details>
-<details><<summary><strong>Show solution</strong></summary>
+<details><summary><strong>Show solution</strong></summary>
 <strong>Given:</strong>
 <p>
 - $q_1 = +2.5 \, \mu\text{C} = 2.5 \times 10^{-6} \, \text{C}$
@@ -257,6 +387,57 @@ An electric field of intensity $3.50 \, \text{kN/C}$ is applied along the x-axis
 - (c) the plane contains the y-axis and its normal makes an angle of $40.0^\circ$ with the x-axis
 </p>
 
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % Case (a): Plane parallel to yz plane
+    \begin{scope}
+        \node at (1,-0.5) {(a) Plane || yz plane};
+        % Field
+        \draw[->, thick, green!60!black] (0,0) -- (3,0) node[right] {$E$};
+        % Plane (perpendicular to x)
+        \draw[thick, red, fill=red!20] (0.5,-1) -- (0.5,1) -- (1.5,1) -- (1.5,-1) -- cycle;
+        \draw[->, purple] (1,-0.5) -- (1,0.3) node[above] {$n$};
+    \end{scope}
+</p>
+
+<p>
+    % Case (b): Plane parallel to xy plane  
+    \begin{scope}[xshift=4cm]
+        \node at (1,-0.5) {(b) Plane || xy plane};
+        % Field
+        \draw[->, thick, green!60!black] (0,0) -- (3,0) node[right] {$E$};
+        % Plane (horizontal)
+        \draw[thick, red, fill=red!20] (0.5,-0.3) -- (2,-0.3) -- (2,0.3) -- (0.5,0.3) -- cycle;
+        \draw[->, purple] (1.25,0) -- (1.25,0.8) node[above] {$n$};
+    \end{scope}
+\end{tikzpicture}
+</p>
+</div>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % Case (c): Plane at 40 degrees
+    \node at (1.5,-0.5) {(c) Normal at $40^\circ$ to x-axis};
+    % Field
+    \draw[->, thick, green!60!black] (0,0) -- (4,0) node[right] {$E$};
+    % Plane
+    \draw[thick, red, fill=red!20] (0.5,-0.8) -- (1.5,-0.3) -- (2.5,0.3) -- (1.5,0.8) -- cycle;
+    % Normal at 40 degrees
+    \draw[->, purple, thick] (1.5,0) -- (2.3,0.77) node[above right] {$n,\,40^\circ$};
+    % Angle arc
+    \draw[purple] (1.5,0.2) arc (90:40:0.4);
+    \node[purple] at (1.8,0.15) {$40^\circ$};
+</p>
+
+<p>
+    % Flux formula
+    \node[align=left] at (3.5,-0.5) {$\Phi_E = EA\cos\theta$};
+\end{tikzpicture}
+</p>
+</div>
+
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
 Electric flux $\Phi_E = \mathbf{E} \cdot \mathbf{A} = EA\cos\theta$, where $\theta$ is the angle between the field direction and the surface normal. For (a), normal is along x. For (b), normal is along z (perpendicular to field). For (c), use $\cos 40^\circ$.
@@ -301,8 +482,8 @@ $$\Phi_E = EA\cos\theta = (3500)(0.245)(0.7660) = 656.9 \, \text{Nm}^2/\text{C}$
 <p>
 1. Choose a Gaussian surface that matches the symmetry of the charge distribution
 2. For spherical symmetry: use concentric sphere → $E = kQ/r^2$
-3. For cylindrical symmetry: use coaxial cylinder → $E = \lambda/(2πε₀r)$
-4. For planar symmetry: use pillbox → $E = σ/(2ε₀)$ (one side) or $E = σ/ε₀$ (between plates)
+3. For cylindrical symmetry: use coaxial cylinder → $E = \lambda/(2\pi\varepsilon_0r)$
+4. For planar symmetry: use pillbox → $E = \sigma/(2\varepsilon_0)$ (one side) or $E = \sigma/\varepsilon_0$ (between plates)
 </p>
 
 <strong>Electric Potential:</strong>

@@ -12,6 +12,8 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- TikZ support -->
+    <script src="https://cdn.jsdelivr.net/npm/@tikzjax/tikzjax@0.2.1/dist/tikzjax.js"></script>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -29,6 +31,14 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .tikz-diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -53,6 +63,53 @@ A voltage divider circuit is connected to a Wheatstone bridge network via a swit
 - (b) value of the unknown resistance $R_{\text{unknown}}$ when the switch is closed and the bridge is brought to equilibrium when variable resistor is $3.0 \, \Omega$
 - (c) new output voltage at Point A, relative to the negative terminal of the power supply when the switch is closed and bridge is balanced
 </p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.1, >=stealth]
+    % Voltage source
+    \draw[thick] (0,1) -- (0,0);
+    \node at (-0.5,0.5) {$V_{in}$};
+    \draw[thick] (1.5,1) -- (1.5,0);
+    \draw (0,0) to[short, *-] (1.5,0);
+    \draw (0,1) to[short, *-] (1.5,1);
+</p>
+
+<p>
+    % Voltage divider
+    \draw (0,0.5) to[ resistor={$3\,\Omega$}] (1.5,0.5);
+    \draw (0,0.5) to[ resistor={$6\,\Omega$}] (1.5,0.5);
+</p>
+
+<p>
+    % Point A
+    \filldraw (0.75,0.5) circle (2pt) node[above] {$A$};
+</p>
+
+<p>
+    % Switch
+    \draw (0.75,0.5) to[switch] (2.5,0.5);
+</p>
+
+<p>
+    % Wheatstone bridge
+    \draw (2.5,0.5) -- (3,0.5);
+    \draw (3,0.5) to[ resistor={$R_1$}] (3,2);
+    \draw (3,2) to[ resistor={$R_2$}] (5,2);
+    \draw (5,2) -- (5,0.5);
+    \draw (5,0.5) to[ resistor={$R_3$}] (5,0);
+    \draw (5,0) to[ resistor={$R_{unknown}$}] (3,0);
+    \draw (3,0) -- (2.5,0.5);
+</p>
+
+<p>
+    % Labels
+    \node at (0.75,-0.3) {Switch};
+    \node at (4,-0.3) {Wheatstone Bridge};
+    \node at (4,2.5) {Find: (a) $V_A$, (b) $R_{unknown}$, (c) $V_A$ when balanced};
+\end{tikzpicture}
+</p>
+</div>
 
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
@@ -134,6 +191,38 @@ Determine the:
 - (d) frequency and period of the current
 </p>
 
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % AC waveform
+    \draw[->] (0,0) -- (5,0) node[right] {$t$};
+    \draw[->] (0,-1.5) -- (0,1.5) node[above] {$I(t)$};
+</p>
+
+<p>
+    % Sine wave
+    \draw[thick, red, domain=0:4.5] plot (\x, {1.2<em>sin(\x r</em>180/pi)});
+</p>
+
+<p>
+    % Labels
+    \node at (2.5,1.8) {$I(t) = 12\sin(100\pi t)$};
+    \node at (4,-0.3) {$T = 0.02\,$s};
+</p>
+
+<p>
+    % Amplitude
+    \draw[<->] (0.3,0) -- (0.3,1.2) node[midway,left] {$12\,$A};
+    \draw[dashed] (0,1.2) -- (0.3,1.2);
+</p>
+
+<p>
+    % Period
+    \draw[<->] (1,-0.3) -- (1+0.4,-0.3) node[midway,below] {$T$};
+\end{tikzpicture}
+</p>
+</div>
+
 <details><summary><strong>Need a hint?</strong></summary>
 <p>
 For (a): Peak is the amplitude of the sine function. For (b): $I_{\text{rms}} = I_{\text{peak}}/\sqrt{2}$. For (c): Substitute t into the equation. For (d): Compare with standard form $I = I_0 \sin(\omega t)$ where $\omega = 2\pi f$.
@@ -195,7 +284,301 @@ An AC power supply delivers an rms current of $5 \, \text{A}$ at a frequency of 
 For (a): $I_0 = I_{\text{rms}} \times \sqrt{2}$. For (b): Use Ohm's law $V_0 = I_0 R$. For (c): $v(t) = V_0 \sin(\omega t)$ where $\omega = 2\pi f$.
 </p>
 </details>
-<details><summary><strong>Show solution
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- $I_{\text{rms}} = 5 \, \text{A}$
+- Frequency: $f = 50 \, \text{Hz}$
+- Resistance: $R = 8 \, \Omega$
+</p>
+
+<strong>(a) Peak current:</strong>
+
+$$I_0 = I_{\text{rms}} \sqrt{2} = 5 \times 1.414 = 7.07 \, \text{A}$$
+
+<strong>(b) Peak voltage:</strong>
+
+$$V_0 = I_0 R = 7.07 \times 8 = 56.6 \, \text{V}$$
+
+<strong>(c) Instantaneous voltage expression:</strong>
+
+<p>
+Angular frequency:
+</p>
+$$\omega = 2\pi f = 2\pi(50) = 100\pi \, \text{rad/s}$$
+
+<p>
+The voltage expression:
+</p>
+$$v(t) = V_0 \sin(\omega t) = 56.6 \sin(100\pi t) \, \text{V}$$
+
+<p>
+Or more precisely:
+</p>
+$$v(t) = 56.6 \sin(100\pi t) \, \text{V}$$
+
+<p><strong>⚠️ Nuance:</strong> For a purely resistive AC circuit, voltage and current are in phase (phase difference = 0). The voltage also follows a sine wave with the same frequency as the current. The peak voltage is $\sqrt{2}$ times the RMS voltage.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 4 [5 marks]</h2>
+<p>
+Phasor diagrams below represent two signals at time $t = 0$. Sketch the corresponding sinusoidal waveforms for each phasor diagram.
+</p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.1, >=stealth]
+    % Case (a): V leads I by 90
+    \begin{scope}
+        \node at (1.5,2.5) {(a) $\phi = 90^\circ$, V leads I};
+        % Phasor
+        \draw[->, thick, red] (0,0) -- (0,1.5) node[above] {$V$};
+        \draw[->, thick, blue] (0,0) -- (1.5,0) node[right] {$I$};
+        \draw[red] (0.3,0) arc (0:90:0.3);
+        \node[red] at (0.5,0.4) {$90^\circ$};
+        % Waveform
+        \draw[->] (3,0) -- (6,0);
+        \draw[->] (3,-1) -- (3,1);
+        \draw[thick, red, domain=3:5.5] plot (\x, {0.8<em>sin((\x-3)</em>180/pi)});
+        \draw[thick, blue, domain=3:5.5] plot (\x, {0.8<em>sin((\x-3)</em>180/pi-90)});
+    \end{scope}
+</p>
+
+<p>
+    % Case (b): I leads V by 90
+    \begin{scope}[xshift=7cm]
+        \node at (1.5,2.5) {(b) $\phi = 90^\circ$, I leads V};
+        \draw[->, thick, blue] (0,0) -- (0,1.5) node[above] {$I$};
+        \draw[->, thick, red] (0,0) -- (1.5,0) node[right] {$V$};
+        \draw[blue] (0.3,0) arc (0:90:0.3);
+        \node[blue] at (0.5,0.4) {$90^\circ$};
+    \end{scope}
+\end{tikzpicture}
+</p>
+</div>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.1, >=stealth]
+    % Case (c): V leads I by 45
+    \begin{scope}
+        \node at (1.5,2.5) {(c) $\phi = 45^\circ$, V leads I};
+        \draw[->, thick, red] (0,0) -- (1.06,1.06) node[above right] {$V$};
+        \draw[->, thick, blue] (0,0) -- (1.5,0) node[right] {$I$};
+        \draw[red] (0.3,0) arc (0:45:0.3);
+        \node[red] at (0.5,0.2) {$45^\circ$};
+    \end{scope}
+</p>
+
+<p>
+    % Case (d): I leads V by 45
+    \begin{scope}[xshift=7cm]
+        \node at (1.5,2.5) {(d) $\phi = 45^\circ$, I leads V};
+        \draw[->, thick, blue] (0,0) -- (1.06,1.06) node[above right] {$I$};
+        \draw[->, thick, red] (0,0) -- (1.5,0) node[right] {$V$};
+        \draw[blue] (0.3,0) arc (0:45:0.3);
+        \node[blue] at (0.5,0.2) {$45^\circ$};
+    \end{scope}
+</p>
+
+<p>
+    \node at (3.5,-0.5) {Red = Voltage, Blue = Current};
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+A phasor rotating counterclockwise represents a sine wave. The length of the phasor = amplitude. The angle at t=0 determines the phase. If V leads I by angle φ, then V = V₀ sin(ωt + φ) and I = I₀ sin(ωt).
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a) Voltage leads current by 90° ($\phi = \pi/2$):</strong>
+
+<p>
+Voltage reaches maximum first (at t = T/4), then current reaches maximum. The voltage wave is shifted left compared to current.
+</p>
+
+<strong>(b) Current leads voltage by 90°:</strong>
+
+<p>
+Current reaches maximum first, voltage follows. The current wave is shifted left compared to voltage.
+</p>
+
+<strong>(c) Voltage leads current by 45° ($\phi = \pi/4$):</strong>
+
+<p>
+Voltage peaks before current by T/8. Small phase difference.
+</p>
+
+<strong>(d) Current leads voltage by 45°:</strong>
+
+<p>
+Current peaks before voltage by T/8.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Phasors rotate counterclockwise. At t=0, the phasor makes an angle with the horizontal axis equal to the phase. The projection on the vertical axis gives the instantaneous value. The sinusoidal waveform is the "snapshot" of this rotating phasor over one period.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Question 5 [5 marks]</h2>
+<p>
+The alternating current and voltage in a circuit are given by:
+</p>
+$$I(t) = 4 \cos \omega t$$
+$$V(t) = 10 \sin \omega t$$
+
+<p>
+- (a) Determine the phase difference between the current and voltage
+- (b) State clearly which quantity leads and which lags
+- (c) Draw the phasor diagram showing the correct phase relationship between current and voltage
+</p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.3, >=stealth]
+    % Phasor diagram at t = 0
+    \draw[->] (0,0) -- (3,0) node[right] {Real axis};
+    \draw[->] (0,0) -- (0,2.5) node[above] {Imaginary axis};
+</p>
+
+<p>
+    % Current phasor (at 90 degrees, from cos)
+    \draw[->, thick, blue] (0,0) -- (0,2) node[above] {$I = 4\cos\omega t = 4\sin(\omega t + 90^\circ)$};
+</p>
+
+<p>
+    % Voltage phasor (at 0 degrees, from sin)
+    \draw[->, thick, red] (0,0) -- (2.5,0) node[right] {$V = 10\sin\omega t$};
+</p>
+
+<p>
+    % Phase angle
+    \draw[blue] (0.4,0) arc (0:90:0.4);
+    \node[blue] at (0.6,0.5) {$90^\circ$};
+</p>
+
+<p>
+    % Labels
+    \node at (1.5,-1) {Current LEADS Voltage by $90^\circ$};
+    \node at (1.5,-1.5) {(or Voltage LAGS Current by $90^\circ$)};
+</p>
+
+<p>
+    % Waveform sketch
+    \begin{scope}[xshift=5cm]
+        \draw[->] (0,0) -- (3,0) node[right] {$t$};
+        \draw[->] (0,-1.5) -- (0,1.5) node[above] {};
+        \draw[thick, blue, domain=0:2.5] plot (\x, {1.2<em>cos(\x r</em>180/pi)});
+        \draw[thick, red, domain=0:2.5] plot (\x, {1<em>sin(\x r</em>180/pi)});
+        \node[blue] at (2,1.3) {$I(t)$};
+        \node[red] at (2,-1.3) {$V(t)$};
+    \end{scope}
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (a): Both need to be in the same trig function. Note that $\cos\theta = \sin(\theta + \pi/2)$, so $\cos\omega t = \sin(\omega t + \pi/2)$. For (b): The one with the larger angle leads. For (c): Draw phasors with correct angle difference.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>(a) Phase difference:</strong>
+
+<p>
+First, express both in the same form. Using $\cos\theta = \sin(\theta + \pi/2)$:
+</p>
+
+$$I(t) = 4 \cos\omega t = 4 \sin\left(\omega t + \frac{\pi}{2}\right)$$
+
+$$V(t) = 10 \sin\omega t$$
+
+<p>
+Now we can compare phases:
+- Current has phase: $+\frac{\pi}{2}$ (90°)
+- Voltage has phase: $0$
+</p>
+
+<p>
+Phase difference: $\phi = \frac{\pi}{2} - 0 = \frac{\pi}{2}$ (or 90°)
+</p>
+
+<strong>(b) Which leads and which lags:</strong>
+
+<p>
+Since the current has a larger phase angle ($\frac{\pi}{2}$ vs $0$), <strong>current leads voltage by 90°</strong>.
+</p>
+
+<p>
+Equivalently, <strong>voltage lags current by 90°</strong>.
+</p>
+
+<strong>(c) Phasor diagram:</strong>
+
+<p>
+At t = 0, the current phasor points at 90° (vertical up), while the voltage phasor points at 0° (horizontal right). Since phasors rotate counterclockwise, the current reaches its maximum first - this confirms current leads voltage by 90°.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> When current leads voltage, the current reaches its peak earlier (by $\phi/\omega$ seconds). This happens in circuits with capacitive elements. When voltage leads current (inductive circuits), the current lags. The phase relationship tells us about the nature of the circuit.</p>
+</details>
+
+<p>
+---
+</p>
+
+<h2>Common Patterns</h2>
+
+<strong>RMS Values:</strong>
+<p>
+- $I_{\text{rms}} = I_0/\sqrt{2}$
+- $V_{\text{rms}} = V_0/\sqrt{2}$
+- $P_{\text{avg}} = V_{\text{rms}} I_{\text{rms}} = I_{\text{rms}}^2 R$
+</p>
+
+<strong>Angular Frequency:</strong>
+<p>
+- $\omega = 2\pi f$
+- $T = 1/f$
+- $f = \omega/2\pi$
+</p>
+
+<strong>Instantaneous Values:</strong>
+<p>
+- $i(t) = I_0 \sin(\omega t + \phi)$
+- $v(t) = V_0 \sin(\omega t + \phi_V)$
+</p>
+
+<strong>Phase Relationships:</strong>
+<p>
+- If $\phi > 0$: quantity leads
+- If $\phi < 0$: quantity lags
+- Phase difference $\Delta\phi = \phi_V - \phi_I$
+</p>
+
+<strong>Wheatstone Bridge:</strong>
+<p>
+- Balanced: $R_1/R_2 = R_3/R_4$ → $V_{\text{out}} = 0$
+- Unbalanced: Use voltage divider or mesh analysis
+</p>
+
+<strong>Voltage Divider:</strong>
+<p>
+- $V_{\text{out}} = \frac{R_2}{R_1 + R_2} \times V_{\text{in}}$
+</p>
+
+<p>
+---
+</p>
+
+<p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>

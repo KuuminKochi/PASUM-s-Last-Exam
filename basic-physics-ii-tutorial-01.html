@@ -12,6 +12,8 @@
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- TikZ support -->
+    <script src="https://cdn.jsdelivr.net/npm/@tikzjax/tikzjax@0.2.1/dist/tikzjax.js"></script>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -29,6 +31,14 @@
         hr { margin: 2em 0; }
         .subject-nav { margin: 1em 0; }
         .subject-nav a { margin-right: 10px; }
+        .tikz-diagram {
+            margin: 1.5em auto;
+            text-align: center;
+            background: #f9f9f9;
+            padding: 1em;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body>
@@ -44,247 +54,647 @@
 
 <hr>
 
-<h1>Tutorial 1: Electrostatics</h1>
+<h1>Tutorial 1: Electrostatics - Coulomb's Law & Electric Field</h1>
 
-<h2>Overview</h2>
+<h2>Question 1 [6 marks]</h2>
 <p>
-This tutorial covers Coulomb's Law, electrostatic forces between point charges, and electric field calculations.
-</p>
-
-<strong>Topics:</strong> Coulomb's Law, Electric Field, Electrostatic Force  
-<strong>Difficulty:</strong> Medium  
-<strong>Estimated Time:</strong> 90 minutes
-
-<strong>Given:</strong> Coulomb constant, $k = 9.0 \times 10^9$ Nm²C⁻²
-
-<p>
----
-</p>
-
-<h2>Question 1 [20 marks]</h2>
-
-<p>
-Three charges are placed along a straight line (Figure 1):
-- $q_1 = +35\mu$C 
-- $q_2 = -10\mu$C
-- $q_3 = +60\mu$C
+Figure 1 shows three charges $q_1$, $q_2$, and $q_3$ placed along a straight line. Determine the magnitude and direction of the net electrostatic force acting on:
+- (a) $q_1$
+- (b) $q_2$
 </p>
 
 <p>
-Distance $q_1$ to $q_2$: 20 cm  
-Distance $q_2$ to $q_3$: 40 cm
+Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
 </p>
 
-<h3>Part (a) [10 marks]</h3>
+<div class="tikz-diagram">
 <p>
-Determine the magnitude and direction of the net electrostatic force on $q_1$.
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % Charges
+    \filldraw[red] (0,0) circle (3pt) node[above] {$q_1 = +35\,\mu\text{C}$};
+    \filldraw[blue] (2,0) circle (3pt) node[above] {$q_2 = +10\,\mu\text{C}$};
+    \filldraw[red] (6,0) circle (3pt) node[above] {$q_3 = +60\,\mu\text{C}$};
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p><strong>Forces on q₁:</strong></p>
-<p>$q_1$ positive, $q_2$ negative → $F_{12}$ is attractive → to the right</p>
-<p>$q_1$ positive, $q_3$ positive → $F_{13}$ is repulsive → to the left</p>
+<p>
+    % Distance labels
+    \draw[<->] (0,-0.5) -- (2,-0.5) node[midway,below] {$20\,$cm};
+    \draw[<->] (2,-0.5) -- (6,-0.5) node[midway,below] {$40\,$cm};
+</p>
 
-<p>$$F_{12} = \frac{k|q_1||q_2|}{r_{12}^2} = \frac{(9 \times 10^9)(35 \times 10^{-6})(10 \times 10^{-6})}{(0.20)^2}$$</p>
-<p>$= \frac{3150 \times 10^{-3}}{0.04} = 7.88 \times 10^3$ N (to the right)</p>
+<p>
+    % Force arrows on q1
+    \draw[->, thick, green!60!black] (0,0) -- (-1.5,0) node[above] {$F_{12}$} node[midway,above] {$\leftarrow$};
+    \draw[->, thick, red!60!black] (0,0) -- (-2,0) node[above] {$F_{13}$} node[midway,above] {$\leftarrow$};
+</p>
 
-<p>$$F_{13} = \frac{k|q_1||q_3|}{r_{13}^2} = \frac{(9 \times 10^9)(35 \times 10^{-6})(60 \times 10^{-6})}{(0.60)^2}$$</p>
-<p>$= \frac{18900 \times 10^{-3}}{0.36} = 52.5$ N (to the left)</p>
+<p>
+    % Force arrows on q2
+    \draw[->, thick, green!60!black] (2,0) -- (3.5,0) node[above] {$F_{21}$} node[midway,above] {$\rightarrow$};
+    \draw[->, thick, blue!60!black] (2,0) -- (4.5,0) node[above] {$F_{23}$} node[midway,above] {$\rightarrow$};
+</p>
 
-<p>$F_{net} = 7880 - 52.5 = 7827.5$ N</p>
-<p><strong>Answer:</strong> Magnitude = $\boxed{7.83 \times 10^3}$ N, Direction = $\boxed{to\ the\ right}$ (toward $q_2$)</p>
+<p>
+    % Axis
+    \draw[->] (-0.5,0) -- (7,0) node[right] {+x};
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Use Coulomb's Law: $F = k\frac{|q_1 q_2|}{r^2}$. Remember forces are vectors - you need to consider direction. Like charges repel, opposite charges attract. For $q_1$, it feels repulsion from $q_2$ (push left) and from $q_3$ (push left).
+</p>
 </details>
-
-<h3>Part (b) [10 marks]</h3>
-<p>
-Determine the magnitude and direction of the net electrostatic force on $q_2$.
-</p>
-
 <details><summary><strong>Show solution</strong></summary>
-<p><strong>Forces on q₂:</strong></p>
-<p>$F_{21}$ from $q_1$: Attractive → to the left = 7880 N</p>
-<p>$F_{23}$ from $q_3$: Attractive → to the right</p>
-<p>$$F_{23} = \frac{(9 \times 10^9)(10 \times 10^{-6})(60 \times 10^{-6})}{(0.40)^2} = 3.38 \times 10^4$$ N</p>
-
-<p>$F_{net} = 33750 - 7880 = 2.59 \times 10^4$ N (to the right)</p>
-<p><strong>Answer:</strong> Magnitude = $\boxed{2.59 \times 10^4}$ N, Direction = $\boxed{to\ the\ right}$ (toward $q_3$)</p>
-<p><strong>⚠️ Nuance:</strong> $q_2$ experiences larger force due to inverse square law ($F \propto 1/r^2$)</p>
-</details>
-
+<strong>Given:</strong>
 <p>
----
+- $q_1 = +35\,\mu\text{C} = 35 \times 10^{-6}\,\text{C}$
+- $q_2 = +10\,\mu\text{C} = 10 \times 10^{-6}\,\text{C}$
+- $q_3 = +60\,\mu\text{C} = 60 \times 10^{-6}\,\text{C}$
+- $r_{12} = 20\,$cm $= 0.20\,$m, $r_{23} = 40\,$cm $= 0.40\,$m
+- $r_{13} = 60\,$cm $= 0.60\,$m
 </p>
 
-<h2>Question 2 [20 marks]</h2>
+<strong>(a) Force on $q_1$:</strong>
 
 <p>
-Three point charges in x-y plane (Figure 2):
-- $q_1 = -35\mu$C at origin
-- $q_2 = +10\mu$C at (0.5 m, 0)
-- $q_3 = +60\mu$C at 0.7 m, 30° above x-axis
+Forces on $q_1$:
+- From $q_2$ (repulsive, to the left): $F_{12} = k\frac{q_1 q_2}{r_{12}^2} = \frac{(9\times10^9)(35\times10^{-6})(10\times10^{-6})}{(0.2)^2} = 78.75\,$N (left)
+- From $q_3$ (repulsive, to the left): $F_{13} = k\frac{q_1 q_3}{r_{13}^2} = \frac{(9\times10^9)(35\times10^{-6})(60\times10^{-6})}{(0.6)^2} = 52.5\,$N (left)
 </p>
+
+$$F_{\text{net on }q_1} = 78.75 + 52.5 = 131.25\,$N (toward negative x direction / left)
+
+<strong>(b) Force on $q_2$:</strong>
 
 <p>
-Determine magnitude and direction of net electrostatic force on $q_2$.
+Forces on $q_2$:
+- From $q_1$ (repulsive, to the right): $F_{21} = k\frac{q_1 q_2}{r_{12}^2} = 78.75\,$N (right)
+- From $q_3$ (repulsive, to the right): $F_{23} = k\frac{q_2 q_3}{r_{23}^2} = \frac{(9\times10^9)(10\times10^{-6})(60\times10^{-6})}{(0.4)^2} = 33.75\,$N (right)
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p><strong>Position of $q_3$:</strong> $x_3 = 0.7\cos(30°) = 0.606$ m, $y_3 = 0.7\sin(30°) = 0.35$ m</p>
+$$F_{\text{net on }q_2} = 78.75 + 33.75 = 112.5\,$N (toward positive x direction / right)
 
-<p><strong>Distance $q_2$ to $q_3$:</strong></p>
-<p>$\Delta x = 0.606 - 0.5 = 0.106$ m, $\Delta y = 0.35$ m</p>
-<p>$r_{23} = \sqrt{(0.106)^2 + (0.35)^2} = 0.366$ m</p>
-
-<p><strong>Forces:</strong></p>
-<p>$F_{21} = \frac{(9 \times 10^9)(35 \times 10^{-6})(10 \times 10^{-6})}{(0.5)^2} = 12.6$ N (to the left, attractive)</p>
-<p>$\vec{F}_{21} = (-12.6, 0)$</p>
-
-<p>$F_{23} = \frac{(9 \times 10^9)(10 \times 10^{-6})(60 \times 10^{-6})}{(0.366)^2} = 40.3$ N (repulsive, away from $q_3$)</p>
-<p>Angle: $\theta = 180° + \arctan(0.35/0.106) = 253°$</p>
-<p>$F_{23x} = 40.3\cos(253°) = -11.8$ N, $F_{23y} = 40.3\sin(253°) = -38.5$ N</p>
-
-<p><strong>Net:</strong> $F_x = -12.6 - 11.8 = -24.4$ N, $F_y = -38.5$ N</p>
-<p>$F_{net} = \sqrt{(24.4)^2 + (38.5)^2} = 45.6$ N</p>
-<p>$\theta = \arctan(38.5/24.4) = 57.6°$ below negative x-axis</p>
-
-<p><strong>Answer:</strong> $\boxed{45.6}$ N at $\boxed{57.6°}$ below negative x-axis (238° from +x)</p>
+<p><strong>⚠️ Nuance:</strong> Coulomb's law gives the MAGNITUDE of the force. The direction depends on whether charges attract (opposite) or repel (like). Like charges push apart, opposite charges pull together. The force on $q_1$ from $q_2$ pushes $q_1$ away from $q_2$, i.e., toward negative x.</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 3 [15 marks]</h2>
-
+<h2>Question 2 [8 marks]</h2>
 <p>
-Three charges (Figure 3):
-- $q_1 = +6.5$ nC at A
-- $q_2 = -3.0$ nC at B (15 cm from A)
-- $q_3 = +5.0$ nC at C (5 cm from B)
+Figure 2 shows three point charges, $q_1$, $q_2$, and $q_3$ located in the x-y plane. Determine the magnitude and direction of the net electrostatic force acting on $q_2$.
 </p>
 
 <p>
-Point X is 30 cm from C (along the line). Find electric field at X.
+Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
 </p>
 
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.3, >=stealth]
+    % Axes
+    \draw[->] (-0.5,0) -- (3,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
+</p>
+
+<p>
+    % q1 at origin
+    \filldraw[red] (0,0) circle (3pt) node[below left] {$q_1 = +35\,\mu\text{C}$};
+</p>
+
+<p>
+    % q2 at (0.5, 0)
+    \filldraw[blue] (2,0) circle (3pt) node[below] {$q_2 = +10\,\mu\text{C}$};
+</p>
+
+<p>
+    % q3 above q2 at angle
+    \filldraw[red] (2,1.4) circle (3pt) node[right] {$q_3 = +60\,\mu\text{C}\,(300^\circ)$};
+</p>
+
+<p>
+    % Distance labels
+    \draw[<->] (0,-0.3) -- (2,-0.3) node[midway,below] {$0.5\,$m};
+    \draw[<->] (2,0.1) -- (2,1.3) node[midway,right] {$0.7\,$m};
+</p>
+
+<p>
+    % Triangle outline
+    \draw[dashed] (0,0) -- (2,1.4);
+</p>
+
+<p>
+    % Force on q2 from q1 (repulsive, to the left)
+    \draw[->, thick, red!60!black] (2,0) -- (0.5,0) node[midway,above] {$F_{21}$};
+</p>
+
+<p>
+    % Force on q2 from q3 (repulsive, direction away from q3)
+    \draw[->, thick, red!60!black] (2,0) -- (2,-1) node[midway,right] {$F_{23}$};
+</p>
+
+<p>
+    % 30 degree label
+    \draw[dashed] (2,0) -- (2.7,0.5);
+    \node at (2.5,0.3) {$30^\circ$};
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+This is a 2D problem. Break forces into x and y components. $F_{21}$ acts along the x-axis (left). $F_{23}$ acts along the line from $q_2$ to $q_3$ - since they're like charges, $q_2$ is repelled away from $q_3$. Use trigonometry to find components.
+</p>
+</details>
 <details><summary><strong>Show solution</strong></summary>
-<p><strong>Positions:</strong> A at 0, B at 0.15 m, C at 0.20 m, X at 0.50 m</p>
-<p>Distances from X: $r_1 = 0.50$ m, $r_2 = 0.35$ m, $r_3 = 0.30$ m</p>
+<strong>Given:</strong>
+<p>
+- $q_1 = +35\,\mu\text{C}$ at origin
+- $q_2 = +10\,\mu\text{C}$ at $(0.5, 0)$ m
+- $q_3 = +60\,\mu\text{C}$ at $(0.5\cos300^\circ, 0.5\sin300^\circ)$ relative to $q_2$... wait, let me recalculate
+</p>
 
-<p><strong>Fields:</strong></p>
-<p>$E_1 = \frac{k(6.5 \times 10^{-9})}{(0.50)^2} = 234$ N/C (→, away from $q_1$)</p>
-<p>$E_2 = \frac{k(3.0 \times 10^{-9})}{(0.35)^2} = 220$ N/C (←, toward $q_2$)</p>
-<p>$E_3 = \frac{k(5.0 \times 10^{-9})}{(0.30)^2} = 500$ N/C (→, away from $q_3$)</p>
+<p>
+From the diagram:
+- Distance $q_1$ to $q_2$: $r_{12} = 0.5\,$m
+- Distance $q_2$ to $q_3$: $r_{23} = 0.7\,$m
+- $q_3$ is at $30^\circ$ above the negative x-axis from $q_2$ (or $330^\circ$)
+</p>
 
-<p>$E_{net} = 234 - 220 + 500 = 514$ N/C (to the right)</p>
+<strong>Force on $q_2$ from $q_1$ (along negative x):</strong>
+$$F_{21} = k\frac{q_1 q_2}{r_{12}^2} = \frac{(9\times10^9)(35\times10^{-6})(10\times10^{-6})}{(0.5)^2} = 12.6\,$N$$
 
-<p><strong>Answer:</strong> $\boxed{514}$ N/C to the $\boxed{right}$</p>
+<p>
+Direction: negative x-axis (left)
+</p>
+
+<strong>Force on $q_2$ from $q_3$ (repulsive, along line away from $q_3$):</strong>
+$$F_{23} = k\frac{q_2 q_3}{r_{23}^2} = \frac{(9\times10^9)(10\times10^{-6})(60\times10^{-6})}{(0.7)^2} = 11.02\,$N$$
+
+<p>
+Direction: $30^\circ$ below negative x-axis (since $q_3$ is above $q_2$)
+</p>
+
+<strong>Components of $F_{23}$:</strong>
+$$F_{23x} = 11.02 \cos(30^\circ + 180^\circ) = 11.02 \cos(210^\circ) = -9.55\,$N
+$$F_{23y} = 11.02 \sin(30^\circ + 180^\circ) = 11.02 \sin(210^\circ) = -5.51\,$N
+
+<strong>Total force on $q_2$:</strong>
+$$F_x = F_{21x} + F_{23x} = -12.6 + (-9.55) = -22.15\,$N
+$$F_y = F_{21y} + F_{23y} = 0 + (-5.51) = -5.51\,$N
+
+$$F_{\text{net}} = \sqrt{22.15^2 + 5.51^2} = 22.83\,$N
+
+<strong>Direction:</strong>
+$$\tan\theta = \frac{|F_y|}{|F_x|} = \frac{5.51}{22.15} = 0.249$$
+$$\theta = 14.0^\circ$$
+
+<p>
+The force points $14.0^\circ$ below the negative x-axis (or $194.0^\circ$ from +x).
+</p>
+
+<p><strong>⚠️ Nuance:</strong> In 2D force problems, always draw a clear diagram showing all charges and their positions. The force on a charge is along the line connecting the two charges - repulsive for like charges (away from the other charge), attractive for unlike charges (toward the other charge). Use vector components!</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 4 [20 marks]</h2>
-
+<h2>Question 3 [8 marks]</h2>
 <p>
-Calculate electric field at point P (Figure 4):
-- $q_1 = +4$ nC at (0, 0.6 m)
-- $q_2 = +9.5$ nC at (1.8 m, 0.6 m)
-- $q_3 = -12$ nC at (0, 0)
-- P at (1.8 m, 0)
+Figure 3 shows three isolated point charges, $q_1$, $q_2$ and $q_3$, separated by distances AB and BC. Determine the magnitude and direction of the electric field strength at point X.
 </p>
 
+<p>
+Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
+</p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.2, >=stealth]
+    % Charges on x-axis
+    \filldraw[red] (0,0) circle (3pt) node[below] {$q_1 = +6.5\,$nC at A};
+    \filldraw[blue] (3,0) circle (3pt) node[below] {$q_2 = -3.0\,$nC at B};
+    \filldraw[red] (4,0) circle (3pt) node[below] {$q_3 = +5.0\,$nC at C};
+</p>
+
+<p>
+    % Point X above
+    \filldraw[black] (0,1.5) circle (2pt) node[above] {$X$};
+</p>
+
+<p>
+    % Vertical dashed lines
+    \draw[dashed] (0,0) -- (0,1.5);
+    \draw[dashed] (3,0) -- (0,1.5);
+    \draw[dashed] (4,0) -- (0,1.5);
+</p>
+
+<p>
+    % Distance labels on x-axis
+    \draw[<->] (0,-0.4) -- (3,-0.4) node[midway,below] {$15\,$cm};
+    \draw[<->] (3,-0.4) -- (4,-0.4) node[midway,below] {$5\,$cm};
+</p>
+
+<p>
+    % Distances from charges to X
+    \draw[<->] (0,0.1) -- (0,1.4) node[midway,left] {$15\,$cm};
+    \draw[<->] (3,0.1) -- (0.3,1.4) node[midway,right] {$r_{2X}$};
+    \draw[<->] (4,0.1) -- (0.1,1.4) node[midway,right] {$r_{3X}$};
+</p>
+
+<p>
+    % Electric field arrows (pointing away from positive, toward negative)
+    \draw[->, thick, red!60!black] (0,1.5) -- (0,0.3) node[midway,left] {$E_1$};
+    \draw[->, thick, blue!60!black] (0,1.5) -- (0.8,1.5) node[midway,above] {$E_2$};
+    \draw[->, thick, red!60!black] (0,1.5) -- (0.2,0.9) node[midway,right] {$E_3$};
+</p>
+
+<p>
+    % x-axis
+    \draw[->] (-0.5,0) -- (5,0) node[right] {$x$};
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Electric field $E = k\frac{Q}{r^2}$ points AWAY from positive charges and TOWARD negative charges. At point X, calculate each field contribution separately (magnitude and direction), then add as vectors. Watch units: convert cm to m, nC to C ($1\,$nC $= 10^{-9}\,$C).
+</p>
+</details>
 <details><summary><strong>Show solution</strong></summary>
-<p><strong>Distances:</strong></p>
-<p>$r_1 = \sqrt{1.8^2 + 0.6^2} = 1.90$ m, $r_2 = 0.6$ m, $r_3 = 1.8$ m</p>
+<strong>Given:</strong>
+<p>
+- $q_1 = +6.5\,$nC at A (positive, x = 0)
+- $q_2 = -3.0\,$nC at B (negative, x = 15 cm)
+- $q_3 = +5.0\,$nC at C (positive, x = 20 cm)
+- Point X is 15 cm above point A (vertically aligned with A)
+</p>
 
-<p><strong>Components:</strong></p>
-<p>$E_1 = 10$ N/C at $18.4°$ below horizontal</p>
-<p>$E_{1x} = 9.5$ N/C, $E_{1y} = -3.2$ N/C</p>
+<strong>Distances from X to each charge:</strong>
+<p>
+- $r_{1X} = 15\,$cm $= 0.15\,$m
+- $r_{2X} = \sqrt{(15)^2 + (15)^2} = 15\sqrt{2}\,$cm $= 0.212\,$m
+- $r_{3X} = \sqrt{(20)^2 + (15)^2} = 25\,$cm $= 0.25\,$m
+</p>
 
-<p>$E_2 = 238$ N/C downward ($E_{2y} = -238$ N/C)</p>
+<strong>Electric field from each charge:</strong>
 
-<p>$E_3 = 33.3$ N/C to the left ($E_{3x} = -33.3$ N/C)</p>
+<p>
+$E_1$ (from $q_1$, away from positive, downward):
+</p>
+$$E_1 = \frac{k q_1}{r_{1X}^2} = \frac{(9\times10^9)(6.5\times10^{-9})}{(0.15)^2} = 2600\,$N/C (down)
 
-<p><strong>Net:</strong> $E_x = 9.5 - 33.3 = -23.8$ N/C, $E_y = -3.2 - 238 = -241$ N/C</p>
-<p>$E_{net} = \sqrt{23.8^2 + 241^2} = 242$ N/C</p>
-<p>$\theta = \arctan(241/23.8) = 84.4°$ below negative x-axis</p>
+<p>
+$E_2$ (toward $q_2$, since negative, to the right):
+</p>
+$$E_2 = \frac{k |q_2|}{r_{2X}^2} = \frac{(9\times10^9)(3.0\times10^{-9})}{(0.212)^2} = 600\,$N/C (right, $45^\circ$ below horizontal)
 
-<p><strong>Answer:</strong> $\boxed{242}$ N/C at $\boxed{84.4°}$ below negative x-axis</p>
+<p>
+$E_3$ (away from $q_3$, positive, to the right and down):
+</p>
+$$E_3 = \frac{k q_3}{r_{3X}^2} = \frac{(9\times10^9)(5.0\times10^{-9})}{(0.25)^2} = 720\,$N/C
+
+<p>
+Angle of $E_3$: $\tan\theta = \frac{15}{20} = 0.75$, so $\theta = 36.9^\circ$ below horizontal
+</p>
+
+<p>
+Components:
+</p>
+$$E_{3x} = 720\cos(36.9^\circ) = 576\,$N/C
+$$E_{3y} = -720\sin(36.9^\circ) = -432\,$N/C
+
+<strong>Total field at X:</strong>
+$$E_x = E_{2x} + E_{3x} = 600 + 576 = 1176\,$N/C
+$$E_y = E_{1y} + E_{2y} + E_{3y} = -2600 + 0 + (-432) = -3032\,$N/C
+
+$$E = \sqrt{1176^2 + 3032^2} = 3239\,$N/C
+
+<strong>Direction:</strong>
+$$\tan\theta = \frac{|E_y|}{E_x} = \frac{3032}{1176} = 2.58$$
+$$\theta = 68.8^\circ$$
+
+<p>
+The field points $68.8^\circ$ below the positive x-axis (mostly downward).
+</p>
+
+<p><strong>⚠️ Nuance:</strong> Electric field is a vector field. The direction is the direction of the FORCE that would act on a positive test charge. Positive source charges push positive test charges away (field points away from source). Negative source charges pull positive test charges toward them (field points toward source).</p>
 </details>
 
 <p>
 ---
 </p>
 
-<h2>Question 5 [25 marks]</h2>
-
+<h2>Question 4 [8 marks]</h2>
 <p>
-Electron: $v_0 = 1.9 \times 10^7$ m/s enters plates with $E = 4.5 \times 10^3$ N/C.
-Plate length: 66 mm, gap: 22 mm.
-Given: $q_e = -1.609 \times 10^{-19}$ C, $m_e = 9.11 \times 10^{-31}$ kg
+Based on Figure 4, calculate the magnitude and direction of electric field strength at point P.
 </p>
 
-<h3>Part (a) [5 marks]</h3>
 <p>
-Sketch the path.
+Given: $k = 9.0 \times 10^9 \, \text{Nm}^2\text{C}^{-2}$
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p>Parabolic path curving toward positive plate (upward if top plate positive).</p>
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.1, >=stealth]
+    % Coordinate axes
+    \draw[->] (-0.5,0) -- (5,0) node[right] {$x$};
+    \draw[->] (0,-0.5) -- (0,3) node[above] {$y$};
+</p>
+
+<p>
+    % q1 at (0.6, 0.6)
+    \filldraw[red] (1.2,1.2) circle (3pt) node[above left] {$q_1 = +4\,$nC};
+</p>
+
+<p>
+    % q2 at (1.8, 1.8)
+    \filldraw[red] (3.6,3.6) circle (3pt) node[above] {$q_2 = +9.5\,$nC};
+</p>
+
+<p>
+    % q3 at lower left
+    \filldraw[blue] (1.2,0) circle (3pt) node[below] {$q_3 = -12\,$nC};
+</p>
+
+<p>
+    % Point P
+    \filldraw[black] (4,0) circle (2pt) node[below right] {$P$};
+</p>
+
+<p>
+    % Distance annotations
+    \draw[<->] (1.2,0.3) -- (4,0.3) node[midway,above] {$2.8\,$m};
+    \draw[<->] (3.6,3.0) -- (4,3.0) node[midway,above] {$0.4\,$m};
+    \draw[<->] (1.2,-0.3) -- (4,-0.3) node[midway,below] {$2.8\,$m};
+</p>
+
+<p>
+    % Field direction indicators (qualitative)
+    % E from q1 pushes away from q1 toward P direction
+    % E from q2 pushes away from q2 toward P
+    % E from q3 pulls toward q3 (left and up)
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+Calculate each electric field contribution at point P: $E = kQ/r^2$. Watch the geometry - $q_1$ is at a diagonal to P, $q_2$ is almost directly above P, and $q_3$ is to the left. Add the vector components carefully.
+</p>
 </details>
-
-<h3>Part (b) [5 marks]</h3>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given (from diagram):</strong>
 <p>
-Calculate acceleration.
+- $q_1 = +4\,$nC at position such that distance to P $= 2.8\,$m
+- $q_2 = +9.5\,$nC at distance $0.4\,$m from P
+- $q_3 = -12\,$nC at distance $2.8\,$m from P
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p>$a = \frac{|q|E}{m} = \frac{(1.609 \times 10^{-19})(4.5 \times 10^3)}{9.11 \times 10^{-31}}$</p>
-<p>$= \boxed{7.95 \times 10^{14}}$ m/s² toward positive plate</p>
-</details>
+<strong>Electric field contributions at P:</strong>
 
-<h3>Part (c) [8 marks]</h3>
 <p>
-Horizontal and vertical velocity components on exit.
+$E_1$ (from $q_1$, away from positive):
+</p>
+$$E_1 = \frac{k q_1}{r_1^2} = \frac{(9\times10^9)(4\times10^{-9})}{(2.8)^2} = 4.59\,$N/C
+
+<p>
+Direction: From $q_1$ toward P, approximately horizontal (to the right)
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p>Time: $t = \frac{0.066}{1.9 \times 10^7} = 3.47 \times 10^{-9}$ s</p>
-<p>$v_x = v_0 = \boxed{1.9 \times 10^7}$ m/s (constant)</p>
-<p>$v_y = at = (7.95 \times 10^{14})(3.47 \times 10^{-9}) = \boxed{2.76 \times 10^6}$ m/s</p>
-</details>
-
-<h3>Part (d) [7 marks]</h3>
 <p>
-Angle of deflection.
+$E_2$ (from $q_2$, away from positive):
+</p>
+$$E_2 = \frac{k q_2}{r_2^2} = \frac{(9\times10^9)(9.5\times10^{-9})}{(0.4)^2} = 534.4\,$N/C
+
+<p>
+Direction: From $q_2$ toward P, downward (vertically)
 </p>
 
-<details><summary><strong>Show solution</strong></summary>
-<p>$\theta = \arctan(v_y/v_x) = \arctan(2.76/19) = \boxed{8.26°}$</p>
-<p><strong>⚠️ Nuance:</strong> Electron deflects toward positive plate. Small angle due to high horizontal speed.</p>
+<p>
+$E_3$ (toward $q_3$, since negative):
+</p>
+$$E_3 = \frac{k |q_3|}{r_3^2} = \frac{(9\times10^9)(12\times10^{-9})}{(2.8)^2} = 13.8\,$N/C
+
+<p>
+Direction: Toward $q_3$, which is to the left of P (so field points left)
+</p>
+
+<strong>Components (taking positive x to right, positive y up):</strong>
+$$E_{1x} = 4.59\,$N/C (right), $E_{1y} = 0$$
+$$E_{2x} = 0, E_{2y} = -534.4\,$N/C (down)$$
+$$E_{3x} = -13.8\,$N/C (left), E_{3y} = 0$$
+
+<strong>Total:</strong>
+$$E_x = 4.59 + 0 - 13.8 = -9.21\,$N/C
+$$E_y = 0 - 534.4 + 0 = -534.4\,$N/C
+
+$$E = \sqrt{9.21^2 + 534.4^2} = 534.5\,$N/C
+
+<strong>Direction:</strong>
+$$\tan\theta = \frac{534.4}{9.21} = 58.0$$
+$$\theta = 89.0^\circ$$
+
+<p>
+The field points almost straight down (negative y direction).
+</p>
+
+<p><strong>⚠️ Nuance:</strong> The $q_2$ charge dominates because it's much closer to point P (0.4 m vs 2.8 m). Since $E \propto 1/r^2$, the nearest charge has the biggest effect. Even though $q_3$ has the largest magnitude (-12 nC), being 7 times farther away makes its contribution much smaller.</p>
 </details>
 
 <p>
 ---
 </p>
 
-<hr>
+<h2>Question 5 [10 marks]</h2>
+<p>
+An electron traveling at speed of $1.9 \times 10^7 \, \text{ms}^{-1}$ enters the region between two parallel metal plates. The uniform electric field strength between the plates is $4.5 \times 10^3 \, \text{NC}^{-1}$.
+</p>
+
+<p>
+(Given: $q_e = 1.609 \times 10^{-19}\,$C, $m_e = 9.11 \times 10^{-31}\,$kg)
+</p>
+
+<p>
+- (a) Sketch the path of electron as it travels between the parallel plates
+- (b) Calculate the acceleration of electron between the plates due to uniform electric field
+- (c) Determine the horizontal and vertical components of electron's velocity as it emerges from the region between the plates
+- (d) Calculate the angle of deflection of the electron beam as it exits the plates
+</p>
+
+<div class="tikz-diagram">
+<p>
+\begin{tikzpicture}[scale=1.3, >=stealth]
+    % Parallel plates
+    \draw[thick] (0,0) -- (6,0) node[right] {$+$} node[midway,above] {$22\,$mm};
+    \draw[thick] (0,-1.5) -- (6,-1.5) node[right] {$-$} node[midway,below] {$66\,$mm};
+</p>
+
+<p>
+    % Electric field arrows (downward, from + to -)
+    \foreach \x in {1,2,3,4,5} {
+        \draw[->, blue!60!black] (\x, -0.2) -- (\x, -1.3);
+    }
+    \node[blue] at (6.5, -0.75) {$E = 4.5 \times 10^3\,$N/C};
+</p>
+
+<p>
+    % Electron path (parabolic, curved downward since negative charge feels force opposite to E)
+    \draw[->, red, very thick] (0, -0.5) -- (1.5, -0.5) node[midway,above] {$v_x$};
+    \draw[red, very thick, domain=0:6] plot (\x, {-0.5 - 0.08<em>\x</em>\x}) node[right] {electron path};
+</p>
+
+<p>
+    % Initial velocity label
+    \draw[->, green!60!black] (0.5, -0.8) -- (1.5, -0.8) node[midway,below] {$v_0 = 1.9 \times 10^7\,$m/s};
+</p>
+
+<p>
+    % Deflection angle
+    \draw[dashed] (6, -0.5) -- (7, -0.5);
+    \draw[dashed] (6, -0.5) -- (7, -1.1);
+    \draw[red] (6.3, -0.5) -- (6.5, -0.65) -- (6.7, -0.5);
+    \node at (7.2, -0.8) {$\theta$};
+</p>
+
+<p>
+    % Dimensions
+    \draw[<->] (6.2,0) -- (6.2,-1.5) node[midway,right] {$d = 6.6\,$cm};
+    \draw[<->] (0,0.3) -- (6,0.3) node[midway,above] {$L = 6.6\,$cm};
+</p>
+
+<p>
+    % Labels
+    \node[above] at (0,0.3) {entry};
+    \node[above] at (6,0.3) {exit};
+\end{tikzpicture}
+</p>
+</div>
+
+<details><summary><strong>Need a hint?</strong></summary>
+<p>
+For (b): Use $F = ma = qE$. Since electron has negative charge, acceleration is opposite to the field direction. For (c): Horizontal velocity stays constant (no horizontal force). Vertical velocity increases: $v_y = at$. For (d): $\tan\theta = v_y/v_x$.
+</p>
+</details>
+<details><summary><strong>Show solution</strong></summary>
+<strong>Given:</strong>
+<p>
+- Electron initial speed: $v_0 = 1.9 \times 10^7\,$m/s (enters horizontally)
+- Electric field: $E = 4.5 \times 10^3\,$N/C (from + to - plate)
+- Electron charge: $q_e = -1.609 \times 10^{-19}\,$C
+- Electron mass: $m_e = 9.11 \times 10^{-31}\,$kg
+- Plate length: $L = 6.6\,$cm $= 0.066\,$m
+- Plate separation: $d = 6.6\,$cm (but for uniform field, assume electron stays well within)
+</p>
+
+<strong>(a) Path sketch:</strong>
+<p>
+The electron curves <strong>downward</strong> (toward the positive plate) because:
+- Force on negative charge: $F = qE = (-e)(E)$, direction OPPOSITE to E-field
+- E-field points from + to - plate
+- So force on electron points from - to + plate (upward in diagram, which is actually downward relative to initial direction)
+</p>
+
+<p>
+Actually wait - looking at the diagram: + plate is at top, - plate at bottom. E points DOWN. Electron (negative) feels force UP. So the electron curves <strong>toward the positive (top) plate</strong>.
+</p>
+
+<strong>(b) Acceleration:</strong>
+$$F = qE = (-1.609 \times 10^{-19})(4.5 \times 10^3) = -7.24 \times 10^{-16}\,$N$$
+
+<p>
+Direction: upward (opposite to E-field, toward + plate)
+</p>
+
+$$a = \frac{F}{m} = \frac{-7.24 \times 10^{-16}}{9.11 \times 10^{-31}} = -7.95 \times 10^{14}\,$m/s²
+
+<p>
+The negative sign indicates acceleration upward (toward + plate).
+</p>
+
+<strong>(c) Velocity components at exit:</strong>
+
+<strong>Horizontal component (constant, no horizontal force):</strong>
+$$v_x = v_0 = 1.9 \times 10^7\,$m/s$$
+
+<strong>Vertical component:</strong>
+<p>
+Time in field region: $t = \frac{L}{v_x} = \frac{0.066}{1.9 \times 10^7} = 3.47 \times 10^{-9}\,$s
+</p>
+
+$$v_y = a \cdot t = (7.95 \times 10^{14})(3.47 \times 10^{-9}) = 2.76 \times 10^6\,$m/s$$
+
+<strong>(d) Deflection angle:</strong>
+$$\tan\theta = \frac{v_y}{v_x} = \frac{2.76 \times 10^6}{1.9 \times 10^7} = 0.145$$
+$$\theta = 8.3^\circ$$
+
+<p>
+The electron beam deflects by $8.3^\circ$ toward the positive plate.
+</p>
+
+<p><strong>⚠️ Nuance:</strong> This is essentially projectile motion under constant electric force (like a horizontal projectile in gravity). Key points:
+<p>
+1. The electron's path is PARABOLIC (like a projectile under gravity)
+2. Negative charge accelerates opposite to E-field direction
+3. Horizontal velocity is unchanged (no horizontal force)
+4. The deflection angle is small because the electron is very light (small mass), so it accelerates rapidly but doesn't have much time in the field</p>
+</p>
+</details>
+
+<p>
+---
+</p>
 
 <h2>Common Patterns</h2>
 
-<p><strong>Pattern 1:</strong> Like charges repel, opposite charges attract. Use vector addition.</p>
-<p><strong>Pattern 2:</strong> Electric field: positive → points away; negative → points toward.</p>
-<p><strong>Pattern 3:</strong> Electron in E-field: $a = qE/m$, parabolic trajectory (like projectile).</p>
+<strong>Coulomb's Law:</strong>
+<p>
+- $F = k\frac{|q_1 q_2|}{r^2}$
+- $k = 9.0 \times 10^9 \, \text{Nm}^2/\text{C}^2$
+- Like charges: repel (push apart)
+- Unlike charges: attract (pull together)
+</p>
 
-<hr>
+<strong>Electric Field:</strong>
+<p>
+- $E = \frac{F}{q_{\text{test}}} = \frac{kQ}{r^2}$
+- Direction: away from positive, toward negative
+- Superposition: vector sum of all contributions
+</p>
+
+<strong>Electron in Electric Field:</strong>
+<p>
+- $F = qE = ma$ (Newton's 2nd law)
+- For negative charge: acceleration is opposite to E-field
+- Projectile motion: parabolic path
+- $v_x$ constant, $v_y = at$
+</p>
+
+<strong>Problem-Solving Strategy:</strong>
+<p>
+1. Draw clear diagram showing positions of all charges
+2. For each charge pair, determine force direction (attract/repel)
+3. Break forces/fields into x and y components
+4. Add vectorially (watch signs!)
+5. Calculate magnitude and direction of result
+</p>
+
+<strong>Unit Conversions:</strong>
+<p>
+- $1\,\mu\text{C} = 10^{-6}\,$C
+- $1\,$nC $= 10^{-9}\,$C
+- $1\,$cm $= 0.01\,$m
+</p>
+
+<p>
+---
+</p>
 
 <p><em>Tutorials and solutions provided by: Faith Law Lyk Tong | Centre for Foundation Studies in Science, University of Malaya</em></p>
-
-<p style="margin-top: 2em; padding: 1em; background: #f0f8ff; border-left: 4px solid #4169e1; font-style: italic;">
-<strong>Thank you so much Faith for helping me make this possible!</strong>
-</p>
 
 <footer style="margin-top: 3em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.8em; color: #999; text-align: center;">
 <p>Revision Data | Centre for Foundation Studies in Science | University of Malaya | Session 2025/2026 | Content by F.L.L.T.</p>
